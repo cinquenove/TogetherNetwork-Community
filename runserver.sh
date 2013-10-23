@@ -7,4 +7,4 @@ pip install -U -r requirements.txt
 screen -S togethernetwork -X quit &> /dev/null
 echo "Sleeping 1 second..."
 sleep 1
-screen -S togethernetwork python manage.py syncdb; python manage.py runserver
+screen -S togethernetwork ./runserver.sh
