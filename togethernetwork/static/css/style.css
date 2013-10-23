@@ -1,0 +1,11 @@
+body {
+    background-image: url('/static/imgs/BG-landing-page.png');
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-size: cover;
+    background-color: black;
+}
+
+#home-page-logo {
+    margin-top:100px;
+}
