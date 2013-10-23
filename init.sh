@@ -11,5 +11,5 @@ echo "done"
 
 echo -n "Installing dependencies inside the virtual environment: "
 source venv/bin/activate
-pip install -U -r requirements.txt
+pip install -U -r togethernetwork/requirements.txt
 echo "done"
