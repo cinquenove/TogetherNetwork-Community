@@ -1,7 +1,12 @@
 # Django settings for togethernetwork project.
 
+import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+BASE_DIR = os.getcwd()
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -69,6 +74,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -111,6 +117,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, "templates"),
 )
 
 INSTALLED_APPS = (
