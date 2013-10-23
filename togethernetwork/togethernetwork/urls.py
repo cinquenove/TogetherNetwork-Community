@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', include('Activities.urls')),
+    url(r'^$', include('Homepage.urls')),
     # url(r'^$', 'togethernetwork.views.home', name='home'),
     # url(r'^togethernetwork/', include('togethernetwork.foo.urls')),
 
