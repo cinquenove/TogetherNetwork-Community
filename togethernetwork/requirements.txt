@@ -7,3 +7,4 @@ django-storages
 requests
 mimeparse
 python-dateutil
+virtualenv
