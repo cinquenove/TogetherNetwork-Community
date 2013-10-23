@@ -1,8 +1,8 @@
 #!/bin/bash
 
 source venv/bin/activate
-pip install -U -r requirements.txt
 cd togethernetwork
+pip install -U -r requirements.txt
 
 screen -S togethernetwork -X quit &> /dev/null
 echo "Sleeping 1 second..."
