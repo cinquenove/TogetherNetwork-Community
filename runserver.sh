@@ -5,9 +5,9 @@ screen -S togethernetwork -X quit &> /dev/null
 echo "done"
 
 echo -n "Upgrading dependencies inside the virtual environment: "
-source venv/bin/activate
+source venv/bin/activate 
 cd togethernetwork
-pip install -q -U -r requirements.txt
+pip install -q -U -r requirements.txt &> /dev/null
 echo "done"
 
 echo "Sleeping 1 second before creating a new screen..."
