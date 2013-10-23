@@ -1,10 +1,2 @@
-django-toolbelt
-pillow
-gunicorn
-honcho
 django
-django-storages
-requests
-mimeparse
-python-dateutil
 virtualenv
