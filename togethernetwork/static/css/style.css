@@ -17,3 +17,12 @@ body {
 #payoffred {
 	color:#cc3333;
 }
+
+#buttoncomehome {
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color:#cc3333;
+	color:#FFF;
+}
