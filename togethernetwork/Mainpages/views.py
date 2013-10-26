@@ -10,4 +10,5 @@ def homepage_view(request):
 
     return render_to_response("homepage.html", context_instance=RequestContext(request))
 
+
 # Pillows actions# Create your views here.
