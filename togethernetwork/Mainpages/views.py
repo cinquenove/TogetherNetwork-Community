@@ -7,8 +7,10 @@ def homepage_view(request):
     """
         Static Homepage view.
     """
-
     return render_to_response("homepage.html", context_instance=RequestContext(request))
 
-
-# Pillows actions# Create your views here.
+def about_view(request):
+    """
+        Static About view.
+    """
+    return render_to_response("about.html", context_instance=RequestContext(request))
