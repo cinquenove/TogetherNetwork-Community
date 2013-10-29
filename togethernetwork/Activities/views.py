@@ -46,7 +46,7 @@ def new_activity_view(request, activity_pk=None):
             
             activity_obj.owner = request.user
             activity_obj.save()
-            return redirect(teas_list)
+            return redirect(activity_obj)
     else:
         formset = ActivityForm(instance=None)
         
