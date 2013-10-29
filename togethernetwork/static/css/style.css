@@ -1,6 +1,7 @@
 body {
     overflow-x: hidden;
     overflow-y: scroll;
+    padding-bottom: 50px;
 }
 /* Homepage */
 
