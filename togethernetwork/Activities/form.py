@@ -15,5 +15,6 @@ class ProfileForm(ModelForm):
             "photo",
 
             "attendee_limit",
-            #"attendee"
+            #"attendee",
+            "price",
         ]

@@ -52,6 +52,7 @@ class Activity(models.Model):
 
     attendee_limit = models.IntegerField(default=0) 
     attendee = models.ManyToManyField(User)
+    price = models.FloatField(default=0.0) 
 
     def create_thumbnails(self):
         # original code for this method came from
