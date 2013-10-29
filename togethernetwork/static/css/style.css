@@ -42,17 +42,16 @@
     position: relative;
     float: left;
     margin:0 2px 2px 0;
-    vertical-align: middle;
 }
 
 .activity-box-content {
-    width: 348px; /* handled by javascript */
-    height: 348px; /* handled by javascript */
-    padding-top: 144px; /* handled by javascript */
-    
-    max-width: 80%;
+    bottom: 0;
+    left: 0;
+    top: 35%;
+    right: 0;
     margin: auto;
-	
+    position: absolute;
+
     text-align: center;
 	color:#FFF;
 	font-size: 30px;

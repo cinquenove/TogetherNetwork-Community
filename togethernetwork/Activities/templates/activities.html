@@ -3,9 +3,9 @@
 {% block container %}
 <div id="mainContainer">
     {% for activity in activities %}
-    <div id="activity-{{ activity.pk }}" class="activity-box" {% if activity.photo %} style="background-image: url('{{ activity.photo.url }}');" {% endif %}>
+    <div class="activity-box" id="activity-box-{{ activity.pk }}">
    		<div class="activity-category-corner-red"></div>
-   		<div class="activity-box-content">
+   		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
    		</div>
    		<a href="#{{ activity.get_absolute_url }}">
@@ -17,23 +17,19 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript">
-        var single_height = ( $(window).height() - $("#mainNavBar").height() ) / 2;
-    </script>
-
     {% for activity in activities %}
     <script type="text/javascript">
         $(function(){
+            var currenct_activity_box = $("#activity-box-{{ activity.pk }}");
+            {% if activity.photo %} // Using the right background:
+            currenct_activity_box.css("background-image","url('{{ activity.photo.url }}')");
+            {% endif %}
             // Enabling join button fade effect
-            $("#activity-{{ activity.pk }}").hover(function(){
+            currenct_activity_box.hover(function(){
                 $("#activity-button-{{ activity.pk }}").fadeIn();
             },function(){
                 $("#activity-button-{{ activity.pk }}").fadeOut();
             });
-
-            // Setting the Padding top for each activity title
-            var text_padding_top = ( single_height / 2 ) - ( $("#activity-box-content").height() / 2 );
-            $(".activity-box-content").css("padding-top", text_padding_top);
         });
     </script>
     {% endfor %}
@@ -43,14 +39,17 @@
         // have 2 activity per column and a horizontal scrolling
         function resizeThumbnails(){
             var single_height = ( $(window).height() - $("#mainNavBar").height() ) / 2;
+            if( single_height < 250){
+                single_height = 250;
+            }
             $(".activity-box").height(single_height);
             $(".activity-box").width(single_height);
         }
         $(function() {
             resizeThumbnails();
         })
-            $(window).resize(function() { 
-                resizeThumbnails();
-            });            
+        $(window).resize(function() { 
+            resizeThumbnails();
+        });            
     </script>
 {% endblock %}
