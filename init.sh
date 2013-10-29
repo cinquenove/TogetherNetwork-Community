@@ -16,6 +16,7 @@ if [[ $answer == "N" || $answer == "n" ]]; then
         exit 0;
 fi
 
+echo ""
 echo "Running the installation..."
 echo -n "- Cleaning & updating the local copy: "
 git fetch --all &> /dev/null
