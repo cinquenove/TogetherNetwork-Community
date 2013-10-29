@@ -27,6 +27,34 @@
 	color:#FFF;
 }
 
-.panel {
-	margin-top: 100px;
+.activity-box {
+	width: 348px;
+	height: 348px;
+	background-image: url('/static/imgs/BG-landing-page.png');
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-size: cover;
+    background-color: black;
+}
+
+.activity-box-content {
+	text-align: center;
+	color:#FFF;
+	padding-top: 144px;
+}
+
+.activity-category-corner-red {
+	float: right;
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-left: 100px solid transparent;
+}
+
+.activity-box-button{
+	height:30px;
+	width: 100%;
+	float:left;
+	margin-top: 308px; 
+
 }
