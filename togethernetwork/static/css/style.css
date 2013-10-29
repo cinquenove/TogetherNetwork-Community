@@ -55,8 +55,7 @@ body {
     right: 0;
     margin: auto;
     position: absolute;
-
-    text-align: center;
+	text-align: center;
 	color:#FFF;
 	font-size: 30px;
     text-shadow: 0px 0px 5px black;
@@ -85,4 +84,20 @@ body {
 }
 .activity-box-button:hover {
 	background-color: #666;
+}
+
+.activity-head{
+	background-image: url('/static/imgs/BG-landing-page.png');
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-size: cover;
+    background-color: black;
+}
+
+.activity-user-pic{
+
+}
+
+.activity-description{
+	
 }
