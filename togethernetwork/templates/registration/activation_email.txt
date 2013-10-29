@@ -1,0 +1,13 @@
+Hello Bancher!
+To complete the registration to bancha.it you need the following activation key:
+
+{{ activation_key }}
+
+You can also use the following link to activate your account:
+
+{{site}}/accounts/activate/{{ activation_key }}/
+
+It will expire in {{ expiration_days }} days! 
+We hope you will enjoy the bancha community,
+
+The Bancha team

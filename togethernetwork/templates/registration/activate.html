@@ -1,0 +1,16 @@
+{% extends "modal.html" %}
+
+{% block modalheader %}
+    <h4 class="modal-title">Activation code</h4>
+{% endblock %}
+
+{% block modalbody %}
+    <p>Your activation code is:</p>
+    <p class="lead">
+        {{ activation_key }}
+    </p>
+{% endblock %}
+
+{% block modalfooter %}
+    <a href="/" class="btn btn-info">Close</a>
+{% endblock %}
