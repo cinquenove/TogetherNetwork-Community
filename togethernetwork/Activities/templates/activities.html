@@ -3,7 +3,7 @@
 {% block container %}
 <div id="mainContainer">
     {% for activity in activities %}
-    <div id="activity-{{ activity.pk }}" class="activity-box" style="background-image: url('{{ activity.photo.url }}');">
+    <div id="activity-{{ activity.pk }}" class="activity-box" {% if activity.photo %} style="background-image: url('{{ activity.photo.url }}');" {% endif %}>
    		<div class="activity-category-corner-red"></div>
    		<div class="activity-box-content">
    			{{ activity.title }}
