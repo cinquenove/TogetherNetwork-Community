@@ -32,11 +32,8 @@
             });
 
             // Setting the Padding top for each activity title
-            var text_padding_top = (single_height/2) - $("#activity-box-content").height();
+            var text_padding_top = ( single_height / 2 ) - ( $("#activity-box-content").height() / 2 );
             $(".activity-box-content").css("padding-top", text_padding_top);
-            $(window).resize(function() { 
-                $(".activity-box-content").css("padding-top", text_padding_top);
-            });
         });
     </script>
     {% endfor %}
