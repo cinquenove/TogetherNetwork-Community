@@ -112,7 +112,7 @@ class Activity(models.Model):
         super(Activity, self).save()
 
     def get_absolute_url(self):
-        return "/activities/%s/" % self.pk
+        return "/activities/%s" % self.pk
 
     def __str__(self):
         return "( %s ) %s by %s " % ( self.time, self.title, self.owner.username )
