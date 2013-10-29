@@ -38,6 +38,10 @@ def edit_activity_view(request, activity_pk=None):
     if activity_pk:
         form_title = "Edit Activity"
         activity = get_object_or_404(Activity, pk=activity_pk)
+        
+        if not activity.owner.username == request.user.username:
+            #TODO: Message to say that he can't edit this object.
+            return redirect(activity)
 
     if request.method == 'POST':
         formset = ActivityForm(request.POST, request.FILES, instance=activity)
