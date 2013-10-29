@@ -82,9 +82,9 @@ def leave_activity(request, activity_pk):
     return redirect(activity)
 
 @login_required
-def leave_activity(request, activity_pk):
+def delete_activity(request, activity_pk):
     """
-        This function will leave the user from the activity.
+        This function will delete an activity
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
     if request.user is activity.owner:
