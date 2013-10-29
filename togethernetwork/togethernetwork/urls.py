@@ -4,8 +4,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^admin/', include(admin.site.urls)),
     # Examples:
-    url(r'^', include('Mainpages.urls')),
     # url(r'^$', 'togethernetwork.views.home', name='home'),
     # url(r'^togethernetwork/', include('togethernetwork.foo.urls')),
 
@@ -13,6 +13,5 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^', include('Mainpages.urls')),
 )
