@@ -22,7 +22,7 @@ ACTIVITIES_TYPE = [
 def get_activity_path(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
-    return os.path.join("uploads", "Activities", filename)
+    return os.path.join("Activities", filename)
 
 class Location(models.Model):
     """
