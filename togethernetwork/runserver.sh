@@ -1,4 +1,5 @@
 #!/bin/bash
+# -*- coding=utf-8 -*-
 
 #python ./manage.py makemessages -l en
 #python ./manage.py makemessages -l it
