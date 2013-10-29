@@ -28,7 +28,7 @@ def single_activity_view(request, activity_pk):
         {"activity": activity }, 
         context_instance=RequestContext(request))
 
-#@login_required
+@login_required
 def edit_activity_view(request, activity_pk=None):
     """
         Create/edit a new activity
