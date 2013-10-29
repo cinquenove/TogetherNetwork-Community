@@ -1,71 +1,41 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Together Network</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Bootstrap CSS -->
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="/static/css/style.css" rel="stylesheet" media="screen">
-	</head>
-	<body>
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/"><img src="/static/imgs/logo-Together-small.png"></a>
-			</div>
-		
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="/">Community</a></li>
-					<li class="active"><a href="#">Activities</a></li>
-					<li><a href="#">Accomodations</a></li>
-				</ul>
-				
-				<ul class="nav navbar-nav navbar-right">
-					
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Account settings</a></li>
-							<li><a href="#">My profile</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Log out</a></li>
-						</ul>
-					</li>
-				</ul>
-				<button type="button" class="btn btn-danger navbar-btn pull-right">Create activity</button>
-			</div><!-- /.navbar-collapse -->
-			
-			
-		</nav>
-	    <div class="container">
-	    	{% block content %}{% endblock %}
-	    </div>
+{% extends "layout.html" %}
 
-		<!-- footer -->
-		<div class="navbar navbar-inverse navbar-fixed-bottom">
-			<div class="container">
-				<a href class="navbar-text"="#">About</a>
-				<a href class="navbar-text"="#">Contacts</a>
-				
-				<address class="navbar-text pull-right">
-	  				<strong>Together Network, a.p.s.</strong><br>
-							Viale Glorioso, 14<br>
-	  						00159, Rome, ITA<br>
-				</address>
-			</div>
+{% block navbar %}
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/"><img src="/static/imgs/logo-Together-small.png"></a>
 		</div>
-
-		<!-- jQuery -->
-		<script src="//code.jquery.com/jquery.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	</body>
-</html>
+	
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Community</a></li>
+				<li class="active"><a href="#">Activities</a></li>
+				<li><a href="#">Accomodations</a></li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Account settings</a></li>
+						<li><a href="#">My profile</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li><a href="#">Log out</a></li>
+					</ul>
+				</li>
+			</ul>
+			<button type="button" class="btn btn-danger navbar-btn pull-right">Create activity</button>
+		</div><!-- /.navbar-collapse -->
+		
+		
+	</nav>
+{% endblock %}
