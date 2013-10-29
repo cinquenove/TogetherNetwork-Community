@@ -7,7 +7,7 @@
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="/static/css/style.css" rel="stylesheet" media="screen">
 	</head>
-	<body id="bg-homepage">
+	<body>
 		{% block navbar %}
 		<nav id="mainNavBar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -76,5 +76,6 @@
                 });            
             })
         </script>
+        {% block scripts %}{% endblock %}
 	</body>
 </html>
