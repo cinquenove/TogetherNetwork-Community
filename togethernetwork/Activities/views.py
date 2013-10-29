@@ -29,9 +29,9 @@ def single_activity_view(request, activity_pk):
         context_instance=RequestContext(request))
 
 #@login_required
-def new_activity_view(request, activity_pk=None):
+def edit_activity_view(request, activity_pk=None):
     """
-        Create a new activity
+        Create/edit a new activity
     """
     activity = None
     form_title = "New Activity"
@@ -40,7 +40,7 @@ def new_activity_view(request, activity_pk=None):
         activity = get_object_or_404(Activity, pk=activity_pk)
 
     if request.method == 'POST':
-        formset = ActivityForm(request.POST, request.FILES, instance=None)
+        formset = ActivityForm(request.POST, request.FILES, instance=activity)
         if formset.is_valid():
             activity_obj = formset.save(commit=False)
             
@@ -48,7 +48,7 @@ def new_activity_view(request, activity_pk=None):
             activity_obj.save()
             return redirect(activity_obj)
     else:
-        formset = ActivityForm(instance=None)
+        formset = ActivityForm(instance=activity)
         
     return render_to_response("form.html", {
         "form": formset,
