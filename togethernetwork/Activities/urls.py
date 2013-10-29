@@ -4,7 +4,8 @@ from django.conf.urls import patterns, url
 from . import views
 
 urlpatterns = patterns('',
-    # Single Activity
+    # Single Activity 
+    url(r'^(?P<activity_pk>\d+)/delete$', views.delete_activity, name='delete_activity'),
     url(r'^(?P<activity_pk>\d+)/leave$', views.leave_activity, name='leave_activity'),
     url(r'^(?P<activity_pk>\d+)/join$', views.join_activity, name='join_activity'),
     url(r'^(?P<activity_pk>\d+)/edit$', views.edit_activity_view, name='edit_activity_view'),
