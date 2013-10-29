@@ -66,7 +66,7 @@ def join_activity(request, activity_pk):
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
     if request.user in activity.attendees.all():
-        activity.attendees.participants.add(request.user)
+        activity.attendees.add(request.user)
         activity.save()
     return redirect(activity)
 
