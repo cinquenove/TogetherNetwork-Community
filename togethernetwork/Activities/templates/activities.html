@@ -1,14 +1,25 @@
 {% extends "layout_activities.html" %}
 
 {% block content %}
-   <div class="activity-box" style="background-image: url('/static/imgs/BG-landing-page.png');">
+   <div id="activiyt-0" class="activity-box" style="background-image: url('/static/imgs/BG-landing-page.png');">
    		<div class="activity-category-corner-red"></div>
    		<div class="activity-box-content">
    			Titolo a caso
    		</div>
    		<a href="#">
-   			<div class="activity-box-button">Join</div>
+   			<div id="activiyt-button-0" class="activity-box-button">Join</div>
    		</a>
-
    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(function(){
+            $("#activiyt-0").hover(function(){
+                $("#activiyt-button-0").fadeIn();
+            },function(){
+                $("#activiyt-button-0").fadeOut();
+            });
+        });
+     </script>
 {% endblock %}

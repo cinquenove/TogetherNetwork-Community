@@ -54,6 +54,7 @@
 }
 
 .activity-box-button{
+    display: none;
     position: absolute; 
     bottom: 0;
 	height: 50px;
