@@ -33,10 +33,12 @@
 					</ul>
 				</li>
 			</ul>
+			{% block navbar_buttons %}
 			<a href="/activities/new" class="btn btn-danger navbar-btn pull-right">
 			    <span class="glyphicon glyphicon-plus"></span>&nbsp;
 				Create activity
 			</a>
+			{% endblock %}
 		</div><!-- /.navbar-collapse -->
 	</nav>
 {% endblock %}
