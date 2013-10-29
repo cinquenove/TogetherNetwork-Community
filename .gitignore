@@ -34,6 +34,8 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# Other Stuff
 *.sql
 venv
 togethernetwork/uploads
