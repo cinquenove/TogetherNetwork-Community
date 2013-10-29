@@ -30,7 +30,7 @@ echo "done"
 
 echo -n "- Installing dependencies inside the virtual environment: "
 source venv/bin/activate
-pip install -q -U -r togethernetwork/requirements.txt &> /dev/null
+pip install -q -U -r togethernetwork/requirements.txt
 echo "done"
 echo ""
 echo "Installation done"
