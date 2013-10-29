@@ -6,9 +6,10 @@
 		<!-- Bootstrap CSS -->
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="/static/css/style.css" rel="stylesheet" media="screen">
+		{% block head %}{% endblock %}
 	</head>
 	<body>
-		{% block navbar %}
+		{% block header %}
 		<nav id="mainNavBar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
