@@ -13,5 +13,5 @@ urlpatterns = patterns('',
     url(r'^avatar/', include('avatar.urls')),
     
     url(r'^activities/', include('Activities.urls')),
-    url(r'', include('Mainpages.urls')),
+    url(r'^$', include('Mainpages.urls')),
 )
