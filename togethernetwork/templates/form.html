@@ -14,8 +14,15 @@
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <p class="navbar-text">{{ title }}</p>
-        <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-danger navbar-btn pull-right">Go Back</a>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <p class="navbar-text">{{ title }}</p>
+            <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-danger navbar-btn pull-right">
+                <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;
+                Go Back
+            </a>
+        </div>
+
     </nav>
 {% endblock %}
 
