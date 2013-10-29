@@ -24,14 +24,16 @@
 		
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				{% block main_menu %}
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Community</a></li>
 					<li><a href="/activities/list">Activities</a></li>
 					<li><a href="#">Accomodations</a></li>
 				</ul>
+				{% endblock %}
 				
+				{% block user_menu %}
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="about">What is Together</a></li>
  					<li class="dropdown">
  						{% if request.user.is_authenticated %}
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
@@ -47,6 +49,8 @@
 						{% endif %}
 					</li>
 				</ul>
+				{% endblock %}
+				{% block navbar_buttons %}{% endblock %}		
 			</div><!-- /.navbar-collapse -->
 		</nav>
 		{% endblock %}
