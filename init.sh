@@ -26,10 +26,11 @@ echo "done"
 
 echo -n "- Creating a virtual environment: "
 virtualenv venv -v &> /dev/null
+source venv/bin/activate
 echo "done"
 
 echo -n "- Installing dependencies inside the virtual environment: "
-source venv/bin/activate
+rm togethernetwork/database.sql &> /dev/null
 pip install -q -U -r togethernetwork/requirements.txt
 echo "done"
 echo ""
