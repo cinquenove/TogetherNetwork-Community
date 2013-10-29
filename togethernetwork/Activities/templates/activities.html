@@ -27,9 +27,9 @@
             {% endif %}
             // Enabling join button fade effect
             currenct_activity_box.hover(function(){
-                $("#activity-button-{{ activity.pk }}").fadeIn();
+                $("#activity-button-{{ activity.pk }}").fadeIn(250);
             },function(){
-                $("#activity-button-{{ activity.pk }}").fadeOut();
+                $("#activity-button-{{ activity.pk }}").fadeOut(250);
             });
         });
     </script>
