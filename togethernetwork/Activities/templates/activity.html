@@ -1,5 +1,14 @@
 {% extends "layout_activities.html" %}
 
+{% block navbar_buttons %}
+{% if activity.owner == request.user %}
+&nbsp;<a href="{{ activity.get_absolute_url }}/edit" class="btn btn-success navbar-btn pull-right">
+    <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+    Edit
+</a>
+{% endif %}
+{% endblock %}
+
 {% block container %}
 
 <div id="mainContainer" class="activity-head">
