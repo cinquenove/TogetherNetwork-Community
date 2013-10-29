@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     """
-        
+        Single User Profile
     """
     owner = models.ForeignKey(User, related_name="profile_owner")
     #TODO: relation with space by checking other database models ( Bookins, Activities ecc..)
