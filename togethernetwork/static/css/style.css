@@ -1,3 +1,10 @@
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Homepage */
+
 #bg-homepage {
     background-image: url('/static/imgs/BG-landing-page.png');
     background-repeat: no-repeat; 
@@ -26,6 +33,8 @@
 	background-color:#cc3333;
 	color:#FFF;
 }
+
+/* Activities */
 
 .activity-box {
 	width: 348px;
