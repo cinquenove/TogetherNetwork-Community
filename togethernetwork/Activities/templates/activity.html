@@ -1,13 +1,25 @@
 {% extends "layout_activities.html" %}
 
-{% block content %}
+{% block container %}
 
 <div class="activity-head">
 	<h1>{{ activity.title }}</h1>
+	<div class="activity-username">by {{ activity.owner.username }}</div>
 	<div class="activity-user-pic">{{ activity.owner.username }}</div>
 </div>
 
-<div class="activity-description">{{ activity.description }}</div>
+<div class="container">
+	<div class="activity-description">{{ activity.description }}</div>
+
+	<div class="text-center">
+	<button type="button" class="btn btn-danger">Join</button>
+	</div>
+
+</div>
+
+
+
+
     
 {% endblock %}
 
