@@ -8,7 +8,7 @@
    		<div class="activity-box-content">
    			{{ activity.title }}
    		</div>
-   		<a href="#{{ activity.get_absoulte_url }}">
+   		<a href="#{{ activity.get_absolute_url }}">
    			<div id="activity-button-{{ activity.pk }}" class="activity-box-button">Join</div>
    		</a>
     </div>
@@ -17,23 +17,37 @@
 {% endblock %}
 
 {% block scripts %}
+    <script type="text/javascript">
+        var single_height = ( $(window).height() - $("#mainNavBar").height() ) / 2;
+    </script>
+
     {% for activity in activities %}
     <script type="text/javascript">
         $(function(){
+            // Enabling join button fade effect
             $("#activity-{{ activity.pk }}").hover(function(){
                 $("#activity-button-{{ activity.pk }}").fadeIn();
             },function(){
                 $("#activity-button-{{ activity.pk }}").fadeOut();
             });
+
+            // Setting the Padding top for each activity title
+            var text_padding_top = (single_height/2) - $("#activity-box-content").height();
+            $(".activity-box-content").css("padding-top", text_padding_top);
+            $(window).resize(function() { 
+                $(".activity-box-content").css("padding-top", text_padding_top);
+            });
         });
     </script>
     {% endfor %}
+
     <script type="text/javascript">
+        // Resizing automatically every thumbnail in order to
+        // have 2 activity per column and a horizontal scrolling
         function resizeThumbnails(){
-            var top_navbar = $("#mainNavBar").height();
             var single_height = ( $(window).height() - $("#mainNavBar").height() ) / 2;
             $(".activity-box").height(single_height);
-            $(".activity-box").width(single_height);   
+            $(".activity-box").width(single_height);
         }
         $(function() {
             resizeThumbnails();
