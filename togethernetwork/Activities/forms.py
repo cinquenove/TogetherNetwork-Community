@@ -15,7 +15,7 @@ class ActivityForm(ModelForm):
             "location",
             "photo",
 
-            "attendee_limit",
-            #"attendee",
+            "attendees_limit",
+            #"attendees",
             "price",
         ]
