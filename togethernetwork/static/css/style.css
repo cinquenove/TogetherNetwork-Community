@@ -37,16 +37,17 @@ body {
 /* Activities */
 
 .activity-box {
-	width: 348px;
-	height: 348px;
+	min-width: 150px;
+	min-height: 150px;
 	background-image: url('/static/imgs/BG-landing-page.png');
     background-repeat: no-repeat; 
     background-position: top;
     background-size: cover;
     background-color: black;
     position: relative;
-    float:left;
+    float: left;
     margin:0 2px 2px 0;
+    vertical-align: middle;
 }
 
 .activity-box-content {
