@@ -21,11 +21,15 @@
 <div class="activity-container container">
 	<div class="activity-description">{{ activity.description|linebreaks }}</div>
 	<div class="text-center">
+    {% if activity.owner != request.user %}
         {% if request.user in activity.attendees.all %}
-        <a href="{{ activity.get_absolute_url }}/leave"class="btn btn-danger btn-lg">Leave {{ activity.title }}</a>
+        <a href="{{ activity.get_absolute_url }}/leave" class="btn btn-danger btn-lg">Leave {{ activity.title }}</a>
         {% else %}
-        <a href="{{ activity.get_absolute_url }}/join"class="btn btn-success btn-lg">Join {{ activity.title }}</a>
+        <a href="{{ activity.get_absolute_url }}/join" class="btn btn-success btn-lg">Join {{ activity.title }}</a>
         {% endif %}
+    {% else %}
+        <a href="javascript:void(0);" onclick="deleteActivity();" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete "{{ activity.title }}"</a>
+    {% endif %}
 	</div>
 
 </div>    
@@ -41,4 +45,13 @@
             {% endif %}
         });
     </script>
+    {% if activity.owner == request.user %}
+    <script type="text/javascript">
+        function deleteActivity(){
+            var x = window.confirm("Are you sure you are ok?");
+            if (x)
+                location.href="{{ activity.get_absolute_url }}/delete";
+        }
+    </script>
+    {% endif %}
 {% endblock %}
