@@ -62,13 +62,27 @@ body {
     overflow: hidden;
 }
 
+.activity-category-corner {
+    float: right;
+    width: 0;
+    height: 0;
+}
+
 .activity-category-corner-red {
-	float: right;
-	width: 0;
-	height: 0;
 	border-top: 50px solid red;
 	border-left: 50px solid transparent;
 }
+
+.activity-category-corner-green {
+    border-top: 50px solid green;
+    border-left: 50px solid transparent;
+}
+
+.activity-category-corner-blue {
+    border-top: 50px solid blue;
+    border-left: 50px solid transparent;
+}
+
 
 .activity-box-button {
     display: none;

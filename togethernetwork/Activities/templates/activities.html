@@ -4,7 +4,13 @@
 <div id="mainContainer">
     {% for activity in activities %}
     <div class="activity-box" id="activity-box-{{ activity.pk }}">
-   		<div class="activity-category-corner-red"></div>
+        {% if activity.activity_type == "TOU" %}
+   		   <div class="activity-category-corner activity-category-corner-red"></div>
+        {% elif activity.activity_type == "CLA" %}
+            <div class="activity-category-corner activity-category-corner-green"></div>
+        {% elif activity.activity_type == "EVN" %}
+            <div class="activity-category-corner activity-category-corner-blue"></div>
+        {% endif %}
    		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
    		</div>
