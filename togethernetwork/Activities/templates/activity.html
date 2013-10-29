@@ -15,7 +15,7 @@
 <div id="mainContainer" class="activity-head">
 	<h1>{{ activity.title }}</h1>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
-	<div class="activity-user-pic img-circle">{% avatar activity.owner 120 %}</div>
+	<div class="activity-user-pic-div">{% avatar activity.owner 120 %}</div>
 </div>
 
 <div class="activity-container container">
@@ -30,6 +30,8 @@
 {% block scripts %}
     <script type="text/javascript">
         $(function(){
+            $(".activity-user-pic-div img").addClass("img-circle");
+            $(".activity-user-pic-div img").addClass("activity-user-pic-img");
             {% if activity.photo %}
             $(".activity-head").css("background-image","url('{{ activity.photo.url }}')");
             {% endif %}
