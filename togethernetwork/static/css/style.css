@@ -1,6 +1,6 @@
 body {
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
 /* Homepage */
