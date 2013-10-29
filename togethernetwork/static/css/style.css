@@ -46,7 +46,7 @@ body {
     background-color: black;
     position: relative;
     float:left;
-    margin:2px;
+    margin:0 2px 2px 0;
 }
 
 .activity-box-content {
