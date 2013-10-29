@@ -1,4 +1,11 @@
 # -*- coding=utf-8 -*-
+import os
+from PIL import Image
+from cStringIO import StringIO
+
+from datetime import datetime
+import uuid
+
 from django.db import models
 from django.contrib.auth.models import User
 
