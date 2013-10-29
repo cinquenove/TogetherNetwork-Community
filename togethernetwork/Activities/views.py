@@ -87,7 +87,8 @@ def delete_activity(request, activity_pk):
         This function will delete an activity
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
-    if request.user is activity.owner:
+    if request.user == activity.owner:
         activity.delete()
-    return redirect(activities_view)
+        return redirect(activities_view)
+    return redirect(activity)
 
