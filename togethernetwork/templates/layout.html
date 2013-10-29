@@ -44,9 +44,12 @@
 			</div><!-- /.navbar-collapse -->
 		</nav>
 		{% endblock %}
+
+		{% block container %}
 	    <div class="container" id="mainContainer">
 	    	{% block content %}{% endblock %}
 	    </div>
+	    {% endblock %}
 
 		<!-- footer -->
 		{% block footer %}
