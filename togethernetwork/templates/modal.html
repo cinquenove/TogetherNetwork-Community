@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block container %}
+{% block beforemodal %}{% endblock %}
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                {% block modalheader %}{% endblock %}
+            </div>
+            <div class="modal-body">
+                {% block modalbody %}{% endblock %}
+            </div>
+            <div class="modal-footer">
+                {% block modalfooter %}{% endblock %}
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% block aftermodal %}{% endblock %}
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function() {
+        $(".modal").modal({"backdrop":false});
+    });
+</script>
+{% endblock %}
