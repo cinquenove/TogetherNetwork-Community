@@ -45,7 +45,10 @@ body {
     background-color: black;
     position: relative;
     float: left;
-    margin:0 2px 2px 0;
+    
+    border: solid 1px white;
+    border-top: 0px;
+    padding: 0px;
 }
 
 .activity-box-content {
@@ -56,7 +59,7 @@ body {
     margin: auto;
     position: absolute;
 	text-align: center;
-	color:#FFF;
+	color: #FFF;
 	font-size: 30px;
     text-shadow: 0px 0px 5px black;
     overflow: hidden;
@@ -111,7 +114,7 @@ body {
     background-position: center;
     background-size: cover;
     background-color: black;
-    color:#FFF;
+    color: #FFF;
 	font-size: 30px;
     text-shadow: 0px 0px 5px black;
 }
