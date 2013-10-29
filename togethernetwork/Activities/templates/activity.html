@@ -11,3 +11,12 @@
     
 {% endblock %}
 
+{% block scripts %}
+        <script type="text/javascript">
+        $(function(){
+            {% if activity.photo %}
+            $(".activity-head").css("background-image","url('{{ activity.photo.url }}')");
+            {% endif %}
+        });
+    </script>
+{% endbloc %}
