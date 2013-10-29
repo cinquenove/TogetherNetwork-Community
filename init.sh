@@ -16,19 +16,20 @@ if [[ $answer == "N" || $answer == "n" ]]; then
         exit 0;
 fi
 
-echo ""
-echo -n "Cleaning & updating the local copy: "
+echo "Running the installation..."
+echo -n "- Cleaning & updating the local copy: "
 git fetch --all &> /dev/null
 git reset --hard origin/master  &> /dev/null
 git pull &> /dev/null
 echo "done"
 
-echo -n "Creating a virtual environment: "
+echo -n "- Creating a virtual environment: "
 virtualenv venv -v &> /dev/null
 echo "done"
 
-echo -n "Installing dependencies inside the virtual environment: "
+echo -n "- Installing dependencies inside the virtual environment: "
 source venv/bin/activate
 pip install -q -U -r togethernetwork/requirements.txt &> /dev/null
 echo "done"
-
+echo ""
+echo "Installation done"
