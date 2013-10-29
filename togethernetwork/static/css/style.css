@@ -35,26 +35,32 @@
     background-position: top;
     background-size: cover;
     background-color: black;
+    position: relative;
 }
 
 .activity-box-content {
 	text-align: center;
 	color:#FFF;
 	padding-top: 144px;
+    font-size: 30px;
 }
 
 .activity-category-corner-red {
 	float: right;
 	width: 0;
 	height: 0;
-	border-top: 100px solid red;
-	border-left: 100px solid transparent;
+	border-top: 50px solid red;
+	border-left: 50px solid transparent;
 }
 
 .activity-box-button{
-	height:30px;
+    position: absolute; 
+    bottom: 0;
+	height: 50px;
 	width: 100%;
-	float:left;
-	margin-top: 308px; 
-
+    background-color: #d9534f;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    padding: 7px;
 }
