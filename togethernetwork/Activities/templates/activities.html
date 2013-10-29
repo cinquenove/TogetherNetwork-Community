@@ -8,7 +8,7 @@
    		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
    		</div>
-   		<a href="#{{ activity.get_absolute_url }}">
+   		<a href="{{ activity.get_absolute_url }}">
    			<div id="activity-button-{{ activity.pk }}" class="activity-box-button">Join</div>
    		</a>
     </div>
