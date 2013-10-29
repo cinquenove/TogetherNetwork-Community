@@ -34,7 +34,7 @@ def new_activity_view(request, activity_pk=None):
     """
     activity = None
     form_title = "New Activity"
-        if activity_pk:
+    if activity_pk:
         form_title = "Edit Activity"
         activity = get_object_or_404(Activity, pk=activity_pk)
 
