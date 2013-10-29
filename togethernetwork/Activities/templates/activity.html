@@ -9,7 +9,7 @@
 </div>
 
 <div class="activity-container container">
-	<div class="activity-description">{{ activity.description }}</div>
+	<div class="activity-description">{{ activity.description|linebreaks }}</div>
 	<div class="text-center">
 	   <button type="button" class="btn btn-danger btn-lg">Join {{ activity.title }}</button>
 	</div>
