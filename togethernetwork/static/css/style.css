@@ -36,6 +36,8 @@
     background-size: cover;
     background-color: black;
     position: relative;
+    float:left;
+    margin:2px;
 }
 
 .activity-box-content {
