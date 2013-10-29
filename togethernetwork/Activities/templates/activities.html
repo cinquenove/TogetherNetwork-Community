@@ -6,11 +6,11 @@
 
     <div class="activity-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="activity-box-{{ activity.pk }}">
         {% if activity.activity_type == "TOU" %}
-   		   <div class="activity-category-corner activity-category-corner-red"></div>
+   		   <div class="activity-category-corner activity-category-corner-tourism"></div>
         {% elif activity.activity_type == "CLA" %}
-            <div class="activity-category-corner activity-category-corner-green"></div>
+            <div class="activity-category-corner activity-category-corner-class"></div>
         {% elif activity.activity_type == "EVN" %}
-            <div class="activity-category-corner activity-category-corner-blue"></div>
+            <div class="activity-category-corner activity-category-corner-event"></div>
         {% endif %}
    		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
