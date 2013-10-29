@@ -8,6 +8,8 @@ import uuid
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from datetime import datetime, timedelta
 
@@ -28,6 +30,9 @@ class Location(models.Model):
     """
     title = models.CharField(max_length=50)
     address = models.CharField(max_length=256)
+
+    def __str__(self):
+        return "%s - %s" % ( self.title, self.address[:25] )
 
 class Activity(models.Model):
     """
@@ -109,4 +114,4 @@ class Activity(models.Model):
         return "/activity/%s" % self.pk
 
     def __str__(self):
-        return "( %s ) %s by %s " % ( self.datetime, self.event_name, self.owner.username )
+        return "( %s ) %s by %s " % ( self.time, self.title, self.owner.username )
