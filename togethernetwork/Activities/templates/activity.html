@@ -21,10 +21,10 @@
 <div class="activity-container container">
 	<div class="activity-description">{{ activity.description|linebreaks }}</div>
 	<div class="text-center">
-        {% if request.user in activity.attendees.all() %}
-	    <a href="{{ activity.get_absolute_url }}/join"class="btn btn-success btn-lg">Join {{ activity.title }}</a>
-        {% else %}
+        {% if request.user in activity.attendees.all %}
         <a href="{{ activity.get_absolute_url }}/leave"class="btn btn-danger btn-lg">Leave {{ activity.title }}</a>
+        {% else %}
+        <a href="{{ activity.get_absolute_url }}/join"class="btn btn-success btn-lg">Join {{ activity.title }}</a>
         {% endif %}
 	</div>
 
