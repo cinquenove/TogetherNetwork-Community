@@ -14,6 +14,9 @@
     border: solid 1px white;
     border-top: 0px;
     padding: 0px;
+
+    cursor:pointer;
+    cursor:hand;    
 }
 
 .activity-box-content {
