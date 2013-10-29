@@ -15,9 +15,15 @@
    		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
    		</div>
-   		<a href="{{ activity.get_absolute_url }}">
-   			<div id="activity-button-{{ activity.pk }}" class="activity-box-button">Join</div>
+        {% if request.user in activity.attendees.all %}
+        <a href="{{ activity.get_absolute_url }}/leave">
+   			<div id="activity-button-{{ activity.pk }}" class="activity-box-button">Leave</div>
    		</a>
+        {% else %}
+        <a href="{{ activity.get_absolute_url }}/join">
+            <div id="activity-button-{{ activity.pk }}" class="activity-box-button">Join</div>
+        </a>
+        {% endif %}
     </div>
     {% endfor %}
 </div>
@@ -37,6 +43,10 @@
             },function(){
                 $("#activity-button-{{ activity.pk }}").fadeOut(250);
             });
+        });
+
+        $("#activity-box-{{ activity.pk }}").click(function() {
+            location.href = "{{ activity.get_absolute_url }}";
         });
     </script>
     {% endfor %}
