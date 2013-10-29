@@ -65,7 +65,7 @@ def join_activity(request, activity_pk):
         This function will join the user to the activity.
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
-    if request.user in activity.attendees.all():
+    if not request.user in activity.attendees.all():
         activity.attendees.add(request.user)
         activity.save()
     return redirect(activity)
