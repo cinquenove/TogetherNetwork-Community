@@ -1,9 +1,10 @@
 {% extends "layout_activities.html" %}
 
 {% block container %}
-<div id="mainContainer">
+<div id="mainContainer" class="row">
     {% for activity in activities %}
-    <div class="activity-box" id="activity-box-{{ activity.pk }}">
+
+    <div class="activity-box col-md-3" id="activity-box-{{ activity.pk }}">
         {% if activity.activity_type == "TOU" %}
    		   <div class="activity-category-corner activity-category-corner-red"></div>
         {% elif activity.activity_type == "CLA" %}
@@ -44,12 +45,7 @@
         // Resizing automatically every thumbnail in order to
         // have 2 activity per column and a horizontal scrolling
         function resizeThumbnails(){
-            var single_height = ( $(window).height() - $("#mainNavBar").height() ) / 2;
-            if( single_height < 250){
-                single_height = 250;
-            }
-            $(".activity-box").height(single_height);
-            $(".activity-box").width(single_height);
+            $(".activity-box").height($(".activity-box").width());   
         }
         $(function() {
             resizeThumbnails();
