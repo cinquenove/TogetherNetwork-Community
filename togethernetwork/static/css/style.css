@@ -76,3 +76,6 @@ body {
     font-size: 25px;
     padding: 7px;
 }
+.activity-box-button:hover{
+	background-color: #666;
+}
