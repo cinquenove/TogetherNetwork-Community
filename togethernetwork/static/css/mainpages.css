@@ -17,14 +17,32 @@
 }
 
 #payoffred {
-    color:#cc3333;
+    color:#bc2d37;
 }
 
 #buttoncomehome {
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color:#cc3333;
+    font-size: 18px;
+    background-color:#bc2d37;
     color:#FFF;
+    width:120px;
+    height: 40px;
+    padding:5px;
+    margin:0 auto;
+}
+
+#buttoncomehome:hover {
+    background-color:#666;
+    color:#FFF;
+}
+
+.footerbar{
+    color: #666;
+}
+
+.footerbar a{
+color: #666;
+}
+
+.footerbar a:hover{
+color: #333;
 }
