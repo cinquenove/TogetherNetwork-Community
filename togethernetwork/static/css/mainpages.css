@@ -40,9 +40,10 @@
 }
 
 .footerbar a{
-color: #666;
+    color: #666;
+    font-size: 12px
 }
 
 .footerbar a:hover{
-color: #333;
+    color: #333;
 }
