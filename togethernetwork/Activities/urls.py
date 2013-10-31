@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     # Multiple Activities
     url(r'^new', views.edit_activity_view, name='edit_activity_view'),
     url(r'^list', views.activities_view, name='activities_view'),
+    url(r'^$', views.activities_view, name='activities_view'),
 )
 
 
