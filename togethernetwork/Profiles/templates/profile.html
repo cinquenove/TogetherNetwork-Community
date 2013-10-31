@@ -3,13 +3,9 @@
 
 {% block navbar_buttons %}
 {% if profile.owner == request.user %}
-&nbsp;<a href="{{ profile.get_absolute_url }}/edit" class="signin-btn btn btn-success navbar-btn pull-right">
+&nbsp;<a href="/users/edit" class="signin-btn btn btn-success navbar-btn pull-right">
     <span class="glyphicon glyphicon-pencil"></span>&nbsp;
     Edit
-</a>
-&nbsp;<a href="/avatar/change" class="signin-btn btn btn-danger navbar-btn pull-right">
-    <span class="glyphicon glyphicon-camera"></span>&nbsp;
-    Change Avatar
 </a>
 {% endif %}
 {% endblock %}
@@ -18,7 +14,17 @@
     <div class="row profile-header">
         <!-- Sidebar -->
         <div class="col-md-3 text-center">
-            <div class="profile-user-pic-div">{% avatar request.user 200 %}</div>
+            <div class="profile-user-pic-div">
+                {% avatar request.user 200 %}
+                {% if profile.owner == request.user %}
+                <div class="profile-user-pic-change-picture">
+                    <a href="/avatar/change" class="btn btn-danger navbar-btn btn-xs">
+                        <span class="glyphicon glyphicon-camera"></span>&nbsp;
+                        Change Avatar
+                    </a>
+                </div>
+                {% endif %}
+            </div>
         </div>
         <!-- Content -->
         <div class="col-md-6 profile-header-content">

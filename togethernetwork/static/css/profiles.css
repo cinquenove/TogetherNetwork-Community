@@ -1,6 +1,6 @@
 /* Single Profile Page */
 
-.profile-header-content h1 small{
+.profile-header-content h1 small {
 	color: #bc2d37;
 	font-size: 14px;
 }
@@ -11,6 +11,10 @@
 
 .profile-user-pic-img {
     border: solid 5px white;
+}
+
+.profile-user-pic-change-picture {
+    z-index: 1000;
 }
 
 .profile-header-content {
@@ -34,9 +38,6 @@
 	color: #bc2d37;
 }
 
-.list-group-item h4{
+.list-group-item h4 {
 	color: #333;
 }
-
-
-
