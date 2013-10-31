@@ -19,7 +19,7 @@ class Profile(models.Model):
     skills = models.TextField(max_length=500, default="")
     mission = models.CharField(max_length=250)
     
-    personal_website_url = models.URLField(default="http://", blank=True)
+    personal_website_url = models.URLField(blank=True)
     twitter_url = models.URLField(default="http://twitter.com/", blank=True)
     facebook_url = models.URLField(default="http://facebook.com/", blank=True)
     
