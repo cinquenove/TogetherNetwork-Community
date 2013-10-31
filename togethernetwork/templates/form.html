@@ -57,8 +57,6 @@
             <button type="submit" class="btn btn-success">Register</button>
             <a class="btn btn-info" href="javascript:void(0);" onclick="window.history.back();">Cancel</a>
         </div>
-            <h6>Already have an account?<br>Then just <a href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}">log in</a>!
-            </h6>
     </div>
 {% endblock %}
 </form>
