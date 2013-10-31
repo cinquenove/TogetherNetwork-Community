@@ -1,0 +1,71 @@
+/* Accommodations */
+
+.accommodation-box {
+    min-width: 150px;
+    min-height: 150px;
+    background-image: url('/static/imgs/BG-landing-page.png');
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-size: cover;
+    background-color: black;
+    position: relative;
+    float: left;
+    
+    border: solid 1px white;
+    border-top: 0px;
+    padding: 0px;
+
+    cursor:pointer;
+    cursor:hand;    
+}
+
+.accommodation-box-content {
+    bottom: 0;
+    left: 0;
+    top: 35%;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    color: #FFF;
+    font-size: 30px;
+    text-shadow: 0px 0px 5px black;
+    overflow: hidden;
+}
+
+.accommodation-category-corner {
+    float: right;
+    width: 0;
+    height: 0;
+}
+
+.accommodation-category-corner-tourism {
+    border-top: 50px solid #bc2d37;
+    border-left: 50px solid transparent;
+}
+
+.accommodation-category-corner-class {
+    border-top: 50px solid #295538;
+    border-left: 50px solid transparent;
+}
+
+.accommodation-category-corner-event {
+    border-top: 50px solid #666;
+    border-left: 50px solid transparent;
+}
+
+.accommodation-box-button {
+    display: none;
+    position: absolute; 
+    bottom: 0;
+    height: 65px;
+    width: 100%;
+    background-color: #bc2d37;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    padding: 7px;
+}
+.accommodation-box-button:hover {
+    background-color: #666;
+}

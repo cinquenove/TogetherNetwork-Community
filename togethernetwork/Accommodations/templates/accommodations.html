@@ -1,0 +1,59 @@
+{% extends "layout_accommodations.html" %}
+
+{% block container %}
+<div id="mainContainer" class="row">
+    {% for accommodation in accommodations %}
+
+    <div class="accommodation-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="accommodation-box-{{ accommodation.pk }}">
+        
+   		<div class="accommodation-box-content" id="accommodation-box-content-{{ accommodation.pk }}">
+   			{{ accommodation.title }}
+   		</div>
+        
+        <a href="{{ accommodation.get_absolute_url }}/join">
+            <div id="accommodation-button-{{ accommodation.pk }}" class="accommodation-box-button">
+                Book it for {{ accommodation.price }} &euro; p/n
+            </div>
+        </a>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {% for accommodation in accommodations %}
+    <script type="text/javascript">
+        $(function(){
+            var currenct_accommodation_box = $("#accommodation-box-{{ accommodation.pk }}");
+            {% if accommodation.photo %} // Using the right background:
+            currenct_accommodation_box.css("background-image","url('{{ accommodation.photo.url }}')");
+            {% endif %}
+            // Enabling join button fade effect
+            currenct_accommodation_box.hover(function(){
+                $("#accommodation-button-{{ accommodation.pk }}").fadeIn(250);
+            },function(){
+                $("#accommodation-button-{{ accommodation.pk }}").fadeOut(250);
+            });
+        });
+
+        $("#accommodation-box-{{ accommodation.pk }}").click(function() {
+            location.href = "{{ accommodation.get_absolute_url }}";
+        });
+    </script>
+    {% endfor %}
+
+    <script type="text/javascript">
+        // Resizing automatically every thumbnail in order to
+        // have 2 accommodation per column and a horizontal scrolling
+        function resizeThumbnails(){
+            $(".accommodation-box").height($(".accommodation-box").width());   
+        }
+        $(function() {
+            resizeThumbnails();
+        })
+        $(window).resize(function() { 
+            resizeThumbnails();
+        });            
+    </script>
+{% endblock %}
