@@ -3,3 +3,7 @@ body {
     background-image: url('/static/imgs/bg-body.png');
     background-repeat: repeat;
 }
+
+.signin-btn {
+    margin-right: 3px;
+}
