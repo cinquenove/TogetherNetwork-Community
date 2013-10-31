@@ -1,5 +1,10 @@
 /* Single Profile Page */
 
+.profile-header-content h1 small{
+	color: #bc2d37;
+	font-size: 14px;
+}
+
 .profile-user-pic-div {
     padding-top: 50px;
 }
