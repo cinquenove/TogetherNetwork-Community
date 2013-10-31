@@ -43,12 +43,15 @@
 							<li><a href="#">Something else here</a></li>
 							<li><a href="/accounts/logout/?next=/">Log out</a></li>
 						</ul>
-                        {% else %}
-						<li><button class="signin-btn navbar-btn btn btn-sm btn-default"><a href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}">Sign In</a></button></li>
-						<li><button class="signin-btn navbar-btn btn btn-sm btn-default"><a href="/accounts/register/" >Sign Up</a></button></li>
 						{% endif %}
 					</li>
 				</ul>
+ 				{% if not request.user.is_authenticated %}
+ 				<div class="pull-right">
+					<a href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}" class="signin-btn navbar-btn btn btn-sm btn-default">Sign In</a>
+					<a href="/accounts/register/" class="signin-btn navbar-btn btn btn-sm btn-default">Sign Up</a>
+				</div>
+				{% endif %}
 				{% endblock %}
 				{% block navbar_buttons %}{% endblock %}		
 			</div><!-- /.navbar-collapse -->
