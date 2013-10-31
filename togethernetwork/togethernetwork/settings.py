@@ -143,7 +143,8 @@ INSTALLED_APPS = (
     
     # Private Components
     "Mainpages",
-    "Activities"
+    "Activities",
+    "Profiles",
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
