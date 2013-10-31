@@ -12,7 +12,8 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     url(r'^avatar/', include('avatar.urls')),
-    
+
+    url(r'^accommodations/', include('Accommodations.urls')),
     url(r'^users/', include('Profiles.urls')),
     url(r'^activities/', include('Activities.urls')),
     url(r'^$', include('Mainpages.urls')),

@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     "Mainpages",
     "Activities",
     "Profiles",
+    "Accommodations",
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
