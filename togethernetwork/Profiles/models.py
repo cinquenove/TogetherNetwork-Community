@@ -11,7 +11,7 @@ class Profile(models.Model):
     #TODO: relation with space by checking other database models ( Bookins, Activities ecc..)
     city = models.CharField(max_length=200)
     bio = models.TextField(max_length=500, default="")
-    interests_and_skilss = models.TextField(max_length=500, default="")
+    interests_and_skills = models.TextField(max_length=500, default="")
     mission = models.CharField(max_length=250)
     
     personal_website_url = models.URLField(blank=True)
