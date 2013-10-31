@@ -8,6 +8,11 @@ class Profile(models.Model):
         Single User Profile
     """
     owner = models.ForeignKey(User, related_name="profile_owner")
+
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+
     #TODO: relation with space by checking other database models ( Bookins, Activities ecc..)
     city = models.CharField(max_length=200)
     bio = models.TextField(max_length=500, default="")
