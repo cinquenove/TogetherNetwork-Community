@@ -11,13 +11,11 @@ from Activities.models import Activity
 from .models import Profile
 from .forms import ProfileForm
 
-def profile_view(request, profile_pk=None):
+def profile_view(request, username):
     """
         Show a single profile
     """
-    profile = None
-    if profile_pk:
-        profile = Profile.objects.get(pk=profile_pk)
+    profile = get_object_or_404(Profile, owner__username=username)
 
     return render_to_response("profile.html", 
         {"profile": profile }, 
