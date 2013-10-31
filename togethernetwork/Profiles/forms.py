@@ -10,7 +10,7 @@ class ProfileForm(ModelForm):
             "city",
             "mission",
             "bio",
-            "interests_and_skilss",
+            "skills",
             "personal_website_url",
             "twitter_url",
             "facebook_url",
