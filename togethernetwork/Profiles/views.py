@@ -1,4 +1,5 @@
 # -*- coding=utf-8 -*-
+from django.http import Http404
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
 from django.template import RequestContext
@@ -15,7 +16,13 @@ def profile_view(request, username):
     """
         Show a single profile
     """
-    profile = get_object_or_404(Profile, owner__username=username)
+    try:
+        profile = Profile.objects.get(owner__username=username)
+    except:
+        if username == request.user.username:
+            return redirect(edit_profile_view)
+        else:
+            raise Http404
 
     return render_to_response("profile.html", 
         {"profile": profile }, 
