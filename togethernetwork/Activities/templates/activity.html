@@ -15,7 +15,7 @@
 <div id="mainContainer" class="activity-head">
 	<h1>{{ activity.title }}</h1>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
-	<div class="activity-user-pic-div">{% avatar activity.owner 120 %}</div>
+	<a href="/profiles/nobody"><div class="activity-user-pic-div">{% avatar activity.owner 120 %}</div></a>
 </div>
 
 <div class="activity-container container">
