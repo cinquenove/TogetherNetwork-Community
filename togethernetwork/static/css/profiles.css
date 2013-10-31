@@ -1,0 +1,21 @@
+/* Single Profile Page */
+
+.profile-user-pic-div {
+    padding-top: 50px;
+}
+
+.profile-user-pic-img {
+    border: solid 5px white;
+}
+
+.profile-header-content {
+    padding-top: 50px;
+}
+
+.profile-header-buttons {
+    padding-top: 100px;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
