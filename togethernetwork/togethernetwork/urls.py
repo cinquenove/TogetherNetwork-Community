@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^avatar/', include('avatar.urls')),
     
+    url(r'^profiles/', include('Profiles.urls')),
     url(r'^activities/', include('Activities.urls')),
     url(r'^$', include('Mainpages.urls')),
 )
