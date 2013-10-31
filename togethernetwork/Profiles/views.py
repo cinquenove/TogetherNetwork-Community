@@ -38,7 +38,7 @@ def edit_profile_view(request):
     try:
         profile = Profile.objects.get(owner=request.user)
     except:
-        profile = None
+        profile = Profile()
 
     if request.method == 'POST':
         formset = ProfileForm(request.POST, request.FILES, instance=profile)
@@ -46,9 +46,19 @@ def edit_profile_view(request):
             profile_obj = formset.save(commit=False)
             
             profile_obj.owner = request.user
+
+            request.user.email = profile_obj.email
+            request.user.first_name = profile_obj.first_name
+            request.user.last_name = profile_obj.last_name
+            request.user.save()
+
             profile_obj.save()
             return redirect(profile_obj)
     else:
+        profile.email = request.user.email
+        profile.first_name = request.user.first_name
+        profile.last_name = request.user.last_name
+        
         formset = ProfileForm(instance=profile)
         
     return render_to_response("form.html", {
