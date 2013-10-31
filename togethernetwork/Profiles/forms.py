@@ -8,9 +8,9 @@ class ProfileForm(ModelForm):
         fields = [
             #"owner",
             "city",
+            "mission",
             "bio",
             "interests_and_skilss",
-            "mission",
             "personal_website_url",
             "twitter_url",
             "facebook_url",
