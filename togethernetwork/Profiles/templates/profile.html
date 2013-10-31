@@ -10,23 +10,17 @@
         <!-- Content -->
         <div class="col-md-6 profile-header-content">
             <div class="page-header">
-                <h1>Nome Cognome <small><span class="glyphicon glyphicon-globe"></span> Stato</small></h1>
+                <h1>{{ profile.owner.first_name }} {{ profile.last_name }} <small><span class="glyphicon glyphicon-globe"></span> Stato</small></h1>
             </div>
             <p class="lead">
-                Bio: {{ profile.bio }}  
-
+                Mission: {{ profile.mission }}  
             </p>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Bio
                 </div>
                 <div class="panel-body">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   {{ profile.bio }}
                 </div>
             </div>
 
@@ -55,12 +49,12 @@
             </div>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <span class="badge">0</span>
-                    Partecipated In
+                    <span class="badge">0</span><b>
+                    Partecipated In</b>
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">0</span>
-                    Offered
+                    <span class="badge">0</span><b>
+                    Offered</b>
                 </li>
             </ul>
             <div class="panel panel-default">
