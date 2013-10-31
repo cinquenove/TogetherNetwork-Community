@@ -10,7 +10,7 @@ class Profile(models.Model):
     owner = models.ForeignKey(User, related_name="profile_owner")
     #TODO: relation with space by checking other database models ( Bookins, Activities ecc..)
     city = models.CharField(max_length=200)
-    bio = models.TextField(max_length=250, default="")
+    bio = models.TextField(max_length=500, default="")
     interests_and_skilss = models.TextField(max_length=500, default="")
     mission = models.CharField(max_length=250)
     
