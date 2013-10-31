@@ -1,6 +1,19 @@
 {% extends "layout_profiles.html" %}
 {% load avatar_tags %}
 
+{% block navbar_buttons %}
+{% if profile.owner == request.user %}
+&nbsp;<a href="{{ profile.get_absolute_url }}/edit" class="signin-btn btn btn-success navbar-btn pull-right">
+    <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+    Edit
+</a>
+&nbsp;<a href="/avatar/change" class="signin-btn btn btn-danger navbar-btn pull-right">
+    <span class="glyphicon glyphicon-camera"></span>&nbsp;
+    Change Avatar
+</a>
+{% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="row profile-header">
         <!-- Sidebar -->
