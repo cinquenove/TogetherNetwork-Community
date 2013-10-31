@@ -7,6 +7,9 @@ class ProfileForm(ModelForm):
         model = Profile
         fields = [
             #"owner",
+            "first_name",
+            "last_name",
+            "email",
             "city",
             "mission",
             "bio",
