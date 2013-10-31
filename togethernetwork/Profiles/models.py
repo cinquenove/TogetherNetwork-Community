@@ -19,12 +19,12 @@ class Profile(models.Model):
     skills = models.TextField(max_length=500, default="")
     mission = models.CharField(max_length=250)
     
-    personal_website_url = models.URLField(blank=True)
-    twitter_url = models.URLField(blank=True)
-    facebook_url = models.URLField(blank=True)
+    personal_website_url = models.URLField(default="http://", blank=True)
+    twitter_url = models.URLField(default="http://twitter.com/", blank=True)
+    facebook_url = models.URLField(default="http://facebook.com/", blank=True)
     
     def get_absolute_url(self):
-        return "/profiles/%s" % self.owner.username
+        return "/users/%s" % self.owner.username
 
     def __str__(self):
         return "%s" % ( self.owner.username )
