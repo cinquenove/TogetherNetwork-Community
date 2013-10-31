@@ -44,8 +44,8 @@
 							<li><a href="/accounts/logout/?next=/">Log out</a></li>
 						</ul>
                         {% else %}
-						<li><a href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}">Sign In</a></li>
-						<li><a href="/accounts/register/">Sign Up</a></li>
+						<li><button type="button" class="signin-btn navbar-btn btn btn-sm btn-default" href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}">Sign In</button></li>
+						<li><button type="button" class="signin-btn navbar-btn btn btn-sm btn-default" href="/accounts/register/">Sign Up</button></li>
 						{% endif %}
 					</li>
 				</ul>
