@@ -10,7 +10,13 @@
         <!-- Content -->
         <div class="col-md-6 profile-header-content">
             <div class="page-header">
-                <h1>{{ profile.owner.first_name }} {{ profile.last_name }} <small><span class="glyphicon glyphicon-globe"></span> Stato</small></h1>
+                <h1>
+                    {{ profile.owner.first_name }} {{ profile.last_name }}
+                    <small>
+                        <span class="glyphicon glyphicon-globe"></span> 
+                        {{ profile.city }}
+                    </small>
+                </h1>
             </div>
             <p class="lead">
                 <b>Mission: </b>{{ profile.mission }}  
@@ -36,10 +42,16 @@
         <div class="col-md-3 text-rigth profile-header-buttons">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <a href="#"><img src="/static/imgs/tw-icon.png"></a>
-                    <a href="#"><img src="/static/imgs/fb-icon.png"></a>
-                    <a href="#"><img src="/static/imgs/mail-icon.png"></a>
-                    <a href="#"><img src="/static/imgs/website-icon.png"></a>
+                    {% if profile.twitter_url|length > 19 %}
+                        <a href="{{ profile.twitter_url }}" target="_blank"><img src="/static/imgs/tw-icon.png"></a>
+                    {% endif %}
+                    {% if profile.facebook_url|length > 20 %}
+                        <a href="{{ profile.facebook_url }}" target="_blank"><img src="/static/imgs/fb-icon.png"></a>
+                    {% endif %}
+                    {% if profile.personal_website_url %}
+                        <a href="{{ profile.personal_website_url }}" target="_blank"><img src="/static/imgs/website-icon.png"></a>
+                    {% endif %}
+                    <a href="mailto:{{ profile.email }}"><img src="/static/imgs/mail-icon.png"></a>
                 </div>
             </div>
             <ul class="list-group">
