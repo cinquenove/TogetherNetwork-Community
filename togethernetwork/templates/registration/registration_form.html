@@ -11,3 +11,5 @@
     Then just <a href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}">log in</a>!
 </h6>
 {% endblock %}
+
+{% block submitButtonText %}Register{% endblock %}

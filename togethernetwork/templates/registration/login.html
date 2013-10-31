@@ -5,13 +5,4 @@
     <h6>Don't have an account yet?<br>Then just <a href="/accounts/register/">sign up</a>!</h6>
 {% endblock %}
 
-{% block buttons %}
-    <div class="control-group">
-        <label class="control-label" for="submit">&nbsp;</label>
-        <div class="controls">
-            <button type="submit" class="btn btn-success">Go</button>
-            <a class="btn btn-info" href="javascript:void(0);" onclick="window.history.back();">Cancel</a>
-        </div>
-    </div>
-{% endblock %}
-
+{% block submitButtonText %} Go {% endblock %}
