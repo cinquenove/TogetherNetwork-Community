@@ -9,7 +9,8 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
+    #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     url(r'^avatar/', include('avatar.urls')),
     
     url(r'^profiles/', include('Profiles.urls')),
