@@ -54,8 +54,8 @@
     <div class="control-group">
         <label class="control-label" for="submit">&nbsp;</label>
         <div class="controls">
-            <button type="submit" class="btn btn-success">Register</button>
-            <a class="btn btn-info" href="javascript:void(0);" onclick="window.history.back();">Cancel</a>
+            <button type="submit" class="btn btn-success">{% block submitButtonText %}Save{% endblock %}</button>
+            <a class="btn btn-info" href="javascript:void(0);" onclick="window.history.back();">{% block cancelButtonText %}Cancel{% endblock %}</a>
         </div>
     </div>
 {% endblock %}
