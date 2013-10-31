@@ -7,3 +7,8 @@ body {
 .signin-btn {
     margin-right: 3px;
 }
+
+
+.navbar-brand {
+    max-height: 50px;
+}
