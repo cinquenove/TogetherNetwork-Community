@@ -16,6 +16,12 @@
     padding-top: 70px;
 }
 
+.profile-header-buttons img {
+    margin-right: 7.5px;
+    margin-left: 7.5px;
+}
+
 .profile-header {
     margin-bottom: 20px;
 }
+
