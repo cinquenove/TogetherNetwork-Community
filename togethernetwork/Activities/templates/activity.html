@@ -19,17 +19,35 @@
 </div>
 
 <div class="activity-container container">
-	<div class="activity-description">{{ activity.description|linebreaks }}</div>
-	<div class="text-center">
-    {% if activity.owner != request.user %}
-        {% if request.user in activity.attendees.all %}
-        <a href="{{ activity.get_absolute_url }}/leave" class="btn btn-danger btn-lg">Leave {{ activity.title }}</a>
-        {% else %}
-        <a href="{{ activity.get_absolute_url }}/join" class="btn btn-success btn-lg">Join {{ activity.title }}</a>
-        {% endif %}
-    {% else %}
-        <a href="javascript:void(0);" onclick="deleteActivity();" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete "{{ activity.title }}"</a>
-    {% endif %}
+	<div class="activity-description">
+        {{ activity.description|linebreaks }}
+    </div>
+	<div class="row">
+        <div class="col-md-6">
+            <div class="row panel panel-default">
+                <div class="col-md-6 text-left">
+                    <h4>Price:</h4>
+                </div>
+                <div class="col-md-6 text-right">
+                    <h4>{% if activity.price == 0 %}
+                        Free
+                    {% else %}
+                        {{ activity.price }} &euro;
+                    {% endif %}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            {% if activity.owner != request.user %}
+                {% if request.user in activity.attendees.all %}
+                <a href="{{ activity.get_absolute_url }}/leave" class="btn btn-danger btn-lg btn-block">Leave {{ activity.title }}</a>
+                {% else %}
+                <a href="{{ activity.get_absolute_url }}/join" class="btn btn-success btn-lg btn-block">Join {{ activity.title }}</a>
+                {% endif %}
+            {% else %}
+                <a href="javascript:void(0);" onclick="deleteActivity();" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete</a>
+            {% endif %}
+        </div>
 	</div>
 
 </div>    
