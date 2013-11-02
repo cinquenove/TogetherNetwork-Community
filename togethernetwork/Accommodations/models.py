@@ -34,8 +34,6 @@ class Accommodation(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=500, default="")
     accommodation_type = models.CharField(max_length=3, choices=ACCOMMODATION_TYPE)
-
-    location = models.ForeignKey(Location, related_name="activity_location")
     photo = models.ImageField(upload_to=get_accommodations_path, blank=True, null=True)
 
     price = models.FloatField(default=0.0) 
