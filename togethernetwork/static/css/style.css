@@ -16,3 +16,8 @@ body {
 .img-responsive-center {
     margin: 0 auto;
 }
+
+.img-super-responsive {
+    height: auto;
+    max-width: 100%;
+}
