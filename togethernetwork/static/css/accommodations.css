@@ -69,3 +69,49 @@
 .accommodation-box-button:hover {
     background-color: #666;
 }
+
+/* Single accommodation */
+
+.accommodation-container {
+    max-width: 600px;
+    font-family: 'Actor', sans-serif;
+    font-size: 20px;
+}
+
+.accommodation-head {
+    width: 100%;
+    min-height: 250px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('/static/imgs/photos/BG-landing-page.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    color: #FFF;
+    font-family: 'Actor', sans-serif;
+    font-size: 25px;
+    text-shadow: 0px 0px 5px black;
+}
+
+.accommodation-thumb{
+    min-height: 150px;
+}
+
+.accommodation-head h1 {
+    font-size: 40px;
+}
+
+.accommodation-user-pic-div {
+    padding-top: 50px;
+}
+
+.accommodation-user-pic-img {
+    border: solid 5px white;
+}
+
+.accommodation-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
