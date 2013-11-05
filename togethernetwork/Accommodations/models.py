@@ -137,11 +137,8 @@ class AccommodationPhoto(models.Model):
         self.create_thumbnails()
         super(AccommodationPhoto, self).save()
 
-    def get_absolute_url(self):
-        return "/accommodations/%s" % self.pk
-
     def __str__(self):
-        return "%s" % self.title
+        return "%s - %s %s" % (self.accommodation.name, self.pk, self.title)
 
 ## Booking 
 
