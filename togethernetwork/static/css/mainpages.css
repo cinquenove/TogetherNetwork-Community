@@ -55,21 +55,21 @@ color: white;
 }
 
 #homepage-main {
-    background-image: url('/static/imgs/BG-landing-page.png');
+    background-image: url('/static/imgs/photos/BG-landing-page.png');
 }
 
 #homepage-live {
-    background-image: url('/static/imgs/home-slide-live.png');
+    background-image: url('/static/imgs/photos/home-slide-live.png');
 }
 
 
 #homepage-learn {
-    background-image: url('/static/imgs/home-slide-learn.png');
+    background-image: url('/static/imgs/photos/home-slide-learn.png');
 }
 
 
 #homepage-make {
-    background-image: url('/static/imgs/home-slide-make.png');
+    background-image: url('/static/imgs/photos/home-slide-make.png');
 }
 
 
@@ -88,7 +88,7 @@ color: white;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url('/static/imgs/BG-landing-page.png');
+    background-image: url('/static/imgs/photos/BG-landing-page.png');
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover;
