@@ -59,6 +59,7 @@
 </div>
 <div class="homepage-slide" id="homepage-make">
     <div class="container">
+<<<<<<< HEAD
             <div class="text-right" id="home-page-logo">
                 <img class="img-super-responsive" src="/static/imgs/make-together.png">
                 <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
@@ -70,6 +71,18 @@
                     The house encourages collaboration among members with ongoing sustainable projects aimed to benefit the local communities and the rest of the planet
                 </p>
             </div>
+=======
+        <div class="text-right" id="home-page-logo">
+            <img class="img-super-responsive" src="/static/imgs/make-together.png">
+            <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
+        </div>
+        <br>
+        <br>
+        <div class="text-left">
+            <p class="lead" id="payoff">
+                Text goes here
+            </p>
+>>>>>>> a69f317745bfee7542e73813830fc55b0bfeb062
         </div>
     </div>
     <div class="clearfix"></div>
@@ -79,7 +92,15 @@
 {% block scripts %}
     <script type="text/javascript">
         function change_slides_heigth() {
-            $(".homepage-slide").height( $(window).height()-30);
+            $( ".homepage-slide" ).each(function( inde ) {
+                var min_h = $( this ).children(".container").height() + 5;
+                if($(window).height() <= min_h ){
+                    $( this ).height(min_h);
+                }else{
+                    $( this ).height( $(window).height() );
+                }
+            });
+            
         }
         $( window ).resize(function() { change_slides_heigth(); });
         $(function() {
