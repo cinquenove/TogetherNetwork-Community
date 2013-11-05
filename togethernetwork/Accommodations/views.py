@@ -19,3 +19,12 @@ def accommodations_view(request):
         {"accommodations": accommodations},
         context_instance=RequestContext(request))
 
+def single_accommodation_view(request, accommodation_pk):
+    """
+        Show the single accommodation view
+    """
+    accommodation = get_object_or_404(Accommodation, pk=accommodation_pk)
+    return render_to_response("accommodation.html", 
+        {"accommodation": accommodation }, 
+        context_instance=RequestContext(request))
+
