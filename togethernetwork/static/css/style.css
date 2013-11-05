@@ -12,3 +12,9 @@ body {
 .navbar-brand {
     max-height: 50px;
 }
+
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
