@@ -50,3 +50,35 @@ color: white;
 .footerbar a:hover{
     color: #333;
 }
+
+/* Static Page */
+
+.static-container {
+    max-width: 600px;
+}
+
+.static-head {
+    width: 100%;
+    min-height: 400px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('/static/imgs/BG-landing-page.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    color: #FFF;
+    font-size: 25px;
+    text-shadow: 0px 0px 5px black;
+
+}
+
+.static-head h1 {
+    font-size: 40px;
+}
+
+.static-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
