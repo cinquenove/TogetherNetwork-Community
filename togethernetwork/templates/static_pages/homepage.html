@@ -79,11 +79,11 @@
     <script type="text/javascript">
         function change_slides_heigth() {
             $( ".homepage-slide" ).each(function( inde ) {
-                var min_h = $( this ).children(".container").height() + 5;
-                if($(window).height() <= min_h ){
+                var min_h = $( this ).children(".container").height();
+                if( ( $(window).height()-10) <= min_h ){
                     $( this ).height(min_h);
                 }else{
-                    $( this ).height( $(window).height() );
+                    $( this ).height( $(window).height()-10 );
                 }
             });
             
