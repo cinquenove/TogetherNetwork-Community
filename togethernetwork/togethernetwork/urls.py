@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^users/', include('Profiles.urls')),
     url(r'^activities/', include('Activities.urls')),
     
+    # Static Pages
     url(r'^about$', TemplateView.as_view(template_name='pages/about.html')),
     url(r'^$', TemplateView.as_view(template_name='pages/homepage.html')),
 )
