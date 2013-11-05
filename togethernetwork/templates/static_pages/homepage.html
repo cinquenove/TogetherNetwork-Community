@@ -4,7 +4,8 @@
     <link href="/static/css/mainpages.css" rel="stylesheet" media="screen">
 {% endblock %}
 
-{% block content %}
+{% block container %}
+<div class="homepage-slide" id="homepage-main">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center" id="home-page-logo">
             <img src="/static/imgs/logone-Together.png">
@@ -14,43 +15,56 @@
             <a href="/accounts/register/"><div id="buttoncomehome">come home</div></a>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-8 col-md-offset-4 text-right" id="home-page-logo">
-            <img src="/static/imgs/live-together.png">
-            <h3 id="payoff">Most meaningful conversations happen when people are <span id="payoffred">relaxed</span></p></h3>
-            <br>
-            <br>
-            
+</div>
+<div class="homepage-slide" id="homepage-live">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4 text-right" id="home-page-logo">
+                <img src="/static/imgs/live-together.png">
+                <h3 id="payoff">Most meaningful conversations happen when people are <span id="payoffred">relaxed</span></p></h3>
+                <br>
+                <br>
+                
+            </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-8 text-left" id="home-page-logo">
-            <img src="/static/imgs/learn-together.png">
-            <h3 id="payoff"><span id="payoffred">Knowledge</span> is love and light and vision</h3>
-            <br>
-            <br>
-            
+</div>
+<div class="homepage-slide" id="homepage-learn">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 text-left" id="home-page-logo">
+                <img src="/static/imgs/learn-together.png">
+                <h3 id="payoff"><span id="payoffred">Knowledge</span> is love and light and vision</h3>
+                <br>
+                <br>
+                
+            </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-8 col-md-offset-4 text-right" id="home-page-logo">
-            <img src="/static/imgs/make-together.png">
-            <h3 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h3>
-            <br>
-            <br>
-            
+</div>
+<div class="homepage-slide" id="homepage-make">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4 text-right" id="home-page-logo">
+                <img src="/static/imgs/make-together.png">
+                <h3 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h3>
+                <br>
+                <br>
+                
+            </div>
         </div>
     </div>
-
+</div>
 {% endblock %}
 
 {% block scripts %}
     <script type="text/javascript">
-        $(function(){
-            $("body").attr("id", "bg-homepage");
-        });
+        function change_slides_heigth() {
+            $(".homepage-slide").height( $(window).height()-30);
+        }
+        $( window ).resize(function() { change_slides_heigth(); });
+        $(function() {
+            change_slides_heigth()
+        })
     </script>
 {% endblock %}

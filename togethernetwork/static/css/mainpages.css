@@ -1,13 +1,5 @@
 /* Homepage */
 
-#bg-homepage {
-    background-image: url('/static/imgs/BG-landing-page.png');
-    background-repeat: no-repeat; 
-    background-position: top;
-    background-size: cover;
-    background-color: black;
-}
-
 #home-page-logo {
     margin-top:150px;
 }
@@ -50,6 +42,36 @@ color: white;
 .footerbar a:hover{
     color: #333;
 }
+
+/* Homepage Slides */
+
+.homepage-slide {
+    min-height: 500px;
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-size: cover;
+    background-color: black;
+}
+
+#homepage-main {
+    background-image: url('/static/imgs/BG-landing-page.png');
+}
+
+#homepage-live {
+    background-image: url('/static/imgs/home-slide-live.png');
+}
+
+
+#homepage-learn {
+    background-image: url('/static/imgs/home-slide-learn.png');
+}
+
+
+#homepage-make {
+    background-image: url('/static/imgs/home-slide-make.png');
+}
+
+
 
 /* Static Page */
 
