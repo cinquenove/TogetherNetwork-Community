@@ -5,6 +5,9 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+from django.views.generic import RedirectView
+from django.views.generic import TemplateView
+
 urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^admin/', include(admin.site.urls)),
@@ -16,5 +19,7 @@ urlpatterns = patterns('',
     url(r'^accommodations/', include('Accommodations.urls')),
     url(r'^users/', include('Profiles.urls')),
     url(r'^activities/', include('Activities.urls')),
-    url(r'^$', include('Mainpages.urls')),
+    
+    url(r'^about$', TemplateView.as_view(template_name='pages/about.html')),
+    url(r'^$', TemplateView.as_view(template_name='pages/homepage.html')),
 )
