@@ -21,6 +21,13 @@ ACCOMMODATION_TYPE = [
     ('SNG', '1 bed'),
 ]
 
+BOOKING_STATUSES = [
+    ('ACC', 'Accepted'),
+    ('WFA', 'Waiting for approval'),
+    ('WFP', 'Waiting for payment'),
+    ('DEC', 'Declined'),
+]
+
 def get_accommodations_path(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
@@ -29,7 +36,6 @@ def get_accommodations_path(instance, filename):
 class Accommodation(models.Model):
     """
         A single Accommodation.
-
     """
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=500, default="")
@@ -100,3 +106,25 @@ class Accommodation(models.Model):
 
     def __str__(self):
         return "%s" % self.title
+
+class Booking(models.Model):
+    """
+        The Booking for a period of time owned by a user for a specific Accommodation.
+    """
+    start = models.DateField(default=( datetime.now() + timedelta(days=1) ) )
+    stop = models.DateField(default=( datetime.now() + timedelta(days=2) ) )
+
+    status = models.CharField(max_length=3, choices=BOOKING_STATUSES)
+    tenant = models.ForeignKey(User, related_name="booking_tenant")
+    accommodation = models.ForeignKey(Accommodation, related_name="booking_accommodation")
+
+    def get_absolute_url(self):
+        return "/accommodations/%s/booking/%s" % ( self.accommodation.pk, self.pk )
+
+    def __str__(self):
+        return "(%s)[%s] %s booked by %s" % ( 
+                self.start,
+                self.status,
+                self.accommodation.title, 
+                self.tenant.username 
+            )
