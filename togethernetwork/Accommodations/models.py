@@ -95,7 +95,7 @@ class AccommodationPhoto(models.Model):
     """
         A single Photo of a single Accommodation.
     """
-    title = models.CharField(blank=True, default="")
+    title = models.CharField(max_length=140, blank=True, default="")
     photo = models.ImageField(upload_to=get_accommodation_photos_path, blank=True, null=True)
     accommodation = models.ForeignKey(Accommodation, related_name="booking_accommodation")
 
@@ -161,7 +161,7 @@ class Booking(models.Model):
 
     status = models.CharField(max_length=3, default="WFA", choices=BOOKING_STATUSES)
     tenant = models.ForeignKey(User, related_name="booking_tenant")
-    accommodation = models.ForeignKey(Accommodation, related_name="booking_accommodation")
+    accommodation = models.ForeignKey(Accommodation, related_name="booking_of_accommodation")
 
     def get_absolute_url(self):
         return "/accommodations/%s/booking/%s" % ( self.accommodation.pk, self.pk )
