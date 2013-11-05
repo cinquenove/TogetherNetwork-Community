@@ -17,7 +17,9 @@
 </div>
 <div class="row accommodation-photos">
     {% for photo in photos %}
-    <div class="col-md-3 accommodation-thumb" id="accommodation-thumb-{{ photo.pk }}"></div>
+    <a href="{{ photo.photo.url }}" target="_new">
+        <div class="col-md-3 accommodation-thumb" id="accommodation-thumb-{{ photo.pk }}"></div>
+    </a>
     <style type="text/css">
         #accommodation-thumb-{{ photo.pk }} {
             background-image: url('{{ photo.photo.url }}');
