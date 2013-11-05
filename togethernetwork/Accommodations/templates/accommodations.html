@@ -28,8 +28,8 @@
     <script type="text/javascript">
         $(function(){
             var currenct_accommodation_box = $("#accommodation-box-{{ accommodation.pk }}");
-            {% if accommodation.photo %} // Using the right background:
-            currenct_accommodation_box.css("background-image","url('{{ accommodation.photo.url }}')");
+            {% if accommodation.main_photo %} // Using the right background:
+            currenct_accommodation_box.css("background-image","url('{{ accommodation.main_photo.url }}')");
             {% endif %}
             // Enabling join button fade effect
             currenct_accommodation_box.hover(function(){
