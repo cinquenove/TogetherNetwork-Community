@@ -27,9 +27,7 @@
         $(function(){
             $(".static-user-pic-div img").addClass("img-circle");
             $(".static-user-pic-div img").addClass("static-user-pic-img");
-            {% if static.photo %}
             $(".static-head").css("background-image","url('{% block static_head_bg %}{% endblock %}')");
-            {% endif %}
         });
     </script>
 {% endblock %}
