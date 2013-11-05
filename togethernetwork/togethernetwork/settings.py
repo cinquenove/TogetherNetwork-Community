@@ -142,7 +142,6 @@ INSTALLED_APPS = (
     'avatar',
     
     # Private Components
-    "Mainpages",
     "Activities",
     "Profiles",
     "Accommodations",
