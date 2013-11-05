@@ -101,6 +101,9 @@
     background-size: cover;
     background-color: black;
     min-height: 150px;
+    border: solid 1px white;
+    
+
 }
 
 .accommodation-head h1 {
