@@ -141,7 +141,7 @@ class AccommodationPhoto(models.Model):
         return "/accommodations/%s" % self.pk
 
     def __str__(self):
-        return "%s" % self.title
+        return "%s" % self.name
 
 ## Booking 
 
