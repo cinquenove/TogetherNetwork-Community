@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^activities/', include('Activities.urls')),
     
     # Static Pages
+    url(r'^principles$', TemplateView.as_view(template_name='static_pages/about.html')),
     url(r'^about$', TemplateView.as_view(template_name='static_pages/about.html')),
     url(r'^$', TemplateView.as_view(template_name='static_pages/homepage.html')),
 )
