@@ -2,8 +2,6 @@ body {
     padding-bottom: 50px;
     background-image: url('/static/imgs/bg-body.png');
     background-repeat: repeat;
-    font-family: 'Actor', sans-serif;
-    font-size: 20px;
 }
 
 .signin-btn {

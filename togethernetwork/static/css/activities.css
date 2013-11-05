@@ -74,6 +74,8 @@
 
 .activity-container {
     max-width: 600px;
+    font-family: 'Actor', sans-serif;
+    font-size: 20px;
 }
 
 .activity-head {
@@ -88,6 +90,7 @@
     background-size: cover;
     background-color: black;
     color: #FFF;
+    font-family: 'Actor', sans-serif;
     font-size: 25px;
     text-shadow: 0px 0px 5px black;
 

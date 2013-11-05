@@ -78,6 +78,8 @@ color: white;
 
 .static-container {
     max-width: 600px;
+    font-family: 'Actor', sans-serif;
+    font-size: 20px;
 }
 
 .static-head {
