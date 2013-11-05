@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% load avatar_tags %}
+
+{% block head %}
+  <link href="/static/css/mainpages.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+
+{% block container %}
+
+<div id="mainContainer" class="static-head">
+
+  {% block static_head %}
+    <h1>{% block static_head_title %}{% endblock %}</h1>
+  {% endblock %}
+</div>
+
+<div class="static-container container">
+  <div class="static-description">
+        {% block static_description %}{% endblock %}
+    </div>
+</div>    
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(function(){
+            $(".static-user-pic-div img").addClass("img-circle");
+            $(".static-user-pic-div img").addClass("static-user-pic-img");
+            {% if static.photo %}
+            $(".static-head").css("background-image","url('{% block static_head_bg %}{% endblock %}')");
+            {% endif %}
+        });
+    </script>
+{% endblock %}
