@@ -133,7 +133,7 @@ class AccommodationPhoto(models.Model):
         self.photo.save('%s_big.%s'%(os.path.splitext(suf_big.name)[0],FILE_EXTENSION), suf_big, save=False)
         
     def save(self):
-        if AccommodationPhoto.objects.filter(accommodation=self.accommodation).cout() >= 4:
+        if AccommodationPhoto.objects.filter(accommodation=self.accommodation).count() >= 4:
             raise Exception("Too many Photos! Delete one! ( max 4 photos per Accommodation )")
             return None
         # create a thumbnail
