@@ -19,7 +19,7 @@ ROOM_SIZES = [
     ('SNG', 'Single'),
 ]
 
-ROOM_TYPES [
+ROOM_TYPES = [
     ('LCL', 'Local'),
     ('GST', 'Guest'),
 ]
