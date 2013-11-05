@@ -80,10 +80,10 @@
         function change_slides_heigth() {
             $( ".homepage-slide" ).each(function( inde ) {
                 var min_h = $( this ).children(".container").height();
-                if( ( $(window).height()-10) <= min_h ){
+                if( ( $(window).height()-100) <= min_h ){
                     $( this ).height(min_h);
                 }else{
-                    $( this ).height( $(window).height()-10 );
+                    $( this ).height( $(window).height()-100 );
                 }
             });
             
