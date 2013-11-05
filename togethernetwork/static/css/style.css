@@ -12,3 +12,7 @@ body {
 .navbar-brand {
     max-height: 50px;
 }
+
+.img-responsive-center {
+    margin: 0 auto;
+}
