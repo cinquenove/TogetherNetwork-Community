@@ -70,7 +70,7 @@
     background-color: #666;
 }
 
-/* Single accommodation */
+/* Single Accommodation */
 
 .accommodation-container {
     max-width: 600px;
@@ -96,6 +96,10 @@
 }
 
 .accommodation-thumb{
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+    background-color: black;
     min-height: 150px;
 }
 

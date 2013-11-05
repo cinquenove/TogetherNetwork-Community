@@ -15,6 +15,16 @@
 <div id="mainContainer" class="accommodation-head">
 	<h1>{{ accommodation.name }}</h1>
 </div>
+<div class="row accommodation-photos">
+    {% for photo in photos %}
+    <div class="col-md-3 accommodation-thumb" id="accommodation-thumb-{{ photo.pk }}"></div>
+    <style type="text/css">
+        #accommodation-thumb-{{ photo.pk }} {
+            background-image: url('{{ photo.photo.url }}');
+        }
+    </style>
+    {% endfor %}
+</div>
 
 <div class="accommodation-container container">
 	<div class="accommodation-description">
