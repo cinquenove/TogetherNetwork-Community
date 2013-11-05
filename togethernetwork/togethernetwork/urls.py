@@ -9,13 +9,16 @@ from django.views.generic import RedirectView
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
+    # Django Components
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^admin/', include(admin.site.urls)),
 
+    # Community Developed Components
     url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     url(r'^avatar/', include('avatar.urls')),
 
+    # Custom Components
     url(r'^accommodations/', include('Accommodations.urls')),
     url(r'^users/', include('Profiles.urls')),
     url(r'^activities/', include('Activities.urls')),
