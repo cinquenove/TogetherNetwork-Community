@@ -30,7 +30,7 @@
 
     <section id="slide-live" data-type="background" data-speed="10">
 
-<div class="homepage-slide" id="homepage-live">
+<div class="homepage-slide" id="homepage-live">>
     <article class="container">
 
         
@@ -129,7 +129,7 @@
 
 var $window = $(window); //You forgot this line in the above example
 
-$('section[data-type="background"]').each(function(){
+$('section[data-type="background"]').each(function parallax(){
 var $bgobj = $(this); // assigning the object
 $(window).scroll(function() {
 var yPos = -($window.scrollTop() / $bgobj.data('speed'));

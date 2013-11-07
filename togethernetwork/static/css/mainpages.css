@@ -1,8 +1,8 @@
 /* Parallax */
 
 #home { 
-  background: url('/static/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; min-height: 700px; 
-  height: 700px; 
+  background: url('/static/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; min-height: 800px; 
+  height: 800px; 
   margin: 0 auto; 
   width: 100%; 
 
@@ -18,11 +18,11 @@
 }
  
 #slide-live { 
-background: url('/static/imgs/photos/home-slide-live.png') 50% 0 no-repeat min-height: 1000px;  
-height: 1000px; 
+  background-image: url('/static/imgs/photos/home-slide-live.png') 50% 0 no-repeat min-height: 800px;  
+  height: 800px; 
   margin: 0 auto; 
   width: 100%; 
-  max-width: 1920px; 
+ 
   position: relative; 
   -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
@@ -33,18 +33,16 @@ height: 1000px;
   position: absolute; 
   text-align: center; 
  
-  width: 100%; 
+ 
 }
 
 #slide-learn { 
-background: url('/static/imgs/photos/home-slide-learn.png') 50% 0 no-repeat min-height: 1000px;  
-height: 1000px; 
+background: url('/static/imgs/photos/home-slide-learn.png') 50% 0 no-repeat min-height: 800px;  
+height: 800px; 
   margin: 0 auto; 
   width: 100%; 
-  max-width: 1920px; 
+
   position: relative; 
-  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
-  box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
 #slide-learn article { 
@@ -52,15 +50,15 @@ height: 1000px;
   position: absolute; 
   text-align: center; 
  
-  width: 100%; 
+
 }
 
 #slide-make { 
-background: url('/static/imgs/photos/home-slide-make.png') 50% 0 no-repeat min-height: 1000px;  
-height: 1000px; 
+background: url('/static/imgs/photos/home-slide-make.png') 50% 0 no-repeat min-height: 800px;  
+height: 800px; 
   margin: 0 auto; 
   width: 100%; 
-  max-width: 1920px; 
+ 
   position: relative; 
   -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
@@ -71,7 +69,7 @@ height: 1000px;
   position: absolute; 
   text-align: center; 
  
-  width: 100%; 
+
 }
 
 
@@ -142,7 +140,7 @@ color: white;
 }
 
 #homepage-live {
-    background-image: url('/static/imgs/photos/home-slide-live.png');
+   background-image: url('/static/imgs/photos/home-slide-live.png'); 
 }
 
 
