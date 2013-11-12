@@ -16,8 +16,11 @@ echo -n "- Cleaning the environment: "
     python ./manage.py clearsessions &> /dev/null
 echo "done"
 
-echo -n "- Synchronizing database and files: "
+echo -n "- Synchronizing static files: "
     python ./manage.py collectstatic --noinput &> /dev/null
+echo "done"
+
+echo -n "- Synchronizing database: "
     python ./manage.py syncdb &> /dev/null
 echo "done"
 
