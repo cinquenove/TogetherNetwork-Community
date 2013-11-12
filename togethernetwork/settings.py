@@ -4,7 +4,6 @@
 import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import dj_database_url
-from s3utils import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -189,7 +188,8 @@ LOGGING = {
 ACCOUNT_ACTIVATION_DAYS = 7
 
 # Django Storages
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'libs.storages.S3Storage.S3Storage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 #DEFAULT_FILE_STORAGE = 's3utils.MediaRootS3BotoStorage'
 #STATICFILES_STORAGE = 's3utils.StaticRootS3BotoStorage'
 
