@@ -1,4 +1,5 @@
 django
+django-storages
 django-toolbelt
 django-avatar
 django-registration
