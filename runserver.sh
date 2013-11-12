@@ -6,13 +6,15 @@ echo -n "- Creating a virtual environment: "
     source venv/bin/activate
 echo "done"
 
-echo -n "- Upgrading dependencies inside the virtual environment: "
-    pip install -q -U -r requirements.txt
-echo "done"
+if [[ $@ == **upgrade** ]]; then
+    echo -n "- Upgrading dependencies inside the virtual environment: "
+        pip install -q -U -r requirements.txt
+    echo "done"
+fi
 
 echo -n "- Synchronizing database: "
-    python ./manage.py clearsessions
-    python ./manage.py syncdb
+    python ./manage.py clearsessions &> /dev/null
+    python ./manage.py syncdb &> /dev/null
 echo "done"
 
 echo "Starting the server: "
