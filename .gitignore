@@ -39,3 +39,4 @@ nosetests.xml
 *.sql
 venv
 uploads
+staticfiles
