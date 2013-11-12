@@ -1,15 +1,24 @@
 #!/bin/bash
+# -*- coding=utf-8 -*-
 
-echo -n "Killing old process: "
-screen -S togethernetwork -X quit &> /dev/null
-echo "done"
+#python ./manage.py makemessages -l en
+#python ./manage.py makemessages -l it
+#python ./manage.py compilemessages
 
-echo -n "Upgrading dependencies inside the virtual environment: "
-source venv/bin/activate 
-cd togethernetwork
-pip install -q -U -r requirements.txt &> /dev/null
-echo "done"
+# python ./manage.py schemamigration Teas --auto
+# python ./manage.py schemamigration Profiles --auto
+# python ./manage.py schemamigration Groups --auto
 
-echo "Sleeping 1 second before creating a new screen..."
-sleep 1
-screen -S togethernetwork ./runserver.sh
+python ./manage.py syncdb
+#python ./manage.py migrate
+python ./manage.py clearsessions
+
+if [[ $EUID -ne 0 ]]; then
+    #honcho -f Procfile start --port 8000
+    python ./manage.py runserver 0.0.0.0:8000
+else
+    #honcho -f Procfile start --port 80
+    python ./manage.py runserver 0.0.0.0:80
+fi
+
+echo -n "Press enter to continue... " ; read
