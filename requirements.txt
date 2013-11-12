@@ -1,6 +1,7 @@
 django
 django-toolbelt
 boto
+s3utils
 django-storages
 django-avatar
 django-registration
