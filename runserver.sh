@@ -1,24 +1,22 @@
 #!/bin/bash
 # -*- coding=utf-8 -*-
 
-#python ./manage.py makemessages -l en
-#python ./manage.py makemessages -l it
-#python ./manage.py compilemessages
+echo -n "- Creating a virtual environment: "
+    virtualenv venv -v &> /dev/null
+    source venv/bin/activate
+echo "done"
 
-# python ./manage.py schemamigration Teas --auto
-# python ./manage.py schemamigration Profiles --auto
-# python ./manage.py schemamigration Groups --auto
+echo -n "- Upgrading dependencies inside the virtual environment: "
+    pip install -q -U -r togethernetwork/requirements.txt
+echo "done"
 
-python ./manage.py syncdb
-#python ./manage.py migrate
-python ./manage.py clearsessions
+echo -n "- Synchronizing dependencies inside the virtual environment: "
+    python ./manage.py clearsessions
+    python ./manage.py syncdb
+echo "done"
 
-if [[ $EUID -ne 0 ]]; then
-    #honcho -f Procfile start --port 8000
-    python ./manage.py runserver 0.0.0.0:8000
-else
-    #honcho -f Procfile start --port 80
-    python ./manage.py runserver 0.0.0.0:80
-fi
+echo "Starting the server: "
+    honcho start
+    #foreman start
 
 echo -n "Press enter to continue... " ; read
