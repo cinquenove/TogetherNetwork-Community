@@ -1,6 +1,7 @@
 django
-django-storages
 django-toolbelt
+boto
+django-storages
 django-avatar
 django-registration
 pillow

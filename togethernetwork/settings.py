@@ -188,7 +188,7 @@ LOGGING = {
 ACCOUNT_ACTIVATION_DAYS = 7
 
 # Django Storages
-DEFAULT_FILE_STORAGE = 'libs.storages.S3Storage.S3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = "AKIAIPY6ZYZ6PL4V3P5Q"
 AWS_SECRET_ACCESS_KEY = "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"
 AWS_STORAGE_BUCKET_NAME = "static.togethernetwork.org"
