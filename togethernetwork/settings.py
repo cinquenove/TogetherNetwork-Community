@@ -196,7 +196,8 @@ AVATAR_GRAVATAR_BACKUP = True
 
 # Django Storages
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.DEFAULT_FILE_STORAGE'
+STATICFILES_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
