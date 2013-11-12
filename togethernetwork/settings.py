@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     
     # Community Components
+    'storages',
     'registration',
     'avatar',
     
