@@ -1,1 +1,1 @@
-web: gunicorn togethernetwork.wsgi
+web: gunicorn togethernetwork.wsgi -t 120 --debug True
