@@ -7,7 +7,7 @@ echo -n "- Creating a virtual environment: "
 echo "done"
 
 echo -n "- Upgrading dependencies inside the virtual environment: "
-    pip install -q -U -r togethernetwork/requirements.txt
+    pip install -q -U -r requirements.txt
 echo "done"
 
 echo -n "- Synchronizing dependencies inside the virtual environment: "
