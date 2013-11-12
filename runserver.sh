@@ -1,15 +1,22 @@
 #!/bin/bash
+# -*- coding=utf-8 -*-
 
-echo -n "Killing old process: "
-screen -S togethernetwork -X quit &> /dev/null
+echo -n "- Creating a virtual environment: "
+    virtualenv venv -v &> /dev/null
+    source venv/bin/activate
 echo "done"
 
-echo -n "Upgrading dependencies inside the virtual environment: "
-source venv/bin/activate 
-cd togethernetwork
-pip install -q -U -r requirements.txt &> /dev/null
+echo -n "- Upgrading dependencies inside the virtual environment: "
+    pip install -q -U -r requirements.txt
 echo "done"
 
-echo "Sleeping 1 second before creating a new screen..."
-sleep 1
-screen -S togethernetwork ./runserver.sh
+echo -n "- Synchronizing database: "
+    python ./manage.py clearsessions
+    python ./manage.py syncdb
+echo "done"
+
+echo "Starting the server: "
+    honcho start
+    #foreman start
+
+echo -n "Press enter to continue... " ; read

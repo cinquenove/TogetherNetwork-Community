@@ -1,5 +1,8 @@
 django
+django-toolbelt
 django-avatar
 django-registration
 pillow
+honcho
+gunicorn
 virtualenv
