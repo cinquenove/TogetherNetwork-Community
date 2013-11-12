@@ -12,8 +12,12 @@ if [[ $@ == **upgrade** ]]; then
     echo "done"
 fi
 
-echo -n "- Synchronizing database: "
+echo -n "- Cleaning the environment: "
     python ./manage.py clearsessions &> /dev/null
+echo "done"
+
+echo -n "- Synchronizing database and files: "
+    python ./manage.py collectstatic --noinput &> /dev/null
     python ./manage.py syncdb &> /dev/null
 echo "done"
 
