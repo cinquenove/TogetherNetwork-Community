@@ -16,13 +16,15 @@ echo -n "- Cleaning the environment: "
     python ./manage.py clearsessions &> /dev/null
 echo "done"
 
-echo -n "- Synchronizing static files: "
-    python ./manage.py collectstatic --noinput &> /dev/null
-echo "done"
+if [[ $@ == **sync** ]]; then
+    echo -n "- Synchronizing static files: "
+        python ./manage.py collectstatic --noinput &> /dev/null
+    echo "done"
 
-echo -n "- Synchronizing database: "
-    python ./manage.py syncdb &> /dev/null
-echo "done"
+    echo -n "- Synchronizing database: "
+        python ./manage.py syncdb &> /dev/null
+    echo "done"
+fi
 
 echo "Starting the server: "
     honcho start
