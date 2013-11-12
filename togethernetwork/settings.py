@@ -66,7 +66,7 @@ MEDIA_ROOT = ""
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://static.togethernetwork.org.s3-website-eu-west-1.amazonaws.com/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -188,6 +188,6 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 # Django Storages
 DEFAULT_FILE_STORAGE = 'libs.storages.S3Storage.S3Storage'
-AWS_ACCESS_KEY_ID = ""
-AWS_SECRET_ACCESS_KEY = ""
-AWS_STORAGE_BUCKET_NAME = ""
+AWS_ACCESS_KEY_ID = "AKIAIPY6ZYZ6PL4V3P5Q"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "static.togethernetwork.org"
