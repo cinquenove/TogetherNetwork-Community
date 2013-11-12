@@ -187,6 +187,12 @@ LOGGING = {
 # Django Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 
+# Django Avatars
+AVATAR_DEFAULT_SIZE = 120
+AVATAR_HASH_FILENAMES = True
+AVATAR_HASH_USERDIRNAMES = False
+AVATAR_GRAVATAR_BACKUP = True
+
 # Django Storages
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
