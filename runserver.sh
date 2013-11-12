@@ -10,7 +10,7 @@ echo -n "- Upgrading dependencies inside the virtual environment: "
     pip install -q -U -r requirements.txt
 echo "done"
 
-echo -n "- Synchronizing dependencies inside the virtual environment: "
+echo -n "- Synchronizing database: "
     python ./manage.py clearsessions
     python ./manage.py syncdb
 echo "done"
