@@ -1,7 +1,8 @@
 /* Parallax */
 
 #home { 
-    background: url('/static/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; min-height: 800px; 
+    background: url('/static/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; 
+    min-height: 800px; 
     height: 800px; 
     margin: 0 auto; 
     width: 100%; 
@@ -16,7 +17,8 @@
 }
  
 #slide-live { 
-    background-image: url('/static/imgs/photos/home-slide-live.png') 50% 0 no-repeat min-height: 800px;  
+    background-image: url('/static/imgs/photos/home-slide-live.png') 50% 0 no-repeat;
+    min-height: 800px;  
     height: 800px; 
     margin: 0 auto; 
     width: 100%; 
@@ -32,7 +34,8 @@
 }
 
 #slide-learn { 
-    background: url('/static/imgs/photos/home-slide-learn.png') 50% 800px  fixed min-height: 800px;  
+    background: url('/static/imgs/photos/home-slide-learn.png') 50% 800px fixed;
+    min-height: 800px;  
     height: 800px; 
     margin: 0 auto; 
     width: 100%; 
@@ -47,7 +50,8 @@
 }
 
 #slide-make { 
-    background: url('/static/imgs/photos/home-slide-make.png') 50% 0 no-repeat min-height: 800px;  
+    background: url('/static/imgs/photos/home-slide-make.png') 50% 0 no-repeat;
+    min-height: 800px;  
     height: 800px; 
     margin: 0 auto; 
     width: 100%; 
