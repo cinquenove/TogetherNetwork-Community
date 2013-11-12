@@ -34,7 +34,8 @@
 }
 
 #slide-learn { 
-    background: url('/static/imgs/photos/home-slide-learn.png') 50% 800px fixed;
+    background: url('/static/imgs/photos/home-slide-learn.png') 50% 800px repeat fixed;
+    background-size: cover;
     min-height: 800px;  
     height: 800px; 
     margin: 0 auto; 
