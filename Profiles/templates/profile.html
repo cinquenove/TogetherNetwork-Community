@@ -62,15 +62,15 @@
             <div class="panel panel-default">
                 <div class="panel-body text-center">
                     {% if profile.twitter_url|length > 19 %}
-                        <a href="{{ profile.twitter_url }}" target="_blank"><img src="/static/imgs/icons/tw-icon.png"></a>
+                        <a href="{{ profile.twitter_url }}" target="_blank"><img src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/tw-icon.png"></a>
                     {% endif %}
                     {% if profile.facebook_url|length > 20 %}
-                        <a href="{{ profile.facebook_url }}" target="_blank"><img src="/static/imgs/icons/fb-icon.png"></a>
+                        <a href="{{ profile.facebook_url }}" target="_blank"><img src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/fb-icon.png"></a>
                     {% endif %}
                     {% if profile.personal_website_url %}
-                        <a href="{{ profile.personal_website_url }}" target="_blank"><img src="/static/imgs/icons/website-icon.png"></a>
+                        <a href="{{ profile.personal_website_url }}" target="_blank"><img src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/website-icon.png"></a>
                     {% endif %}
-                    <a href="mailto:{{ profile.email }}"><img src="/static/imgs/icons/mail-icon.png"></a>
+                    <a href="mailto:{{ profile.email }}"><img src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/mail-icon.png"></a>
                 </div>
             </div>
             <ul class="list-group">

@@ -1,7 +1,7 @@
 /* Parallax */
 
 #home { 
-    background: url('/static/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; 
+    background: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; 
     min-height: 800px; 
     height: 800px; 
     margin: 0 auto; 
@@ -17,7 +17,7 @@
 }
  
 #slide-live { 
-    background-image: url('/static/imgs/photos/home-slide-live.png') 50% 0 no-repeat;
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/home-slide-live.png') 50% 0 no-repeat;
     min-height: 800px;  
     height: 800px; 
     margin: 0 auto; 
@@ -34,7 +34,7 @@
 }
 
 #slide-learn { 
-    background: url('/static/imgs/photos/home-slide-learn.png') 50% 800px repeat fixed;
+    background: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/home-slide-learn.png') 50% 800px repeat fixed;
     background-size: cover;
     min-height: 800px;  
     height: 800px; 
@@ -51,7 +51,7 @@
 }
 
 #slide-make { 
-    background: url('/static/imgs/photos/home-slide-make.png') 50% 0 no-repeat;
+    background: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/home-slide-make.png') 50% 0 no-repeat;
     min-height: 800px;  
     height: 800px; 
     margin: 0 auto; 
@@ -135,17 +135,17 @@ color: white;
 }
 
 #homepage-live {
-   background-image: url('/static/imgs/photos/home-slide-live.png'); 
+   background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/home-slide-live.png'); 
 }
 
 
 #homepage-learn {
-    background-image: url('/static/imgs/photos/home-slide-learn.png');
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/home-slide-learn.png');
 }
 
 
 #homepage-make {
-    background-image: url('/static/imgs/photos/home-slide-make.png');
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/home-slide-make.png');
 }
 
 
@@ -164,7 +164,7 @@ color: white;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url('/static/imgs/photos/BG-landing-page.png');
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/BG-landing-page.png');
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover;

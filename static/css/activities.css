@@ -3,7 +3,7 @@
 .activity-box {
     min-width: 150px;
     min-height: 150px;
-    background-image: url('/static/imgs/photos/BG-landing-page.png');
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/BG-landing-page.png');
     background-repeat: no-repeat; 
     background-position: top;
     background-size: cover;
@@ -84,7 +84,7 @@
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url('/static/imgs/photos/BG-landing-page.png');
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/photos/BG-landing-page.png');
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover;

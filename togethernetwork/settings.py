@@ -72,11 +72,11 @@ MEDIA_URL = 'http://static.togethernetwork.org.s3-website-eu-west-1.amazonaws.co
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://static.togethernetwork.org.s3.amazonaws.com/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

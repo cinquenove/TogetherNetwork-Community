@@ -1,6 +1,6 @@
 body {
     padding-bottom: 50px;
-    background-image: url('/static/imgs/bg-body.png');
+    background-image: url('http://static.togethernetwork.org.s3.amazonaws.com/imgs/bg-body.png');
     background-repeat: repeat;
 }
 
