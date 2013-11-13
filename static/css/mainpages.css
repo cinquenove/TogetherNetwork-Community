@@ -96,6 +96,10 @@ color: white;
     margin:0 auto;
 }
 
+.arrow-dowm{
+    margin-top: 200px;
+}
+
 #buttoncomehome:hover {
     background-color:#666;
     color:#FFF;
