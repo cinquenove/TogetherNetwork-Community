@@ -7,6 +7,7 @@ from datetime import datetime
 import uuid
 
 from django.db import models
+from django.db.models import Q
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -175,3 +176,33 @@ class Booking(models.Model):
                 self.accommodation.name, 
                 self.tenant.username 
             )
+
+def is_accommodation_available_for_booking(booking):
+    """
+        This function check if an accommodation is available 
+        for a specific time by checking if there are other booking in the specified period.
+    """
+
+    bookings = Booking.objects.filter( 
+                                        Q( # Checkout dopo il checkin del booking
+                                            accommodation=booking.accommodation,
+                                            chackout_date__gte=booking.chackin_date,
+                                            chackout_date__lte=booking.checkout_date
+                                        ) | Q( # Interno
+                                            accommodation=booking.accommodation,
+                                            chackin_date__gte=booking.chackin_date,
+                                            chackout_date__lte=booking.checkout_date
+                                        ) | Q( # Checkin prima del checkout del booking
+                                            accommodation=booking.accommodation,
+                                            chackin_date__gte=booking.chackin_date,
+                                            chackin_date__lte=booking.checkout_date
+                                        ) | Q( # Esterno 
+                                            accommodation=booking.accommodation,
+                                            chackin_date__lte=booking.chackin_date,
+                                            chackout_date__gte=booking.checkout_date
+                                        )
+                                    )
+    if bookings:
+        return False
+    else:
+        return True
