@@ -1,0 +1,25 @@
+{% extends "layout_bookings.html" %}
+{% load avatar_tags %}
+
+{% block navbar_buttons %}
+{% if booking.owner == request.user %}
+&nbsp;<a href="{{ booking.get_absolute_url }}/delete" class="btn btn-error navbar-btn pull-right">
+    <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+    Delete
+</a>
+{% endif %}
+{% endblock %}
+
+{% block container %}
+<div id="mainContainer" class="container">
+    <h1>Booking {{ booking.pk }}</h1>
+    Checkin Date: {{ booking.chackin_date }}<br/>
+    CheckOut Date: {{ booking.chackout_date }}<br/>
+    <br/>
+    User that requested the place: {{ booking.tenant }}<br/>
+    Status: {{ booking.status }}<br/>
+    <br/>
+    Room Name And number: {{ booking.accommodation.name }} {{ booking.accommodation.pk }}<br/>
+    Room URL: <a href="{{ booking.accommodation.get_absolute_url }}">{{ booking.accommodation.get_absolute_url }}</a><br/>
+</div>
+{% endblock %}
