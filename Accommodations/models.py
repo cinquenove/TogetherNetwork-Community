@@ -20,8 +20,9 @@ ROOM_SIZES = [
 ]
 
 ROOM_TYPES = [
-    ('LCL', 'Local'),
-    ('GST', 'Guest'),
+    ('LCL', 'Monthly'),
+    ('GST', 'Nightly'),
+    ('ALL', 'Monthly and Nightly'),
 ]
 
 def get_accommodations_path(instance, filename):
