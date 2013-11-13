@@ -16,9 +16,9 @@ def community_view(request):
     """
         List of profiles.
     """
-    community = Profile.objects.all()
+    profiles = Profile.objects.all()
     return render_to_response("community.html", 
-        {"community": community }, 
+        {"profiles": profiles }, 
         context_instance=RequestContext(request))
 
 def profile_view(request, username):
