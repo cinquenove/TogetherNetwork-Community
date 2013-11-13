@@ -1,4 +1,5 @@
 {% extends "layout_activities.html" %}
+{% load humanize %}
 {% load avatar_tags %}
 
 {% block navbar_buttons %}
@@ -14,6 +15,9 @@
 
 <div id="mainContainer" class="activity-head">
 	<h1>{{ activity.title }}</h1>
+    <p class="activity-box-date">
+        {{ activity.time|naturalday }} @ {{ activity.time.hour }}.{{ activity.time.minute }}
+    </p>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
 	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div">{% avatar activity.owner 120 %}</div></a>
 </div>
