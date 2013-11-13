@@ -214,5 +214,5 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_HEADERS = {
     'Cache-Control': 'max-age=86400',
     'Accept-Encoding': 'gzip, deflate',
-    'Content-Encoding': 'gzip'
+    #'Content-Encoding': 'gzip'
 }
