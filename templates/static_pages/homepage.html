@@ -17,7 +17,7 @@
                     <br>
                     <a href="/accounts/register/"><div id="buttoncomehome">come home</div></a>
                 </div>
-                <a href="javascript:void(0);" onclick="scrollToLive();">
+                <a href="javascript:void(0);" onclick="scrollToLive('#slide-live');">
                     <img class="arrow-down" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/arrow-down.png">
                 </a>
             </article>
@@ -42,6 +42,9 @@
                         who share an inspiring living experience
                     </p>
                 </div>
+                <a href="javascript:void(0);" onclick="scrollToLive('#slide-learn');">
+                    <img class="arrow-down" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/arrow-down.png">
+                </a>
             </article>
             <div class="clearfix"></div>
         </div>
@@ -49,45 +52,47 @@
 
 <section id="slide-learn" data-type="background2" data-speed="10">
 
-<div id="slide-learn">
-    <article class="container">
-        <div class="text-left" id="home-page-logo">
-            <img class="img-super-responsive" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/logos/learn-together.png">
-            <h2 id="payoff">
-                <span id="payoffred">Knowledge</span> is love and light and vision
-            </h2>
-        </div>
-        <br>
-        <br>
-        <div class="text-left">
-            <p class="lead" id="payoff">
-                The house hosts classes, workshops and events<br>
-                offered by the community and the residents
-            </p>
-        </div>
-    </article>
-    <div class="clearfix"></div>
-</div>
-
+    <div id="slide-learn">
+        <article class="container">
+            <div class="text-left" id="home-page-logo">
+                <img class="img-super-responsive" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/logos/learn-together.png">
+                <h2 id="payoff">
+                    <span id="payoffred">Knowledge</span> is love and light and vision
+                </h2>
+            </div>
+            <br>
+            <br>
+            <div class="text-left">
+                <p class="lead" id="payoff">
+                    The house hosts classes, workshops and events<br>
+                    offered by the community and the residents
+                </p>
+            </div>
+            <a href="javascript:void(0);" onclick="scrollToLive('#slide-make');">
+                <img class="arrow-down" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/icons/arrow-down.png">
+            </a>
+        </article>
+        <div class="clearfix"></div>
+    </div>
 </section>
 
 <section id="slide-make" data-type="background2" data-speed="10">
-<div class="homepage-slide" id="homepage-make">
-    <article class="container">
-        <div class="text-right" id="home-page-logo">
-            <img class="img-super-responsive" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/logos/make-together.png">
-            <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
-        </div>
-        <br>
-        <br>
-        <div class="text-right">
-            <p class="lead" id="payoff">
-                The house encourages collaboration among members with ongoing sustainable projects aimed to benefit the local communities and the rest of the planet
-            </p>
-        </div>
-    </article>
-    <div class="clearfix"></div>
-</div>
+    <div class="homepage-slide" id="homepage-make">
+        <article class="container">
+            <div class="text-right" id="home-page-logo">
+                <img class="img-super-responsive" src="http://static.togethernetwork.org.s3.amazonaws.com/imgs/logos/make-together.png">
+                <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
+            </div>
+            <br>
+            <br>
+            <div class="text-right">
+                <p class="lead" id="payoff">
+                    The house encourages collaboration among members with ongoing sustainable projects aimed to benefit the local communities and the rest of the planet
+                </p>
+            </div>
+        </article>
+        <div class="clearfix"></div>
+    </div>
 
 </section>
 
@@ -127,9 +132,9 @@
         });
 
         /* Scrolling */
-        function scrollToLive() {
+        function scrollToLive(element_id) {
             $('html, body').animate({
-                scrollTop: $("#slide-live").offset().top
+                scrollTop: $(element_id).offset().top
             }, 1000);
         }
     </script>
