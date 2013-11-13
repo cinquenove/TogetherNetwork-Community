@@ -158,8 +158,8 @@ class Booking(models.Model):
     """
         The Booking for a period of time "owned" by a user for a specific Accommodation.
     """
-    chackin_date = models.DateField(default=( datetime.now() + timedelta(days=1) ) )
-    chackout_date = models.DateField(default=( datetime.now() + timedelta(days=2) ) )
+    checkin_date = models.DateField(default=( datetime.now() + timedelta(days=1) ) )
+    checkout_date = models.DateField(default=( datetime.now() + timedelta(days=2) ) )
 
     status = models.CharField(max_length=3, default="WFA", choices=BOOKING_STATUSES)
     tenant = models.ForeignKey(User, related_name="booking_tenant")
@@ -171,7 +171,7 @@ class Booking(models.Model):
 
     def __str__(self):
         return "(%s)[%s] %s booked by %s" % ( 
-                self.chackin_date,
+                self.checkin_date,
                 self.status,
                 self.accommodation.name, 
                 self.tenant.username 
@@ -186,20 +186,20 @@ def is_accommodation_available_for_booking(booking):
     bookings = Booking.objects.filter( 
                                         Q( # Checkout dopo il checkin del booking
                                             accommodation=booking.accommodation,
-                                            chackout_date__gte=booking.chackin_date,
-                                            chackout_date__lte=booking.checkout_date
+                                            checkout_date__gte=booking.checkin_date,
+                                            checkout_date__lte=booking.checkout_date
                                         ) | Q( # Interno
                                             accommodation=booking.accommodation,
-                                            chackin_date__gte=booking.chackin_date,
-                                            chackout_date__lte=booking.checkout_date
+                                            checkin_date__gte=booking.checkin_date,
+                                            checkout_date__lte=booking.checkout_date
                                         ) | Q( # Checkin prima del checkout del booking
                                             accommodation=booking.accommodation,
-                                            chackin_date__gte=booking.chackin_date,
-                                            chackin_date__lte=booking.checkout_date
+                                            checkin_date__gte=booking.checkin_date,
+                                            checkin_date__lte=booking.checkout_date
                                         ) | Q( # Esterno 
                                             accommodation=booking.accommodation,
-                                            chackin_date__lte=booking.chackin_date,
-                                            chackout_date__gte=booking.checkout_date
+                                            checkin_date__lte=booking.checkin_date,
+                                            checkout_date__gte=booking.checkout_date
                                         )
                                     )
     if bookings:
