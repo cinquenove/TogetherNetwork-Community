@@ -4,12 +4,10 @@
     <link href="http://static.togethernetwork.org.s3.amazonaws.com/css/profiles.css" rel="stylesheet" media="screen">
 {% endblock %}
 
-{% block main_menu %}
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Community</a></li>
-        <li><a href="/activities/list">Activities</a></li>
-        <li><a href="/accommodations/list">Accomodations</a></li>
-    </ul>
+{% block extend_main_menu %}
+    <li class="active"><a href="/">Community</a></li>
+    <li><a href="/activities/list">Activities</a></li>
+    <li><a href="/accommodations/list">Accomodations</a></li>
 {% endblock %}
 
 {% block footer %}{% endblock %}

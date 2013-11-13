@@ -49,9 +49,11 @@
 				        </ul>
 				    </li>
 			        <li class="divider"></li>
+			        {% block extend_main_menu %}
       				<li class="active"><a href="#">Community</a></li>
 					<li><a href="/activities/list">Activities</a></li>
 					<li><a href="/accommodations/list">Accomodations</a></li>
+					{% endblock %}
 				</ul>
 				{% endblock %}
 				
