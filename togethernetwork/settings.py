@@ -210,3 +210,9 @@ AWS_ACCESS_KEY = AWS_ACCESS_KEY_ID
 
 AWS_S3_SECURE_URLS = False
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# see http://developer.yahoo.com/performance/rules.html#expires
+AWS_HEADERS = {
+    'Cache-Control': 'max-age=86400',
+    'Accept-Encoding': 'gzip, deflate',
+    'Content-Encoding': 'gzip'
+}
