@@ -18,6 +18,7 @@
     <br/>
     User that requested the place: {{ booking.tenant }}<br/>
     Status: {{ booking.status }}<br/>
+    Price {{ booking.price }}<br/>
     <br/>
     Room Name And number: {{ booking.accommodation.name }} {{ booking.accommodation.pk }}<br/>
     Room URL: <a href="{{ booking.accommodation.get_absolute_url }}">{{ booking.accommodation.get_absolute_url }}</a><br/>

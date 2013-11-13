@@ -162,6 +162,7 @@ class Booking(models.Model):
     status = models.CharField(max_length=3, default="WFA", choices=BOOKING_STATUSES)
     tenant = models.ForeignKey(User, related_name="booking_tenant")
     accommodation = models.ForeignKey(Accommodation, related_name="booking_of_accommodation")
+    price = models.FloatField(default=0.0) 
 
     def get_absolute_url(self):
         return "/accommodations/%s/booking/%s" % ( self.accommodation.pk, self.pk )
