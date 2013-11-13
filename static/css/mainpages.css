@@ -102,6 +102,16 @@
 
 .arrow-down{
     margin-top: 20px;
+    opacity: .5;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.arrow-down:hover{
+    margin-top: 20px;
+    opacity: 1;
 }
 
 #buttoncomehome:hover {
