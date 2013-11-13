@@ -21,6 +21,7 @@ def community_view(request):
         {"profiles": profiles }, 
         context_instance=RequestContext(request))
 
+@login_required
 def profile_view(request, username):
     """
         Show a single profile

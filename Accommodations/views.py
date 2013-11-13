@@ -37,6 +37,7 @@ def single_accommodation_view(request, accommodation_pk):
         context_instance=RequestContext(request))
 
 
+@login_required
 def create_new_book_for_accommodation(request, accommodation_pk):
     """
         Create a new book for a single accommodation.
@@ -65,6 +66,7 @@ def create_new_book_for_accommodation(request, accommodation_pk):
         "title": "Make a reservation"
     }, context_instance=RequestContext(request))
 
+@login_required
 def single_booking_view(request, accommodation_pk, booking_pk):
     """
         This view will show the single booking view.

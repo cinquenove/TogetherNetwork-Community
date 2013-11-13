@@ -19,6 +19,7 @@ def activities_view(request):
         {"activities": activities }, 
         context_instance=RequestContext(request))
 
+@login_required
 def single_activity_view(request, activity_pk):
     """
         Show the single Activity view
