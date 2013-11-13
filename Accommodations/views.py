@@ -56,3 +56,13 @@ def create_new_book_for_accommodation(request, accommodation_pk):
         "form": formset,
         "title": "Make a reservation"
     }, context_instance=RequestContext(request))
+
+def single_booking_view(request, accommodation_pk, booking_pk):
+    """
+        This view will show the single booking view.
+    """
+    booking = get_object_or_404(Booking, pk=booking_pk)
+    return render_to_response("booking.html", 
+        { "booking": booking }, 
+        context_instance=RequestContext(request))
+
