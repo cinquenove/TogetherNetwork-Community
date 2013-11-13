@@ -35,7 +35,7 @@ def profile_view(request, username):
             raise Http404
 
 
-    partecipated_in_counter = Activity.objects.filter(attendees__in=profile.owner).count()
+    partecipated_in_counter = Activity.objects.filter(attendees__in=[profile.owner]).count()
     offered_counter = Activity.objects.filter(owner=profile.owner).count()
 
     return render_to_response("profile.html", 
