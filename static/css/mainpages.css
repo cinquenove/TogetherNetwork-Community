@@ -14,6 +14,7 @@
     position: absolute; 
     text-align: center; 
     width: 100%; 
+    text-shadow: 0px 0px 5px black;
 }
  
 #slide-live { 
@@ -31,6 +32,7 @@
     height: 458px; 
     position: absolute; 
     text-align: center; 
+    text-shadow: 0px 0px 5px black;
 }
 
 #slide-learn { 
@@ -41,13 +43,13 @@
     margin: 0 auto; 
     width: 100%; 
     position: relative; 
-
 }
 
 #slide-learn article { 
     height: 458px; 
     position: absolute; 
     text-align: center; 
+    text-shadow: 0px 0px 5px black;
 }
 
 #slide-make { 
@@ -65,6 +67,7 @@
     height: 458px; 
     position: absolute; 
     text-align: center;
+    text-shadow: 0px 0px 5px black;
 }
 
 
@@ -82,10 +85,11 @@
 #payoffred {
     color:#bc2d37;
 }
-#buttoncomehome a{
-color: white;
 
+#buttoncomehome a{
+    color: white;
 }
+
 #buttoncomehome {
     font-size: 24px;
     background-color:#bc2d37;
@@ -176,7 +180,6 @@ color: white;
     color: #FFF;
     font-size: 25px;
     text-shadow: 0px 0px 5px black;
-
 }
 
 .static-head h1 {
