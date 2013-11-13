@@ -6,7 +6,7 @@
     {% for profile in profiles %}
     <div class="profile-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="profile-box-{{ profile.pk }}">
    		<a href="/users/{{ profile.owner.username }}/">
-            <div class="profile-box-content" id="profile-box-content-{{ profile.pk }}">
+            <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
                 <div style="display:none;">{% avatar profile.owner 500 %}</div>
         		{{ profile.first_name }}
        		</div>
@@ -34,8 +34,14 @@
     {% for profile in profiles %}
         <script type="text/javascript">
             $(function(){
-                var background_url = $("#profile-box-content-{{ profile.pk }}").children("div").children("img").attr("src");
+                var background_url = $("#profile-box-content-{{ profile.pk }}")
+                                        .children("div").children("img").attr("src");
                 $("#profile-box-{{ profile.pk }}").css('background-image', 'url(' + background_url + ')');
+                $("#profile-box-{{ profile.pk }}").hover(function(){
+                    $("#profile-box-content-{{ profile.pk }}").fadeIn(250);
+                },function(){
+                    $("#profile-box-content-{{ profile.pk }}").fadeOut(250);
+                });
             });
         </script>
     {% endfor %}
