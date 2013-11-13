@@ -16,8 +16,8 @@
    		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
             <p class="activity-box-date">
-                {{ activity.time|naturalday }}<br>
-                {{ activity.time|naturaltime }}
+                {{ activity.time|naturalday }}
+                @ {{ activity.time.hour }}.{{ activity.time.minute }}
             </p>
    		</div>        
         {% if request.user in activity.attendees.all %}
