@@ -185,6 +185,9 @@ LOGGING = {
     }
 }
 
+# Django Messages (integrated)
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
 # Django Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 
