@@ -34,8 +34,16 @@ def profile_view(request, username):
         else:
             raise Http404
 
+
+    partecipated_in_counter = Activity.objects.filter(attendees__in=profile.owner).count()
+    offered_counter = Activity.objects.filter(owner=profile.owner).count()
+
     return render_to_response("profile.html", 
-        {"profile": profile }, 
+        { 
+            "profile": profile,
+            "partecipated_in_counter": partecipated_in_counter,
+            "offered_counter": offered_counter,
+        }, 
         context_instance=RequestContext(request))
 
 @login_required
