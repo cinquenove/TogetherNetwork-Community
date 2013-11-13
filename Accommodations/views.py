@@ -50,7 +50,10 @@ def create_new_book_for_accommodation(request, accommodation_pk):
             booking_obj = formset.save(commit=False)
             if not is_accommodation_available_for_booking(booking_obj):
                 messages.error(request, 'Booking not available for specified dates')
-                error=True
+                return render_to_response("form.html", {
+                        "form": formset,
+                        "title": "Make a reservation"
+                    }, context_instance=RequestContext(request))
             #TODO: Set Price in base of the days sleeping.
             #TODO: send an email to ERNESTO!
             
