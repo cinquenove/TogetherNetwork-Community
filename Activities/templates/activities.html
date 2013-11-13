@@ -15,7 +15,10 @@
         {% endif %}
    		<div class="activity-box-content" id="activity-box-content-{{ activity.pk }}">
    			{{ activity.title }}
-            <p class="activity-box-date">{{ activity.time.day }}/{{ activity.time.month }}<br>@{{ activity.time.hour }}.{{ activity.time.minute }}</p>
+            <p class="activity-box-date">
+                {{ activity.time|naturalday }}<br>
+                @ {{ activity.time|naturaltime }}
+            </p>
    		</div>        
         {% if request.user in activity.attendees.all %}
         <a href="{{ activity.get_absolute_url }}/leave">
