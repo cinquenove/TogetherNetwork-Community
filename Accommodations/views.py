@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from django.contrib.auth.models import User
 
@@ -11,7 +12,9 @@ from .models import Accommodation
 from .models import AccommodationPhoto
 
 from .models import Booking
+from .models import is_accommodation_available_for_booking
 from .forms import BookingForm
+
 
 def accommodations_view(request):
     """
@@ -44,7 +47,9 @@ def create_new_book_for_accommodation(request, accommodation_pk):
         formset = BookingForm(request.POST, request.FILES)
         if formset.is_valid():
             booking_obj = formset.save(commit=False)
-            #TODO: check date.
+            if not is_accommodation_available_for_booking(booking_obj):
+                messages.error(request, 'Booking not available for specified dates')
+                error=True
             #TODO: Set Price in base of the days sleeping.
             #TODO: send an email to ERNESTO!
             
