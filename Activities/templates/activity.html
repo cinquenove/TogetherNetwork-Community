@@ -56,7 +56,7 @@
         <div class="panel-body">
            <div class="attendees">
             {% for attendee in activity.attendees.all %}
-            {% avatar attendee 60 %}
+            <a href="/users/{{ attendee.username }}">{% avatar attendee 60 %}</a>
             {% endfor %}
             </div>
         </div>
