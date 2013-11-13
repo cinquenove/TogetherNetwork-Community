@@ -17,7 +17,7 @@
    			{{ activity.title }}
             <p class="activity-box-date">
                 {{ activity.time|naturalday }}<br>
-                @ {{ activity.time|naturaltime }}
+                {{ activity.time|naturaltime }}
             </p>
    		</div>        
         {% if request.user in activity.attendees.all %}
