@@ -47,8 +47,21 @@
             {% else %}
                 <a href="javascript:void(0);" onclick="deleteActivity();" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete</a>
             {% endif %}
-        </div>
+        </div>        
 	</div>
+
+    {% if activity.attendees.all %}
+    <h3>Participants</h3>
+    <div class="panel panel-default">
+        <div class="panel-body">
+           <div class="attendees">
+            {% for attendee in activity.attendees.all %}
+            {% avatar attendee 60 %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
 </div>    
 {% endblock %}
