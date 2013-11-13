@@ -51,7 +51,7 @@ class Activity(models.Model):
     photo = models.ImageField(upload_to=get_activity_path, blank=True, null=True)
 
     attendees_limit = models.IntegerField(default=0) 
-    attendees = models.ManyToManyField(User)
+    attendees = models.ManyToManyField(User, blank=True, null=True)
     price = models.FloatField(default=0.0) 
 
     def create_thumbnails(self):
