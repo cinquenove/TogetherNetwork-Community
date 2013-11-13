@@ -9,12 +9,14 @@ from django.contrib.auth.models import User
 from .models import Activity
 
 from .forms import ActivityForm
+from datetime import datetime
+from datetime import timedelta
 
 def activities_view(request):
     """
-        List of activities.
+        List of activities from 3 hours ago to the infinite time of the universe
     """
-    activities = Activity.objects.all()
+    activities = Activity.objects.filter(time__gte=( datetime.now()-timedelta(hours=3) ) )
     return render_to_response("activities.html", 
         {"activities": activities }, 
         context_instance=RequestContext(request))
