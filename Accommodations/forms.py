@@ -6,8 +6,8 @@ class BookingForm(ModelForm):
     class Meta:
         model = Booking
         fields = [
-            "chackin_date",
-            "chackout_date",
+            "checkin_date",
+            "checkout_date",
             #"status",
             #"tenant",
             #"accommodation",
