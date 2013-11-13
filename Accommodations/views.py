@@ -48,6 +48,8 @@ def create_new_book_for_accommodation(request, accommodation_pk):
         formset = BookingForm(request.POST, request.FILES)
         if formset.is_valid():
             booking_obj = formset.save(commit=False)
+            booking_obj.accommodation = accommodation
+
             if not is_accommodation_available_for_booking(booking_obj):
                 messages.error(request, 'Booking not available for specified dates')
                 return render_to_response("form.html", {
@@ -58,7 +60,6 @@ def create_new_book_for_accommodation(request, accommodation_pk):
             #TODO: send an email to ERNESTO!
             
             booking_obj.tenant = request.user
-            booking_obj.accommodation = accommodation
             booking_obj.save()
             return redirect(booking_obj)
     else:
