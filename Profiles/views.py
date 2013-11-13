@@ -7,12 +7,12 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
-from community.models import Activity
+from Activities.models import Activity
 
 from .models import Profile
 from .forms import ProfileForm
 
-def activities_view(request):
+def community_view(request):
     """
         List of profiles.
     """
