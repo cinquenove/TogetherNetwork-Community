@@ -44,6 +44,9 @@ def create_new_book_for_accommodation(request, accommodation_pk):
         formset = BookingForm(request.POST, request.FILES)
         if formset.is_valid():
             booking_obj = formset.save(commit=False)
+            #TODO: check date.
+            #TODO: Set Price in base of the days sleeping.
+            #TODO: send an email to ERNESTO!
             
             booking_obj.tenant = request.user
             booking_obj.accommodation = accommodation
