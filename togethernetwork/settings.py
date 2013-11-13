@@ -61,7 +61,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 # MEDIA_ROOT = os.path.join(BASE_DIR, "uploads/")
-MEDIA_ROOT = ""
+MEDIA_ROOT = "/media/"
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -195,9 +195,9 @@ AVATAR_HASH_USERDIRNAMES = False
 AVATAR_GRAVATAR_BACKUP = True
 
 # Django Storages
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.DEFAULT_FILE_STORAGE'
-STATICFILES_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+#DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.DEFAULT_FILE_STORAGE'
+#STATICFILES_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
