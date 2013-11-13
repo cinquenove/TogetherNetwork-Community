@@ -7,10 +7,19 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
-from Activities.models import Activity
+from community.models import Activity
 
 from .models import Profile
 from .forms import ProfileForm
+
+def activities_view(request):
+    """
+        List of profiles.
+    """
+    community = Profile.objects.all()
+    return render_to_response("community.html", 
+        {"community": community }, 
+        context_instance=RequestContext(request))
 
 def profile_view(request, username):
     """
