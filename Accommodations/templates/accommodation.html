@@ -1,15 +1,6 @@
 {% extends "layout_accommodations.html" %}
 {% load avatar_tags %}
 
-{% block navbar_buttons %}
-{% if accommodation.owner == request.user %}
-&nbsp;<a href="{{ accommodation.get_absolute_url }}/edit" class="btn btn-success navbar-btn pull-right">
-    <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-    Edit
-</a>
-{% endif %}
-{% endblock %}
-
 {% block container %}
 
 <div id="mainContainer" class="accommodation-head">
