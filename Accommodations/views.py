@@ -61,7 +61,15 @@ def create_new_book_for_accommodation(request, accommodation_pk):
                         "form": formset,
                         "title": "Make a reservation"
                     }, context_instance=RequestContext(request))
-            #TODO: Set Price in base of the days sleeping.
+
+            # Calculating the right pice:
+            delta_days = booking_obj.checkout_date - booking_obj.checkin_date
+            spent_days = delta_days.days
+            if spent_days <= 30:
+                booking_obj.price = accommodation.price_per_month * spent_days
+            else:
+                booking_obj.price = accommodation.price_per_day * spent_days
+            
             #TODO: send an email to ERNESTO!
             
             booking_obj.tenant = request.user
