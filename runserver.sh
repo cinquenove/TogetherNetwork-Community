@@ -17,9 +17,9 @@ echo -n "- Cleaning the environment: "
 echo "done"
 
 if [[ $@ == **sync** ]]; then
-    echo -n "- Synchronizing static files: "
-        python ./manage.py collectstatic --noinput &> /dev/null
-    echo "done"
+#    echo -n "- Synchronizing static files: "
+#        python ./manage.py collectstatic --noinput &> /dev/null
+#    echo "done"
 
     echo -n "- Synchronizing database: "
         python ./manage.py syncdb &> /dev/null
