@@ -76,7 +76,8 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'http://static.togethernetwork.org.s3.amazonaws.com/'
+#STATIC_URL = 'http://static.togethernetwork.org.s3.amazonaws.com/'
+STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -200,7 +201,7 @@ AVATAR_GRAVATAR_BACKUP = True
 # Django Storages
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
 DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
-STATICFILES_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
+#STATICFILES_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
