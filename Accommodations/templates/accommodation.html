@@ -43,7 +43,12 @@
         </div>
 	</div>
 
-</div>    
+    <div class="row">
+        <div class="col-md-12">
+            <div id='bookingCalendar'></div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -57,4 +62,26 @@
         });
     </script>
     
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+             $('#bookingCalendar').fullCalendar({
+                header: {
+                        left:   'title',
+                        center: '',
+                        right:  'today prev,next'
+                    },
+                events: [
+                        {% for booking in bookings %}
+                            {
+                                title  : 'Busy',
+                                start  : '{{ booking.checkin_date.year }}-{{ booking.checkin_date.month }}-{{ booking.checkin_date.day }}',
+                                end    : '{{ booking.checkout_date.year }}-{{ booking.checkout_date.month }}-{{ booking.checkout_date.day }}'
+                            },
+                        {% endfor %}
+                        ]
+                // put your options and callbacks here
+            })
+        });
+    </script>
 {% endblock %}

@@ -15,6 +15,7 @@ from .models import Booking
 from .models import is_accommodation_available_for_booking
 from .forms import BookingForm
 
+from datetime import datetime, timedelta
 
 def accommodations_view(request):
     """
@@ -32,8 +33,12 @@ def single_accommodation_view(request, accommodation_pk):
     """
     accommodation = get_object_or_404(Accommodation, pk=accommodation_pk)
     photos = AccommodationPhoto.objects.filter(accommodation=accommodation)
+    bookings = Booking.objects.filter( 
+                                        accommodation=accommodation, 
+                                        checkin_date__gte=(datetime.now()-timedelta(days=(31*6))) 
+                                    )
     return render_to_response("accommodation.html", 
-        { "accommodation": accommodation, "photos": photos }, 
+        { "accommodation": accommodation, "photos": photos, "bookings": bookings }, 
         context_instance=RequestContext(request))
 
 
