@@ -109,10 +109,17 @@
 		<!-- Fix margin-top -->
         <script type="text/javascript">
             $(function() {
+            	{% if messages %}
+                $("#messagesContainer").css("margin-top", $("#mainNavBar").height() + 10 );   
+                $(window).resize(function() { 
+                    $("#messagesContainer").css("margin-top", $("#mainNavBar").height() + 10 );
+                });
+                {% else %}
                 $("#mainContainer").css("margin-top", $("#mainNavBar").height() );   
                 $(window).resize(function() { 
                     $("#mainContainer").css("margin-top", $("#mainNavBar").height() );
-                });            
+                });
+                {% endif %}
             })
         </script>
 		<!-- Custom JavaScript scripts -->
