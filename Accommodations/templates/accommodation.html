@@ -26,14 +26,26 @@
 	<div class="row">
         <div class="col-md-6">
             <div class="row panel panel-default">
-                <div class="col-md-6 text-left">
-                    <h4>Price:</h4>
+                <div class="col-md-8 text-left">
+                    <h4>Price per day:</h4>
                 </div>
-                <div class="col-md-6 text-right">
+                <div class="col-md-4 text-right">
                     <h4>{% if accommodation.price_per_day == 0 %}
                         Free
                     {% else %}
                         {{ accommodation.price_per_day }} &euro;
+                    {% endif %}</h4>
+                </div>
+            </div>
+            <div class="row panel panel-default">
+                <div class="col-md-8 text-left">
+                    <h4>Price per month:</h4>
+                </div>
+                <div class="col-md-4 text-right">
+                    <h4>{% if accommodation.price_per_month == 0 %}
+                        Free
+                    {% else %}
+                        {{ accommodation.price_per_month }} &euro;
                     {% endif %}</h4>
                 </div>
             </div>
