@@ -21,3 +21,8 @@ body {
     height: auto;
     max-width: 100%;
 }
+
+#messagesContainer {
+    z-index: 999999;
+    margin-top: 100px;
+}
