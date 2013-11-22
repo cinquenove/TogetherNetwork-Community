@@ -164,9 +164,9 @@
                     // The same caveats as above apply to the FB.login() call here.
                     FB.login();
                 }
-            }
+            });
             // Load the SDK asynchronously
-            (function(){
+            $(function(){
                  // If we've already installed the SDK, we're done
                  if (document.getElementById('facebook-jssdk')) {return;}
 
