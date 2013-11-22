@@ -27,6 +27,6 @@ urlpatterns = patterns('',
     # Static Pages
     url(r'^principles$', TemplateView.as_view(template_name='static_pages/principles.html')),
     url(r'^about$', TemplateView.as_view(template_name='static_pages/about.html')),
-    url(r'', TemplateView.as_view(template_name='static_pages/homepage.html')),
     url(r'', include('social_auth.urls')),
+    url(r'', TemplateView.as_view(template_name='static_pages/homepage.html')),
 )

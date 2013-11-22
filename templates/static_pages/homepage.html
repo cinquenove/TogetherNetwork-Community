@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% load facebook %}
 {% block head %}
     <link href="/static/css/mainpages.css" rel="stylesheet" media="screen">
 {% endblock %}
@@ -16,7 +15,6 @@
                     <br>
                     <br>
                     <a href="/accounts/register/"><div id="buttoncomehome">come home</div></a><br/>
-                    {% facebook_button %}
                 </div>
                 <a href="javascript:void(0);" onclick="scrollToLive('#slide-live');">
                     <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
