@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from .models import Activity
 
 from .forms import ActivityForm
+from .forms import CommentForm
+
 from datetime import datetime
 from datetime import timedelta
 
@@ -97,4 +99,29 @@ def delete_activity(request, activity_pk):
         activity.delete()
         return redirect(activities_view)
     return redirect(activity)
+
+@login_required
+def new_activity_comment(request, activity_pk=None):
+    """
+        Create a new comment
+    """
+
+    activity = get_object_or_404(Activity, pk=activity_pk)
+    if request.method == 'POST':
+        formset = CommentForm(request.POST, request.FILES)
+        if formset.is_valid():
+            comment_obj = formset.save(commit=False)
+            comment_obj.owner = request.user
+            comment_obj.activity = activity
+            comment_obj.save()
+            # Send Email to owner.
+            messages.success(request, 'Your comment has been saved')
+            return redirect(single_activity_view, activity_pk=activity_pk)
+    else:
+        formset = CommentForm()
+
+    return render_to_response("form.html", {
+        "form": formset,
+        "title": "New Comment"
+    }, context_instance=RequestContext(request))
 

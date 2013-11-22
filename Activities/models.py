@@ -116,3 +116,14 @@ class Activity(models.Model):
 
     def __str__(self):
         return "( %s ) %s by %s " % ( self.time, self.title, self.owner.username )
+
+class Comment(models.Model):
+    """
+        A single Activity Comment.
+
+    """
+    owner = models.ForeignKey(User, related_name="comment_owner")
+    content = models.TextField(max_length=500, default="")
+    pub_date = models.DateTimeField(default=datetime.now())
+    
+
