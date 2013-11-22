@@ -73,7 +73,7 @@
 /* Single Accommodation */
 
 .accommodation-container {
-    max-width: 600px;
+    max-width: 900px;
     font-family: 'Actor', sans-serif;
     font-size: 20px;
 }
@@ -124,6 +124,6 @@
 }
 
 #bookingCalendar {
-    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
