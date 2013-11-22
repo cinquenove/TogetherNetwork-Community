@@ -114,7 +114,11 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
-)
+    'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
@@ -132,6 +136,11 @@ ROOT_URLCONF = 'togethernetwork.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'togethernetwork.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -142,6 +151,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
+    'social_auth',
     'django.contrib.admindocs',
     'django.contrib.humanize',    
     # Community Components
@@ -217,3 +227,8 @@ AWS_HEADERS = {
     'Accept-Encoding': 'gzip, deflate',
     #'Content-Encoding': 'gzip'
 }
+
+#Django social auth
+FACEBOOK_APP_ID = '605827832822869'
+FACEBOOK_SECRET_KEY = os.environ.get('FACEBOOK_SECRET_KEY')
+FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']

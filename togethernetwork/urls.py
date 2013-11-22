@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # Community Developed Components
+    url(r'^social/', include('socialregistration.urls', namespace='socialregistration')),
     url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     url(r'^avatar/', include('avatar.urls')),
@@ -26,5 +27,6 @@ urlpatterns = patterns('',
     # Static Pages
     url(r'^principles$', TemplateView.as_view(template_name='static_pages/principles.html')),
     url(r'^about$', TemplateView.as_view(template_name='static_pages/about.html')),
-    url(r'^$', TemplateView.as_view(template_name='static_pages/homepage.html')),
+    url(r'', TemplateView.as_view(template_name='static_pages/homepage.html')),
+    url(r'', include('social_auth.urls')),
 )

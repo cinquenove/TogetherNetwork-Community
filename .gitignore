@@ -40,3 +40,6 @@ nosetests.xml
 venv
 uploads
 staticfiles
+src/facebook-sdk/
+
+src/pip-delete-this-directory.txt
