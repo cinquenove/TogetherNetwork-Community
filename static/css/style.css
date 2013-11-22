@@ -25,3 +25,7 @@ body {
 #messagesContainer {
     z-index: 999999;
 }
+
+.fb_iframe_widget * {
+    vertical-align: text-top !important;
+}
