@@ -32,8 +32,9 @@ def single_activity_view(request, activity_pk):
         Show the single Activity view
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
+    comments = Comment.objects.filter(activity=activity)
     return render_to_response("activity.html", 
-        {"activity": activity }, 
+        { "activity": activity, "comments": comments }, 
         context_instance=RequestContext(request))
 
 @login_required

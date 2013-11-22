@@ -60,14 +60,22 @@
         <div class="panel-body">
            <div class="attendees">
             {% for attendee in activity.attendees.all %}
-            <a href="/users/{{ attendee.username }}">{% avatar attendee 60 %}</a>
+            <a href="/users/{{ attendee.username }}">{% avatar attendee 45 %}</a>
             {% endfor %}
             </div>
         </div>
     </div>
     {% endif %}
-
-</div>    
+    <h3>Comments</h3>
+    {% for comment in comments %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+           <a href="/users/{{ comment.owner.username }}">{% avatar comment.owner 45 %}</a>
+           {{ comment.content }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
 
 {% block scripts %}

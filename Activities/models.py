@@ -123,7 +123,15 @@ class Comment(models.Model):
 
     """
     owner = models.ForeignKey(User, related_name="comment_owner")
+    activity = models.ForeignKey(Activity, related_name="comment_activity")
     content = models.TextField(max_length=500, default="")
     pub_date = models.DateTimeField(default=datetime.now())
-    
+
+    def get_absolute_url(self):
+        return "/activities/%s" % self.activity.pk
+
+    def __str__(self):
+        return "( %s ) %s by %s " % ( self.time, self.activity.title, self.owner.username )
+
+
 
