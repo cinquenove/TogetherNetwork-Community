@@ -1,10 +1,6 @@
 django
 django-toolbelt
 boto
-django-socialregistration
-oauth2
-facebook
-python-openid
 django-storages
 django-avatar
 django-registration

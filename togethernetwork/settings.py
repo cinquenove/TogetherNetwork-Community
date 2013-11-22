@@ -116,11 +116,6 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
-AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.ModelBackend',
-        'socialregistration.contrib.facebook.auth.FacebookAuth',
-)
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -150,8 +145,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.humanize',    
     # Community Components
-    'socialregistration',
-    'socialregistration.contrib.facebook',
     'storages',
     'registration',
     'avatar',
@@ -224,8 +217,3 @@ AWS_HEADERS = {
     'Accept-Encoding': 'gzip, deflate',
     #'Content-Encoding': 'gzip'
 }
-
-# Django SocialAuth
-FACEBOOK_APP_ID = '605827832822869'
-FACEBOOK_SECRET_KEY = os.environ.get('FACEBOOK_SECRET_KEY')
-FACEBOOK_REQUEST_PERMISSIONS = 'email,user_about_me,user_birthday,user_hometown,user_location,publish_actions'
