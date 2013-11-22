@@ -75,6 +75,23 @@
         </div>
     </div>
     {% endfor %}
+    <form class="form-horizontal" method="post" action="{{ activity.get_absolute_url }}/comment" enctype="multipart/form-data" >
+        {% block beforefields %}{% endblock %}
+        {# Include the hidden fields #}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="text" id="id_text" class="form-control" placeholder="Write your comment here...">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-block btn-success">
+                    &nbsp;&nbsp;<span class="glyphicon glyphicon-comment"></span> Comment&nbsp;&nbsp;
+                </button>
+            </span>
+        </div>
+    </form>
 </div>
 {% endblock %}
 
