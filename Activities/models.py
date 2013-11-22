@@ -128,7 +128,7 @@ class Comment(models.Model):
     pub_date = models.DateTimeField(default=datetime.now())
 
     def get_absolute_url(self):
-        return "/activities/%s" % self.activity.pk
+        return "/activities/%s#comment-%s" % (self.activity.pk, self.pk)
 
     def __str__(self):
         return "( %s ) %s by %s " % ( self.time, self.activity.title, self.owner.username )

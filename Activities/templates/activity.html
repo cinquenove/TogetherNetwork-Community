@@ -68,7 +68,7 @@
     {% endif %}
     <h3>Comments</h3>
     {% for comment in comments %}
-    <div class="panel panel-default">
+    <div class="panel panel-default" id="comment-{{ comment.pk }}">
         <div class="panel-body">
            <a href="/users/{{ comment.owner.username }}">{% avatar comment.owner 45 %}</a>
            {{ comment.content }}
@@ -84,7 +84,7 @@
 
         {% csrf_token %}
         <div class="input-group">
-            <input type="text" name="text" id="id_text" class="form-control" placeholder="Write your comment here...">
+            <input type="text" name="content" id="id_content" class="form-control" placeholder="Write your comment here...">
             <span class="input-group-btn">
                 <button type="submit" class="btn btn-block btn-success">
                     &nbsp;&nbsp;<span class="glyphicon glyphicon-comment"></span> Comment&nbsp;&nbsp;

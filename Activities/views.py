@@ -4,9 +4,11 @@ from django.shortcuts import redirect
 from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from django.contrib.auth.models import User
 from .models import Activity
+from .models import Comment
 
 from .forms import ActivityForm
 from .forms import CommentForm
