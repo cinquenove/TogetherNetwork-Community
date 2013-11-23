@@ -118,7 +118,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'social_auth.context_processors.social_auth_backends',
     'social_auth.context_processors.social_auth_by_type_backends',
     'social_auth.context_processors.social_auth_login_redirect',
-    )
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
@@ -232,3 +232,5 @@ AWS_HEADERS = {
 FACEBOOK_APP_ID = '605827832822869'
 FACEBOOK_SECRET_KEY = os.environ.get('FACEBOOK_SECRET_KEY')
 FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
+FACEBOOK_API_ID = FACEBOOK_APP_ID
+FACEBOOK_API_SECRET = FACEBOOK_SECRET_KEY
