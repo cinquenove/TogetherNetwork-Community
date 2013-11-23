@@ -1,77 +1,3 @@
-/* Parallax */
-
-#home { 
-    background: url('/static/imgs/photos/BG-landing-page.png') 50% 0 repeat fixed; 
-    min-height: 800px; 
-    height: 800px; 
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
-}
-
-#home article { 
-    height: 458px; 
-    position: absolute; 
-    text-align: center; 
-    width: 100%; 
-    text-shadow: 0px 0px 5px black;
-}
- 
-#slide-live { 
-    background-image: url('/static/imgs/photos/home-slide-live.png') 50% 0 no-repeat;
-    min-height: 800px;  
-    height: 800px; 
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
-    -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-
-#slide-live article { 
-    height: 458px; 
-    position: absolute; 
-    text-align: center; 
-    text-shadow: 0px 0px 5px black;
-}
-
-#slide-learn { 
-    background: url('/static/imgs/photos/home-slide-learn.png') 50% 800px repeat fixed;
-    background-size: cover;
-    min-height: 800px;  
-    height: 800px; 
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
-}
-
-#slide-learn article { 
-    height: 458px; 
-    position: absolute; 
-    text-align: center; 
-    text-shadow: 0px 0px 5px black;
-}
-
-#slide-make { 
-    background: url('/static/imgs/photos/home-slide-make.png') 50% 0 no-repeat;
-    min-height: 800px;  
-    height: 800px; 
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
-    -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-
-#slide-make article { 
-    height: 458px; 
-    position: absolute; 
-    text-align: center;
-    text-shadow: 0px 0px 5px black;
-}
-
-
-
 /* Homepage */
 
 #home-page-logo {
@@ -135,21 +61,27 @@
 /* Homepage Slides */
 
 .homepage-slide {
-    min-height: 800px;
+    min-height: 450px;
     background-repeat: no-repeat; 
     background-position: top;
     background-size: cover;
     background-color: black;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
     text-shadow: 0px 0px 5px black;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
 .homepage-slide p{
 
-
 }
 
 #homepage-main {
-    
+    background-image: url('/static/imgs/photos/BG-landing-page.png'); 
+    background-attachment: fixed;
 }
 
 #homepage-live {
@@ -159,6 +91,7 @@
 
 #homepage-learn {
     background-image: url('/static/imgs/photos/home-slide-learn.png');
+    background-attachment: fixed;
 }
 
 

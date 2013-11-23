@@ -5,53 +5,51 @@
 
 {% block container %}
 <div id="mainContainer"></div>
-
-    <section id="home" data-type="background" data-speed="10">   
-        <div id="homepage-main">
-            <article class="container">
-                <div class="text-center" id="home-page-logo">
-                    <img class="img-super-responsive img-responsive-center" src="/static/imgs/logos/logone-Together.png">
-                    <h2 id="payoff">the cross-inspirational place<br>that feels like <span id="payoffred">home</span></p></h2>
-                    <br>
-                    <br>
-                    <a href="{% url "socialauth_begin" "facebook" %}"><div id="buttoncomehome">come home</div></a><br/>
-                </div>
-                <a href="javascript:void(0);" onclick="scrollToLive('#slide-live');">
+    <div class="homepage-slide" id="homepage-main">
+        <div class="container">
+            <div class="text-center" id="home-page-logo">
+                <img class="img-super-responsive img-responsive-center" src="/static/imgs/logos/logone-Together.png">
+                <h2 id="payoff">the cross-inspirational place<br>that feels like <span id="payoffred">home</span></p></h2>
+                <br>
+                <br>
+                <a href="{% url "socialauth_begin" "facebook" %}"><div id="buttoncomehome">come home</div></a><br/>
+            </div>
+            <div class="text-center">
+                <a href="javascript:void(0);" onclick="scrollToLive('#homepage-live');">
                     <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
                 </a>
-            </article>
-            <div class="clearfix"></div>
+            </div>
         </div>
-    </section>
+        <div class="clearfix"></div>
+    </div>
 
-    <section id="slide-live" data-type="background" data-speed="10">
-        <div class="homepage-slide" id="homepage-live">
-            <article class="container text-center">
-                <div class="text-right" id="home-page-logo">
-                    <img class="img-super-responsive" src="/static/imgs/logos/live-together.png">
-                    <h2 id="payoff">
-                    Most meaningful conversations happen <br>
-                    when people are <span id="payoffred">relaxed</span></h2>
-                </div>
-                    <br>
-                    <br>
-                <div class="text-right">
-                    <p class="lead" id="payoff">
-                        The house combines long term and short term international residents<br>
-                        who share an inspiring living experience
-                    </p>
-                </div>
-                <a href="javascript:void(0);" onclick="scrollToLive('#slide-learn');">
+    <div class="homepage-slide" id="homepage-live">
+        <div class="container text-center">
+            <div class="text-right" id="home-page-logo">
+                <img class="img-super-responsive" src="/static/imgs/logos/live-together.png">
+                <h2 id="payoff">
+                Most meaningful conversations happen <br>
+                when people are <span id="payoffred">relaxed</span></h2>
+            </div>
+                <br>
+                <br>
+            <div class="text-right">
+                <p class="lead" id="payoff">
+                    The house combines long term and short term international residents<br>
+                    who share an inspiring living experience
+                </p>
+            </div>
+            <div class="text-center">
+                <a href="javascript:void(0);" onclick="scrollToLive('#homepage-learn');">
                     <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
                 </a>
-            </article>
-            <div class="clearfix"></div>
+            </div>
         </div>
-    </section>
-
-<section id="slide-learn" data-type="background2" data-speed="10">
-    <div id="slide-learn">
-        <article class="container text-center">
+        <div class="clearfix"></div>
+    </div>
+    
+    <div class="homepage-slide" id="homepage-learn">
+        <div class="container text-center">
             <div class="text-left" id="home-page-logo">
                 <img class="img-super-responsive" src="/static/imgs/logos/learn-together.png">
                 <h2 id="payoff">
@@ -66,17 +64,18 @@
                     offered by the community and the residents
                 </p>
             </div>
-            <a href="javascript:void(0);" onclick="scrollToLive('#slide-make');">
-                <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
-            </a>
-        </article>
+            <div class="text-center">
+                <a href="javascript:void(0);" onclick="scrollToLive('#homepage-make');">
+                    <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
+                </a>
+            </div>
+
+        </div>
         <div class="clearfix"></div>
     </div>
-</section>
 
-<section id="slide-make" data-type="background2" data-speed="10">
     <div class="homepage-slide" id="homepage-make">
-        <article class="container text-center">
+        <div class="container text-center">
             <div class="text-right" id="home-page-logo">
                 <img class="img-super-responsive" src="/static/imgs/logos/make-together.png">
                 <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
@@ -88,12 +87,10 @@
                     The house encourages collaboration among members with ongoing sustainable projects aimed to benefit the local communities and the rest of the planet
                 </p>
             </div>
-        </article>
+        </div>
         <div class="clearfix"></div>
     </div>
-
-</section>
-
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -114,7 +111,7 @@
             change_slides_heigth()
         })
 
-        /* parallax effect js */
+        /* parallax effect js 
         $(document).ready(function(){
             var $window = $(window); //You forgot this line in the above example
             $('section[data-type="background"]').each(function parallax(){
@@ -128,7 +125,7 @@
                 });
             });
         });
-
+        /* */
         /* Scrolling */
         function scrollToLive(element_id) {
             $('html, body').animate({
