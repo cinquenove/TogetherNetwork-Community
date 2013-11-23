@@ -74,8 +74,7 @@
 				</ul>
  				{% if not request.user.is_authenticated %}
  				<div class="pull-right">
-					<a href="/accounts/login/{% if not '/accounts/login' in request.get_full_path %}?next={{ request.get_full_path }}{% endif %}" class="signin-btn navbar-btn btn btn-sm btn-default">Sign In</a>
-					<a href="/accounts/register/" class="signin-btn navbar-btn btn btn-sm btn-default">Sign Up</a>
+					<a href="{% url "socialauth_begin" "facebook" %}" class="signin-btn navbar-btn btn btn-sm btn-default">Login/SignUp</a>
 				</div>
 				{% endif %}
 				{% endblock %}
