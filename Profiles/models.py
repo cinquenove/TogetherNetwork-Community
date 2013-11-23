@@ -14,10 +14,10 @@ class Profile(models.Model):
     email = models.EmailField(max_length=30)
 
     #TODO: relation with space by checking other database models ( Bookins, Activities ecc..)
-    city = models.CharField(max_length=200)
-    bio = models.TextField(max_length=500, default="")
-    skills = models.TextField(max_length=500, default="")
-    mission = models.CharField(max_length=250)
+    city = models.CharField(max_length=200, blank=True)
+    bio = models.TextField(max_length=500, default="", blank=True)
+    skills = models.TextField(max_length=500, default="", blank=True)
+    mission = models.CharField(max_length=250, blank=True)
     
     personal_website_url = models.URLField(blank=True)
     twitter_url = models.URLField(default="http://twitter.com/", blank=True)
