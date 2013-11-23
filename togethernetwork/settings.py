@@ -234,3 +234,6 @@ FACEBOOK_SECRET_KEY = os.environ.get('FACEBOOK_SECRET_KEY')
 FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
 FACEBOOK_API_ID = FACEBOOK_APP_ID
 FACEBOOK_API_SECRET = FACEBOOK_SECRET_KEY
+
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = "/users/edit"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/activities/list"
