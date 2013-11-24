@@ -230,6 +230,9 @@ AWS_HEADERS = {
 }
 
 #Django social auth
+LOGIN_URL = "/login/facebook/"
+LOGIN_REDRECT_URL = "/activities/list"
+
 FACEBOOK_APP_ID = '605827832822869'
 FACEBOOK_SECRET_KEY = os.environ.get('FACEBOOK_SECRET_KEY')
 FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
