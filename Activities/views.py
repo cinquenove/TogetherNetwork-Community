@@ -62,6 +62,14 @@ def edit_activity_view(request, activity_pk=None):
             
             activity_obj.owner = request.user
             activity_obj.save()
+            if not activity: #New one
+                mail_admins(
+                "[TogetherNetwork] New Activity", 
+                """New activity created by %s: 
+http://together-network.herokuapp.com%s
+
+koala""" % (comment_obj.owner.username, activity.get_absolute_url()  ) )
+            
             return redirect(activity_obj)
     else:
         formset = ActivityForm(instance=activity)
@@ -118,15 +126,7 @@ def new_activity_comment(request, activity_pk=None):
             comment_obj.owner = request.user
             comment_obj.activity = activity
             comment_obj.save()
-            # Send Email to owner.
             messages.success(request, 'Your comment has been saved')
-            mail_admins(
-                "[Together] New Activity", 
-                """New activity created by %s: 
-http://together-network.herokuapp.com%s
-
-koala""" % (comment_obj.owner.username, activity.get_absolute_url()  ) )
-            
             return redirect(single_activity_view, activity_pk=activity_pk)
     else:
         formset = CommentForm()
