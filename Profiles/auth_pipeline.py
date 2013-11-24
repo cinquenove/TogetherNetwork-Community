@@ -15,5 +15,5 @@ def get_user_avatar(backend, details, response, social_user, uid,\
         the_profile.first_name = user.first_name
         the_profile.last_name = user.last_name
         the_profile.email = user.email
-        the_profile.avatar_url = the_avatar_url
+        the_profile.avatar_url = url
         the_profile.save()
