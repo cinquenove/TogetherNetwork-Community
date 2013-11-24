@@ -70,6 +70,10 @@
     background-color: #666;
 }
 
+#noContentMessage {
+    margin-top: 100px;
+}
+
 /* Single Accommodation */
 
 .accommodation-container {

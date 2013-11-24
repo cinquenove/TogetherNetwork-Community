@@ -74,6 +74,10 @@
     background-color: #666;
 }
 
+#noContentMessage {
+    margin-top: 100px;
+}
+
 /* Single Activity */
 
 .activity-container {
