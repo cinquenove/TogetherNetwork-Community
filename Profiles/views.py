@@ -31,7 +31,7 @@ def profile_view(request, username):
         Show a single profile
     """
     try:
-        profile = Profile.objects.get(owner__username=username)
+        profile = Profile.objects.get(user__username=username)
     except:
         if username == request.user.username:
             return redirect(edit_profile_view)
@@ -39,13 +39,13 @@ def profile_view(request, username):
             raise Http404
 
 
-    partecipated_in_counter = Activity.objects.filter(attendees__in=[profile.owner]).count()
-    offered_counter = Activity.objects.filter(owner=profile.owner).count()
+    partecipated_in_counter = Activity.objects.filter(attendees__in=[profile.user]).count()
+    offered_counter = Activity.objects.filter(owner=profile.user).count()
 
     #user_status calculation
     user_status = "Never been"
     now = datetime.now()
-    user_bookings = Booking.objects.filter(tenant=profile.owner).order_by('-checkin_date')[:10]
+    user_bookings = Booking.objects.filter(tenant=profile.user).order_by('-checkin_date')[:10]
     for booking in user_bookings:
         # Current booking
         if booking.checkin_date <= now and booking.checkout_date >= now:
@@ -77,7 +77,7 @@ def edit_profile_view(request):
     form_title = "My Profile"
 
     try:
-        profile = Profile.objects.get(owner=request.user)
+        profile = Profile.objects.get(user=request.user)
     except:
         profile = Profile()
 
@@ -86,7 +86,7 @@ def edit_profile_view(request):
         if formset.is_valid():
             profile_obj = formset.save(commit=False)
             
-            profile_obj.owner = request.user
+            profile_obj.user = request.user
 
             request.user.email = profile_obj.email
             request.user.first_name = profile_obj.first_name

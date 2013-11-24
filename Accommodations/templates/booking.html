@@ -16,7 +16,7 @@
     Checkin Date: {{ booking.checkin_date }}<br/>
     CheckOut Date: {{ booking.checkout_date }}<br/>
     <br/>
-    User that requested the place: {{ booking.tenant }}<br/>
+    User that requested the place: <a href="/users/{{booking.tenant.username}}">{{ booking.tenant }}</a><br/>
     Status: {{ booking.status }}<br/>
     Price {{ booking.price }}<br/>
     <br/>

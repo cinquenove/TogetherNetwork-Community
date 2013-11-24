@@ -2,7 +2,7 @@
  
 
 {% block navbar_buttons %}
-{% if profile.owner == request.user %}
+{% if profile.user == request.user %}
 &nbsp;<a href="/users/edit" class="signin-btn btn btn-success navbar-btn pull-right">
     <span class="glyphicon glyphicon-pencil"></span>&nbsp;
     Edit
@@ -16,7 +16,7 @@
         <div class="col-md-3 text-center">
             <div class="profile-user-pic-div">
                 <img src="{{ profile.avatar_url }}" height="200" width="200">
-                {% if profile.owner == request.user %}
+                {% if profile.user == request.user %}
                 <div class="profile-user-pic-change-picture">
                     <a href="/avatar/change" class="btn btn-danger navbar-btn btn-xs">
                         <span class="glyphicon glyphicon-camera"></span>&nbsp;
@@ -30,7 +30,7 @@
         <div class="col-md-6 profile-header-content">
             <div class="page-header">
                 <h1>
-                    {{ profile.owner.first_name }} {{ profile.last_name }}
+                    {{ profile.first_name }} {{ profile.last_name }}
                     <small>
                         <span class="glyphicon glyphicon-globe"></span> 
                         {{ profile.city }}
@@ -80,7 +80,7 @@
             </div>
             <ul class="list-group">
                 <li class="list-group-item">
-                <h4>{{ profile.owner.first_name }}'s activities</h4>
+                <h4>{{ profile.user.first_name }}'s activities</h4>
                 </li>
                 <li class="list-group-item">
                     <span class="badge">{{ partecipated_in_counter }}</span><b>

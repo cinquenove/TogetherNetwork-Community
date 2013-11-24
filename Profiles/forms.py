@@ -6,7 +6,7 @@ class ProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = [
-            #"owner",
+            #"user",
             "first_name",
             "last_name",
             "email",

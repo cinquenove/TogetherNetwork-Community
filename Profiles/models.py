@@ -7,7 +7,7 @@ class Profile(models.Model):
     """
         Single User Profile
     """
-    owner = models.ForeignKey(User, related_name="profile_owner")
+    user = models.ForeignKey(User, related_name="profile_owner")
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -25,8 +25,8 @@ class Profile(models.Model):
     facebook_url = models.URLField(default="http://facebook.com/", blank=True)
     
     def get_absolute_url(self):
-        return "/users/%s" % self.owner.username
+        return "/users/%s" % self.user.username
 
     def __str__(self):
-        return "%s" % ( self.owner.username )
+        return "%s" % ( self.user.username )
     
