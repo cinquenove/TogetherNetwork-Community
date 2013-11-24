@@ -151,10 +151,11 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    'social_auth',
     'django.contrib.admindocs',
     'django.contrib.humanize',    
     # Community Components
+    'social_auth',
+    'django_extensions'
     'storages',
     'registration',
     'avatar',

@@ -1,6 +1,7 @@
 django
 django-toolbelt
 boto
+django_extensions
 django-social-auth
 django-storages
 django-avatar
