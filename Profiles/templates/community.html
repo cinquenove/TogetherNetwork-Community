@@ -7,7 +7,7 @@
     <div class="profile-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="profile-box-{{ profile.pk }}">
    		<a href="/users/{{ profile.owner.username }}/">
             <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
-                <div style="display:none;">{% avatar profile.owner 500 %}</div>
+                <div style="display:none;"><img src="{{ profile.avatar_url }}" height="500" width="500"></div>
         		{{ profile.first_name }}
        		</div>
         </a>             

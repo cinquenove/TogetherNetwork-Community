@@ -15,7 +15,7 @@
         <!-- Sidebar -->
         <div class="col-md-3 text-center">
             <div class="profile-user-pic-div">
-                {% avatar profile.owner 200 %}
+                <img src="{{ profile.avatar_url }}" height="200" width="200">
                 {% if profile.owner == request.user %}
                 <div class="profile-user-pic-change-picture">
                     <a href="/avatar/change" class="btn btn-danger navbar-btn btn-xs">
