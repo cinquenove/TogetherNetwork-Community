@@ -158,7 +158,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'storages',
     #'registration',
-    'avatar',
+    #'avatar',
     
     # Private Components
     "Activities",

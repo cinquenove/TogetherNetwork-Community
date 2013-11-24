@@ -4,7 +4,6 @@ boto
 django_extensions
 django-social-auth
 django-storages
-django-avatar
 django-registration
 pillow
 honcho

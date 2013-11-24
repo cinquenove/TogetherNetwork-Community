@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     # Community Developed Components
     #url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
-    url(r'^avatar/', include('avatar.urls')),
+    #url(r'^avatar/', include('avatar.urls')),
 
     # Custom Components
     url(r'^accommodations/', include('Accommodations.urls')),
