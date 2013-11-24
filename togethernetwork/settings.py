@@ -155,7 +155,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',    
     # Community Components
     'social_auth',
-    'django_extensions'
+    'django_extensions',
     'storages',
     'registration',
     'avatar',
