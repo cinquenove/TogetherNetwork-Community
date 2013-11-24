@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6" id="map_canvas">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" id="house_address">
             <address>
                 <strong>Together</strong><br>
                 Viale Glorioso 14<br>
@@ -27,11 +27,12 @@
         var map_canvas = document.getElementById('map_canvas');
         var map_options = {
             center: new google.maps.LatLng(41.884639, 12.468782),
-            zoom: 8,
+            zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(map_canvas, map_options)
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    <script type="text/javascript">
 {% endblock %}
