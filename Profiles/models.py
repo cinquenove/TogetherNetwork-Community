@@ -25,7 +25,7 @@ class Profile(models.Model):
     facebook_url = models.URLField(default="http://facebook.com/", blank=True)
     
     def get_absolute_url(self):
-        return "/users/%s" % self.user.username
+        return "/users/%s/" % self.user.username
 
     def __str__(self):
         return "%s" % ( self.user.username )
