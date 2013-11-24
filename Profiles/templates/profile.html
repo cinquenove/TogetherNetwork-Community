@@ -16,14 +16,6 @@
         <div class="col-md-3 text-center">
             <div class="profile-user-pic-div">
                 <img src="{{ profile.avatar_url }}" height="200" width="200">
-                {% if profile.user == request.user %}
-                <div class="profile-user-pic-change-picture">
-                    <a href="/avatar/change" class="btn btn-danger navbar-btn btn-xs">
-                        <span class="glyphicon glyphicon-camera"></span>&nbsp;
-                        Change Avatar
-                    </a>
-                </div>
-                {% endif %}
             </div>
         </div>
         <!-- Content -->
