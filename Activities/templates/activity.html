@@ -1,6 +1,5 @@
 {% extends "layout_activities.html" %}
 {% load humanize %}
- 
 
 {% block navbar_buttons %}
 {% if activity.owner == request.user %}
@@ -19,7 +18,7 @@
         {{ activity.time|naturalday }} @ {{ activity.time.hour }}.{{ activity.time.minute }}
     </p>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
-	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div">{% avatar activity.owner 120 %}</div></a>
+	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div"><img src="{{ activity.owner.get_profile.avatar_url }}" height="120" width="120"></div></a>
 </div>
 
 <div class="activity-container container">
@@ -70,7 +69,7 @@
         <div class="panel-body">
            <div class="attendees">
             {% for attendee in activity.attendees.all %}
-            <a href="/users/{{ attendee.username }}">{% avatar attendee 45 %}</a>
+            <a href="/users/{{ attendee.username }}"><img src="{{ attendee.get_profile.avatar_url }}" height="45" width="45"></a>
             {% endfor %}
             </div>
         </div>
@@ -80,7 +79,7 @@
     {% for comment in comments %}
     <div class="panel panel-default" id="comment-{{ comment.pk }}">
         <div class="panel-body">
-           <a href="/users/{{ comment.owner.username }}">{% avatar comment.owner 45 %}</a>
+           <a href="/users/{{ comment.owner.username }}"><img src="{{ comment.owner.get_profile.avatar_url }}" height="45" width="45"></a>
            {{ comment.content }}
         </div>
     </div>
