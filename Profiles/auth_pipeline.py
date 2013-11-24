@@ -7,8 +7,9 @@ def get_user_avatar(backend, details, response, social_user, uid,\
     if backend.__class__ == FacebookBackend:
         url = "http://graph.facebook.com/%s/picture?type=large" % response['id'] 
     if url:
-        the_profile = Profile.objects.get(owner=user)
-        if not the_profile:
+        try:
+            the_profile = Profile.objects.get(owner=user)
+        except:
             the_profile = Profile()
             the_profile.owner = user
         the_profile.first_name = user.first_name
