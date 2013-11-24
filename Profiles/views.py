@@ -45,7 +45,7 @@ def profile_view(request, username):
     #user_status calculation
     user_status = "Never been"
     now = datetime.now()
-    user_bookings = Booking.objects.filter(tenant=profile.owner).limit(10).order_by('-checkin_date')
+    user_bookings = Booking.objects.filter(tenant=profile.owner).order_by('-checkin_date')[:10]
     for booking in user_bookings:
         # Current booking
         if booking.checkin_date <= now and booking.checkout_date >= now:
