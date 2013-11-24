@@ -3,7 +3,7 @@
 
 if [[ $@ == **sure** ]]; then
     echo -n "- Reset database: "
-        heroku pg:reset DATABASE_URL --confirm together-network
+        heroku pg:reset DATABASE_URL --confirm together-network &> /dev/null
     echo "done"
     exit 0
 fi
