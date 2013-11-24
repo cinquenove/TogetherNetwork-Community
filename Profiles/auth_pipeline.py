@@ -1,4 +1,5 @@
 from social_auth.backends.facebook import FacebookBackend
+from .models import Profile
 
 def get_user_avatar(backend, details, response, social_user, uid,\
                     user, *args, **kwargs):
