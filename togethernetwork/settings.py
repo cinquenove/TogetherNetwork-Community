@@ -10,6 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),"..")
 
 ADMINS = (
+    ('Lorenzo Setale', 'koalalorenzo@gmail.com'),
     # ('Your Name', 'your_email@example.com'),
 )
 
