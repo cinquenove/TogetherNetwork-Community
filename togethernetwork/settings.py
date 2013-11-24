@@ -157,7 +157,7 @@ INSTALLED_APPS = (
     'social_auth',
     'django_extensions',
     'storages',
-    'registration',
+    #'registration',
     'avatar',
     
     # Private Components
