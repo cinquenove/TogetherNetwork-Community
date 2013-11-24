@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.mail import send_mail, mail_admins
 
 from django.contrib.auth.models import User
 from .models import Activity
@@ -119,6 +120,13 @@ def new_activity_comment(request, activity_pk=None):
             comment_obj.save()
             # Send Email to owner.
             messages.success(request, 'Your comment has been saved')
+            mail_admins(
+                "[Together] New Activity", 
+                """New activity created by %s: 
+http://together-network.herokuapp.com%s
+
+koala""" % (comment_obj.owner.username, activity.get_absolute_url()  ) )
+            
             return redirect(single_activity_view, activity_pk=activity_pk)
     else:
         formset = CommentForm()

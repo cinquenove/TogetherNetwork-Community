@@ -74,6 +74,13 @@ def create_new_book_for_accommodation(request, accommodation_pk):
             
             booking_obj.tenant = request.user
             booking_obj.save()
+            mail_admins(
+                "[Together] New Booking Order", 
+                """New activity created by %s: 
+http://together-network.herokuapp.com%s
+
+koala""" % (booking_obj.tenant.username, booking_obj.get_absolute_url()  ) )
+            
             return redirect(booking_obj)
     else:
         formset = BookingForm()
