@@ -40,6 +40,7 @@
             <p class="lead">
                 <b>Mission: </b>{{ profile.mission }}  
             </p>
+            {% if profile.bio %}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <b>Bio</b>
@@ -48,7 +49,8 @@
                    {{ profile.bio }}
                 </div>
             </div>
-
+            {% endif %}
+            {% if profile.skills %}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <b>Skills</b>
@@ -57,6 +59,7 @@
                    {{ profile.skills }}
                 </div>
             </div>
+            {% endif %}
         </div>
         <div class="col-md-3 text-rigth profile-header-buttons">
             <div class="panel panel-default">
@@ -88,7 +91,7 @@
             </ul>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    Lived @ Together
+                    {{ user_status }}
                 </div>
             </div>
         </div>
