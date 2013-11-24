@@ -37,9 +37,11 @@
                     </small>
                 </h1>
             </div>
+            {% if profile.mission %}
             <p class="lead">
                 <b>Mission: </b>{{ profile.mission }}  
             </p>
+            {% endif %}
             {% if profile.bio %}
             <div class="panel panel-default">
                 <div class="panel-heading">
