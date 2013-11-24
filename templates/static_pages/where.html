@@ -30,7 +30,13 @@
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(map_canvas, map_options)
+        var map = new google.maps.Map(map_canvas, map_options);
+
+        var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(41.884639, 12.468782),
+              map: map,
+              title: 'Together'
+          });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
