@@ -68,7 +68,7 @@ def edit_activity_view(request, activity_pk=None):
                 """New activity created by %s: 
 http://together-network.herokuapp.com%s
 
-koala""" % (comment_obj.owner.username, activity.get_absolute_url()  ) )
+koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
             
             return redirect(activity_obj)
     else:
