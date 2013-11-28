@@ -8,6 +8,8 @@ admin.autodiscover()
 from django.views.generic import RedirectView
 from django.views.generic import TemplateView
 
+from Profiles.views import homepage_view
+
 urlpatterns = patterns('',
     # Django Components
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
@@ -29,5 +31,5 @@ urlpatterns = patterns('',
     url(r'^about$', TemplateView.as_view(template_name='static_pages/about.html')),
     url(r'^where$', TemplateView.as_view(template_name='static_pages/where.html')),
     url(r'', include('social_auth.urls')),
-    url(r'', TemplateView.as_view(template_name='static_pages/homepage.html')),
+    url(r'', homepage_view, name='homepage'),
 )

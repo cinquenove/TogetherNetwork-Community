@@ -1,95 +1,107 @@
 {% extends "layout.html" %}
 {% block head %}
     <link href="/static/css/mainpages.css" rel="stylesheet" media="screen">
+    <link href="/static/css/profiles.css" rel="stylesheet" media="screen">
 {% endblock %}
 
 {% block container %}
 <div id="mainContainer"></div>
-    <div class="homepage-slide" id="homepage-main">
-        <div class="container">
-            <div class="text-center" id="home-page-logo">
-                <img class="img-super-responsive img-responsive-center" src="/static/imgs/logos/logone-Together.png">
-                <h2 id="payoff">the cross-inspirational place<br>that feels like <span id="payoffred">home</span></p></h2>
-                <br>
-                <br>
-                <a href="{% url "socialauth_begin" "facebook" %}"><div id="buttoncomehome">come home</div></a><br/>
-            </div>
-            <div class="text-center">
-                <a href="javascript:void(0);" onclick="scrollToLive('#homepage-live');">
-                    <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
-                </a>
-            </div>
+<div class="homepage-slide" id="homepage-main">
+    <div class="container">
+        <div class="text-center" id="home-page-logo">
+            <img class="img-super-responsive img-responsive-center" src="/static/imgs/logos/logone-Together.png">
+            <h2 id="payoff">the cross-inspirational place<br>that feels like <span id="payoffred">home</span></p></h2>
+            <br>
+            <br>
+            <a href="{% url "socialauth_begin" "facebook" %}"><div id="buttoncomehome">come home</div></a><br/>
         </div>
-        <div class="clearfix"></div>
+        <div class="text-center">
+            <a href="javascript:void(0);" onclick="scrollToLive('#homepage-live');">
+                <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
+            </a>
+        </div>
     </div>
+    <div class="clearfix"></div>
+</div>
 
-    <div class="homepage-slide" id="homepage-live">
-        <div class="container text-center">
-            <div class="text-right" id="home-page-logo">
-                <img class="img-super-responsive" src="/static/imgs/logos/live-together.png">
-                <h2 id="payoff">
-                Most meaningful conversations happen <br>
-                when people are <span id="payoffred">relaxed</span></h2>
-            </div>
-                <br>
-                <br>
-            <div class="text-right">
-                <p class="lead" id="payoff">
-                    The house combines long term and short term international residents<br>
-                    who share an inspiring living experience
-                </p>
-            </div>
-            <div class="text-center">
-                <a href="javascript:void(0);" onclick="scrollToLive('#homepage-learn');">
-                    <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
-                </a>
-            </div>
+<div class="homepage-slide" id="homepage-live">
+    <div class="container text-center">
+        <div class="text-right" id="home-page-logo">
+            <img class="img-super-responsive" src="/static/imgs/logos/live-together.png">
+            <h2 id="payoff">
+            Most meaningful conversations happen <br>
+            when people are <span id="payoffred">relaxed</span></h2>
         </div>
-        <div class="clearfix"></div>
+            <br>
+            <br>
+        <div class="text-right">
+            <p class="lead" id="payoff">
+                The house combines long term and short term international residents<br>
+                who share an inspiring living experience
+            </p>
+        </div>
+        <div class="text-center">
+            <a href="javascript:void(0);" onclick="scrollToLive('#homepage-learn');">
+                <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
+            </a>
+        </div>
     </div>
-    
-    <div class="homepage-slide" id="homepage-learn">
-        <div class="container text-center">
-            <div class="text-left" id="home-page-logo">
-                <img class="img-super-responsive" src="/static/imgs/logos/learn-together.png">
-                <h2 id="payoff">
-                    <span id="payoffred">Knowledge</span> is love and light and vision
-                </h2>
-            </div>
-            <br>
-            <br>
-            <div class="text-left">
-                <p class="lead" id="payoff">
-                    The house hosts classes, workshops and events<br>
-                    offered by the community and the residents
-                </p>
-            </div>
-            <div class="text-center">
-                <a href="javascript:void(0);" onclick="scrollToLive('#homepage-make');">
-                    <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
-                </a>
-            </div>
+    <div class="clearfix"></div>
+</div>
 
+<div class="homepage-slide" id="homepage-learn">
+    <div class="container text-center">
+        <div class="text-left" id="home-page-logo">
+            <img class="img-super-responsive" src="/static/imgs/logos/learn-together.png">
+            <h2 id="payoff">
+                <span id="payoffred">Knowledge</span> is love and light and vision
+            </h2>
         </div>
-        <div class="clearfix"></div>
-    </div>
+        <br>
+        <br>
+        <div class="text-left">
+            <p class="lead" id="payoff">
+                The house hosts classes, workshops and events<br>
+                offered by the community and the residents
+            </p>
+        </div>
+        <div class="text-center">
+            <a href="javascript:void(0);" onclick="scrollToLive('#homepage-make');">
+                <img class="arrow-down" src="/static/imgs/icons/arrow-down.png">
+            </a>
+        </div>
 
-    <div class="homepage-slide" id="homepage-make">
-        <div class="container text-center">
-            <div class="text-right" id="home-page-logo">
-                <img class="img-super-responsive" src="/static/imgs/logos/make-together.png">
-                <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
-            </div>
-            <br>
-            <br>
-            <div class="text-right">
-                <p class="lead" id="payoff">
-                    The house encourages collaboration among members with ongoing sustainable projects aimed to benefit the local communities and the rest of the planet
-                </p>
-            </div>
-        </div>
-        <div class="clearfix"></div>
     </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="homepage-slide" id="homepage-make">
+    <div class="container text-center">
+        <div class="text-right" id="home-page-logo">
+            <img class="img-super-responsive" src="/static/imgs/logos/make-together.png">
+            <h2 id="payoff">What do you care about? What can you do to affect the <span id="payoffred">world</span>?</p></h2>
+        </div>
+        <br>
+        <br>
+        <div class="text-right">
+            <p class="lead" id="payoff">
+                The house encourages collaboration among members with ongoing sustainable projects aimed to benefit the local communities and the rest of the planet
+            </p>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="row">
+    {% for profile in profiles %}
+    <div class="profile-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="profile-box-{{ profile.pk }}">
+        <a href="/users/{{ profile.user.username }}/">
+            <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
+                <div style="display:none;"><img src="{{ profile.avatar_url }}" height="500" width="500"></div>
+                {{ profile.first_name }}
+            </div>
+        </a>             
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
 
@@ -133,5 +145,31 @@
             }, 1000);
         }
     </script>
-
+    <script type="text/javascript">
+        // Resizing automatically every thumbnail in order to
+        // have 2 profile per column and a horizontal scrolling
+        function resizeThumbnails(){
+            $(".profile-box").height($(".profile-box").width());   
+        }
+        $(function() {
+            resizeThumbnails();
+        })
+        $(window).resize(function() { 
+            resizeThumbnails();
+        });            
+    </script>
+    {% for profile in profiles %}
+        <script type="text/javascript">
+            $(function(){
+                var background_url = $("#profile-box-content-{{ profile.pk }}")
+                                        .children("div").children("img").attr("src");
+                $("#profile-box-{{ profile.pk }}").css('background-image', 'url(' + background_url + ')');
+                $("#profile-box-{{ profile.pk }}").hover(function(){
+                    $("#profile-box-content-{{ profile.pk }}").fadeIn(250);
+                },function(){
+                    $("#profile-box-content-{{ profile.pk }}").fadeOut(250);
+                });
+            });
+        </script>
+    {% endfor %}
 {% endblock %}

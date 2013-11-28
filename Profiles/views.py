@@ -16,6 +16,15 @@ from Accommodations.models import Booking
 from .models import Profile
 from .forms import ProfileForm
 
+def homepage_view(request):
+    """
+        Show faces.
+    """
+    profiles = Profile.objects.all().order_by("?")[:25]
+    return render_to_response("homepage.html", 
+        {"profiles": profiles }, 
+        context_instance=RequestContext(request))
+
 def community_view(request):
     """
         List of profiles.
