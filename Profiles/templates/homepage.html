@@ -91,7 +91,20 @@
     </div>
     <div class="clearfix"></div>
 </div>
-<div class="row">
+
+<div id="community" class="row">
+    <div id="joinNow" style="position: absolute; left: 50%; z-index: 999999; display: none;">
+        <div id="joinNowInternal" style="padding-top: 150px; position: relative; left: -50%;">
+            <h1 class="text-center" style="font-size: 80px; color: white; text-shadow: 0px 0px 10px black; ">
+                Join them now!
+            </h1><br/>
+            <a href="{% url "socialauth_begin" "facebook" %}">
+                <div id="buttoncomehome" class="text-center">
+                    come home
+                </div>
+            </a>
+        </div>
+    </div>
     {% for profile in profiles %}
     <div class="profile-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="profile-box-{{ profile.pk }}">
         <a href="/users/{{ profile.user.username }}/">
@@ -172,4 +185,23 @@
             });
         </script>
     {% endfor %}
+    <!-- join now community effect, flickr style -->
+    <script type="text/javascript">
+        var visible = false;
+        $(function(){
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() > ( $('#community').offset().top + 220 ) ) {
+                    if(!visible){
+                        $("#joinNow").fadeIn("slow");
+                        visible = true;
+                    }
+                } else {
+                    if(visible){
+                        $("#joinNow").fadeOut(250);
+                        visible = false;
+                    }  
+                }
+            });
+        });
+    </script>
 {% endblock %}
