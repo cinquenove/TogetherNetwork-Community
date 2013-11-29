@@ -1,5 +1,4 @@
 Hey {{ user.first_name }},
 {{ text }}
 
-Bancha Team
-http://beta.bancha.it/
+Thx
