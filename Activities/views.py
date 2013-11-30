@@ -66,7 +66,7 @@ def edit_activity_view(request, activity_pk=None):
                 mail_admins(
                 "[TogetherNetwork] New Activity", 
                 """New activity created by %s: 
-http://together-network.herokuapp.com%s
+http://www.togethernetwork.org%s
 
 koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
             

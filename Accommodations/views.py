@@ -77,7 +77,7 @@ def create_new_book_for_accommodation(request, accommodation_pk):
             mail_admins(
                 "[Together] New Booking Order", 
                 """New activity created by %s: 
-http://together-network.herokuapp.com%s
+http://www.togethernetwork.org%s
 
 koala""" % (booking_obj.tenant.username, booking_obj.get_absolute_url()  ) )
             
