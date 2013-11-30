@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # Community Developed Components
-    #url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
+    url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     #url(r'^avatar/', include('avatar.urls')),
     url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
