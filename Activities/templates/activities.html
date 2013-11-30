@@ -20,7 +20,8 @@
                     {{ activity.time|naturalday }}
                     @ {{ activity.time.hour }}.{{ activity.time.minute }}
                 </p>
-       		</div>        
+       		</div>
+            {% if activity.description %}
             {% if request.user in activity.attendees.all %}
             <a href="{{ activity.get_absolute_url }}/leave">
        			<div id="activity-button-{{ activity.pk }}" class="activity-box-button">Leave</div>
@@ -36,6 +37,7 @@
                     {% endif %}
                 </div>
             </a>
+            {% endif %}
             {% endif %}
         </div>
         {% endfor %}
@@ -65,7 +67,11 @@
         });
 
         $("#activity-box-{{ activity.pk }}").click(function() {
+            {% if activity.description %}
             location.href = "{{ activity.get_absolute_url }}";
+            {% else %}
+            alert("Coming Soon!");
+            {% endif %}
         });
     </script>
     {% endfor %}
