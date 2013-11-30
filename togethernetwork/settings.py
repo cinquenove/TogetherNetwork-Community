@@ -160,6 +160,7 @@ INSTALLED_APPS = (
     # Community Components
     'social_auth',
     'django_extensions',
+    'django_gravatar',
     'storages',
     'registration',
     #'avatar',

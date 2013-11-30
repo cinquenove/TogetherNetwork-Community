@@ -1,5 +1,6 @@
 {% extends "layout_activities.html" %}
 {% load humanize %}
+{% load gravatar %}
 
 {% block navbar_buttons %}
 {% if activity.owner == request.user %}
@@ -18,12 +19,16 @@
         {{ activity.time|naturalday }} @ {{ activity.time.hour }}.{{ activity.time.minute }}
     </p>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
-	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div"><img src="{{ activity.owner.get_profile.avatar_url }}" height="120" width="120"></div></a>
+	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div">
+        <img src="{% if activity.owner.get_profile.avatar_url %}{{ activity.owner.get_profile.avatar_url }}{% else %}{% gravatar_url activity.owner.email 300 %}{% endif %}" height="120" width="120">
+    </div></a>
 </div>
 
 <div class="activity-container container">
 	<div class="activity-description">
+        {% autoescape on %}
         {{ activity.description|linebreaks }}
+        {% endautoescape %}
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-6 text-right">
@@ -69,7 +74,7 @@
         <div class="panel-body">
            <div class="attendees">
             {% for attendee in activity.attendees.all %}
-            <a href="/users/{{ attendee.username }}"><img src="{{ attendee.get_profile.avatar_url }}" height="45" width="45"></a>
+            <a href="/users/{{ attendee.username }}"><img src="{% if attendee.get_profile.avatar_url %}{{ attendee.get_profile.avatar_url }}{% else %}{% gravatar_url attendee.owner.email 300 %}{% endif %}" height="45" width="45"></a>
             {% endfor %}
             </div>
         </div>
@@ -79,8 +84,7 @@
     {% for comment in comments %}
     <div class="panel panel-default" id="comment-{{ comment.pk }}">
         <div class="panel-body">
-           <a href="/users/{{ comment.owner.username }}"><img src="{{ comment.owner.get_profile.avatar_url }}" height="45" width="45"></a>
-           {{ comment.content }}
+           <a href="/users/{{ comment.owner.username }}"><img src="{% if comment.owner.get_profile.avatar_url %}{{ comment.owner.get_profile.avatar_url }}{% else %}{% gravatar_url comment.owner.email 300 %}{% endif %}" height="45" width="45"></a>
         </div>
     </div>
     {% endfor %}

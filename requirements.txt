@@ -5,6 +5,7 @@ django_extensions
 django-social-auth
 django-storages
 django-registration
+django-gravatar2
 pillow
 honcho
 gunicorn
