@@ -41,7 +41,7 @@ class Activity(models.Model):
     """
     owner = models.ForeignKey(User, related_name="activity_author")
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=500, default="")
+    description = models.TextField(max_length=500, default="", null=True, blank=True)
     activity_type = models.CharField(max_length=3, choices=ACTIVITIES_TYPE)
 
     time = models.DateTimeField(default=( datetime.now() + timedelta(days=1) ) )

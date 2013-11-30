@@ -25,9 +25,13 @@
 
 <div class="activity-container container">
 	<div class="activity-description">
+        {% if activity.description %}
         {% autoescape off %}
         {{ activity.description|linebreaks }}
         {% endautoescape %}
+        {% else %}
+        <h1>Coming soon...</h1>
+        {% endif %}
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-6 text-right">
