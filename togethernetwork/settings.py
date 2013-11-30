@@ -162,6 +162,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'storages',
     'registration',
+    'dbdump',
     #'avatar',
     
     # Private Components
