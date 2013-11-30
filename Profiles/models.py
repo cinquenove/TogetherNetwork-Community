@@ -2,6 +2,7 @@
 import os
 from django.db import models
 from django.contrib.auth.models import User
+import hashlib
 
 class Profile(models.Model):
     """
@@ -24,6 +25,12 @@ class Profile(models.Model):
     twitter_url = models.URLField(default="http://twitter.com/", blank=True)
     facebook_url = models.URLField(default="http://facebook.com/", blank=True)
     
+    def get_the_avatar_url(self):
+        if self.avatar_url:
+            return self.avatar_url
+        self.avatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(self.email.lower()).hexdigest() + "?s=300"
+        return self.avatar_url
+
     def get_absolute_url(self):
         return "/users/%s/" % self.user.username
 
