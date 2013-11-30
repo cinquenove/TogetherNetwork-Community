@@ -42,3 +42,5 @@ uploads
 staticfiles
 src
 .flooignore
+
+*.pgdump
