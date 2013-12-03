@@ -70,11 +70,12 @@ def profile_view(request, username):
         if booking.checkin_date <= today and booking.checkout_date <= today:
             user_status = "Lived"
 
-    if partecipated_in_counter > 0:
-        user_status = "Active user"
-        
-    if offered_counter > 0:
-        user_status = "Active user"
+    if user_status not in ["Living", "Lived", "Will Live"]:
+        if partecipated_in_counter > 0:
+            user_status = "Active user"
+            
+        if offered_counter > 0:
+            user_status = "Active user"
     
 
     return render_to_response("profile.html", 
