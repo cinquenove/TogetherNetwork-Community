@@ -78,8 +78,7 @@ def profile_view(request, username):
             
         if offered_counter > 0:
             user_status = "Active user"
-    
-
+        
     return render_to_response("profile.html", 
         { 
             "profile": profile,

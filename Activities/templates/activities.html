@@ -5,7 +5,7 @@
 <div id="mainContainer" class="row">
     {% if activities %}
         {% for activity in activities %}
-
+        
         <div class="activity-box col-xs-12 col-sm-4 col-md-3 col-lg-3 " id="activity-box-{{ activity.pk }}">
             {% if activity.activity_type == "TOU" %}
        		   <div class="activity-category-corner activity-category-corner-tourism"></div>
@@ -60,8 +60,10 @@
             {% endif %}
             // Enabling join button fade effect
             currenct_activity_box.hover(function(){
+                $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
                 $("#activity-button-{{ activity.pk }}").fadeIn(250);
             },function(){
+                $("#activity-box-content-{{ activity.pk }}").fadeOut(250);
                 $("#activity-button-{{ activity.pk }}").fadeOut(250);
             });
         });
