@@ -70,7 +70,7 @@ def profile_view(request, username):
         if booking.checkin_date <= today and booking.checkout_date <= today:
             user_status = "Lived"
 
-    if user_status not in ["Living", "Lived", "Will Live"]:
+    if user_status == "Never been":
         if partecipated_in_counter > 0:
             user_status = "Active user"
             
