@@ -83,7 +83,7 @@ http://www.togethernetwork.org%s
 
 koala""" % (booking_obj.tenant.username, booking_obj.get_absolute_url()  ) )
             
-            return redirect("%s/done" % booking_obj.get_absolute_url() )
+            return redirect("%s/saved" % booking_obj.get_absolute_url() )
     else:
         formset = BookingForm()
         
