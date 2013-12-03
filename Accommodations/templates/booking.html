@@ -17,7 +17,11 @@
     CheckOut Date: {{ booking.checkout_date }}<br/>
     <br/>
     User that requested the place: <a href="/users/{{booking.tenant.username}}">{{ booking.tenant }}</a><br/>
-    Status: {{ booking.status }}<br/>
+    Status: {% for couple in BOOKING_STATUSES %}
+                {% if couple|first == booking.status %}
+                    {{ couple|last }}
+                {% endif %}
+            {% endfor %}<br/>
     Price {{ booking.price }}<br/>
     <br/>
     Room Name And number: {{ booking.accommodation.name }} {{ booking.accommodation.pk }}<br/>

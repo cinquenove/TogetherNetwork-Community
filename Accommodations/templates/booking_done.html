@@ -1,0 +1,41 @@
+{% extends "layout_accommodations.html" %}
+ 
+
+{% block navbar_buttons %}
+{% if booking.owner == request.user %}
+&nbsp;<a href="{{ booking.get_absolute_url }}/delete" class="btn btn-error navbar-btn pull-right">
+    <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+    Delete
+</a>
+{% endif %}
+{% endblock %}
+
+{% block container %}
+<div id="mainContainer" class="container">
+    <h1>Booking request saved</h1>
+    <p class="lead">
+        Your booking order is waiting for approval. You will receive an email when it will be approved.
+    </p>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Information</h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                Checkin Date: {{ booking.checkin_date }}<br/>
+                CheckOut Date: {{ booking.checkout_date }}
+            </p>
+            <p>
+                Room: <a href="{{ booking.accommodation.get_absolute_url }}">{{ booking.accommodation.name }}</a><br/>
+                Booking Status: {% for couple in BOOKING_STATUSES %}
+                                    {% if couple|first == booking.status %}
+                                        {{ couple|last }}
+                                    {% endif %}
+                                {% endfor %}<br/>
+                Price: {{ booking.price }} &euro;<br/>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
