@@ -186,18 +186,22 @@ def is_accommodation_available_for_booking(booking):
     bookings = Booking.objects.filter( 
                                         Q( # Checkout dopo il checkin del booking
                                             accommodation=booking.accommodation,
+                                            status="ACC",
                                             checkout_date__gte=booking.checkin_date,
                                             checkout_date__lte=booking.checkout_date
                                         ) | Q( # Interno
                                             accommodation=booking.accommodation,
+                                            status="ACC",
                                             checkin_date__gte=booking.checkin_date,
                                             checkout_date__lte=booking.checkout_date
                                         ) | Q( # Checkin prima del checkout del booking
                                             accommodation=booking.accommodation,
+                                            status="ACC",
                                             checkin_date__gte=booking.checkin_date,
                                             checkin_date__lte=booking.checkout_date
                                         ) | Q( # Esterno 
                                             accommodation=booking.accommodation,
+                                            status="ACC",
                                             checkin_date__lte=booking.checkin_date,
                                             checkout_date__gte=booking.checkout_date
                                         )
