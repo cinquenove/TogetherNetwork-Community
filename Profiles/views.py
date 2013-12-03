@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from datetime import datetime
+from datetime import date
 
 from django.contrib.auth.models import User
 from Activities.models import Activity
@@ -53,20 +54,20 @@ def profile_view(request, username):
 
     #user_status calculation
     user_status = "Never been"
-    now = datetime.now()
+    today = date.today()
     user_bookings = Booking.objects.filter(tenant=profile.user).order_by('-checkin_date')[:10]
     for booking in user_bookings:
         # Current booking
-        if booking.checkin_date <= now and booking.checkout_date >= now:
+        if booking.checkin_date <= today and booking.checkout_date >= today:
             user_status = "Living"
             break
 
         # Future Booking
-        if booking.checkin_date <= now and booking.checkout_date <= now:
+        if booking.checkin_date <= today and booking.checkout_date <= today:
             user_status = "Will Live"
             break
         # Old Booking
-        if booking.checkin_date <= now and booking.checkout_date <= now:
+        if booking.checkin_date <= today and booking.checkout_date <= today:
             user_status = "Lived"
 
     if partecipated_in_counter > 0:
