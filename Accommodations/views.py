@@ -8,11 +8,13 @@ from django.contrib import messages
 from django.core.mail import send_mail, mail_admins
 
 from django.contrib.auth.models import User
+
 from .models import Accommodation
 from .models import AccommodationPhoto
-
 from .models import Booking
 from .models import is_accommodation_available_for_booking
+from .models import BOOKING_STATUSES
+
 from .forms import BookingForm
 
 from datetime import datetime, timedelta
@@ -81,7 +83,7 @@ http://www.togethernetwork.org%s
 
 koala""" % (booking_obj.tenant.username, booking_obj.get_absolute_url()  ) )
             
-            return redirect(booking_obj)
+            return redirect("%s/done" % booking_obj.get_absolute_url() )
     else:
         formset = BookingForm()
         
@@ -97,6 +99,17 @@ def single_booking_view(request, accommodation_pk, booking_pk):
     """
     booking = get_object_or_404(Booking, pk=booking_pk)
     return render_to_response("booking.html", 
-        { "booking": booking }, 
+        { "booking": booking, "BOOKING_STATUSES": BOOKING_STATUSES }, 
+        context_instance=RequestContext(request))
+
+
+@login_required
+def single_booking_confirmation_view(request, accommodation_pk, booking_pk):
+    """
+        This view will show the single booking confirmation.
+    """
+    booking = get_object_or_404(Booking, pk=booking_pk)
+    return render_to_response("booking_done.html", 
+        { "booking": booking, "BOOKING_STATUSES": BOOKING_STATUSES }, 
         context_instance=RequestContext(request))
 
