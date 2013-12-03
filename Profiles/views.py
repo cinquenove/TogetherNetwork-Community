@@ -21,6 +21,8 @@ def homepage_view(request):
     """
         Show faces.
     """
+    if request.user.is_authenticated():
+        return redirect("/activities/list")
     profiles = Profile.objects.all().order_by("?")[:25]
     return render_to_response("homepage.html", 
         {"profiles": profiles }, 
