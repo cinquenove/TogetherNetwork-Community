@@ -30,7 +30,7 @@ def activities_view(request):
         context_instance=RequestContext(request))
 
 @login_required
-def single_activity_view(request, activity_pk):
+def single_activity_view(request, activity_pk, slug=None):
     """
         Show the single Activity view
     """

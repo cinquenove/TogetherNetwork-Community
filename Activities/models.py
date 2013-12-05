@@ -10,6 +10,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.template.defaultfilters import slugify
 
 from datetime import datetime, timedelta
 
@@ -112,7 +113,7 @@ class Activity(models.Model):
         super(Activity, self).save()
 
     def get_absolute_url(self):
-        return "/activities/%s" % self.pk
+        return "/activities/%s/%s" % (self.pk, slugify(self.title))
 
     def __str__(self):
         return "( %s ) %s by %s " % ( self.time, self.title, self.owner.username )
@@ -128,7 +129,7 @@ class Comment(models.Model):
     pub_date = models.DateTimeField(default=datetime.now())
 
     def get_absolute_url(self):
-        return "/activities/%s#comment-%s" % (self.activity.pk, self.pk)
+        return "/activities/%s/%s#comment-%s" % (self.activity.pk, slugify(self.title), self.pk)
 
     def __str__(self):
         return "( %s ) %s by %s " % ( self.pub_date, self.activity.title, self.owner.username )

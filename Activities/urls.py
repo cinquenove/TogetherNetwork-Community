@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     url(r'^(?P<activity_pk>\d+)/join$', views.join_activity, name='join_activity'),
     url(r'^(?P<activity_pk>\d+)/edit$', views.edit_activity_view, name='edit_activity_view'),
     url(r'^(?P<activity_pk>\d+)/comment$', views.new_activity_comment, name='new_activity_comment'),
+    url(r'^(?P<activity_pk>\d+)/(?P<slug>[-\w]+)/$', views.single_activity_view, name='single_activity_view'),
+    url(r'^(?P<activity_pk>\d+)/(?P<slug>[-\w]+)$', views.single_activity_view, name='single_activity_view'),
     url(r'^(?P<activity_pk>\d+)/$', views.single_activity_view, name='single_activity_view'),
     url(r'^(?P<activity_pk>\d+)$', views.single_activity_view, name='single_activity_view'),
     # Multiple Activities
