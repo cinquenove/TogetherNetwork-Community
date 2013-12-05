@@ -124,3 +124,12 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.comment-body {
+    font-size: 16px;
+}
+
+.comment-avatar {
+    margin: 5px;
+    float:  left;
+}
