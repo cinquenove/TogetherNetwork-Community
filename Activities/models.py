@@ -131,7 +131,7 @@ class Comment(models.Model):
         return "/activities/%s#comment-%s" % (self.activity.pk, self.pk)
 
     def __str__(self):
-        return "( %s ) %s by %s " % ( self.time, self.activity.title, self.owner.username )
+        return "( %s ) %s by %s " % ( self.pub_date, self.activity.title, self.owner.username )
 
 
 
