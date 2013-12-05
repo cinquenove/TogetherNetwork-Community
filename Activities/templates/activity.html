@@ -88,6 +88,7 @@
     <div class="panel panel-default" id="comment-{{ comment.pk }}">
         <div class="panel-body">
            <a href="/users/{{ comment.owner.username }}"><img src="{{ comment.owner.get_profile.get_the_avatar_url }}" height="45" width="45"></a>
+           {{ comment.content }}
         </div>
     </div>
     {% endfor %}
