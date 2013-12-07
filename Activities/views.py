@@ -87,7 +87,7 @@ def join_activity(request, activity_pk, slug=None):
     activity = get_object_or_404(Activity, pk=activity_pk)
     if not request.user in activity.attendees.all():
         activity.attendees.add(request.user)
-        messages.success(request, 'Your are going anymore to that event')
+        messages.success(request, 'Great! Your are going to that event')
         activity.save()
     return redirect(activity)
 
@@ -100,7 +100,7 @@ def leave_activity(request, activity_pk, slug=None):
     if request.user in activity.attendees.all():
         activity.attendees.remove(request.user)
         activity.save()
-        messages.success(request, 'Great! Your are not going to that event!')
+        messages.success(request, 'Your are not going to that event.')
     return redirect(activity)
 
 @login_required
