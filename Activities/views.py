@@ -41,7 +41,7 @@ def single_activity_view(request, activity_pk, slug=None):
         context_instance=RequestContext(request))
 
 @login_required
-def edit_activity_view(request, activity_pk=None):
+def edit_activity_view(request, activity_pk=None, slug=None):
     """
         Create/edit a new activity
     """
@@ -80,18 +80,19 @@ koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
     }, context_instance=RequestContext(request))
 
 @login_required
-def join_activity(request, activity_pk):
+def join_activity(request, activity_pk, slug=None):
     """
         This function will join the user to the activity.
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
     if not request.user in activity.attendees.all():
         activity.attendees.add(request.user)
+        messages.success(request, 'Your are going anymore to that event')
         activity.save()
     return redirect(activity)
 
 @login_required
-def leave_activity(request, activity_pk):
+def leave_activity(request, activity_pk, slug=None):
     """
         This function will leave the user from the activity.
     """
@@ -99,10 +100,11 @@ def leave_activity(request, activity_pk):
     if request.user in activity.attendees.all():
         activity.attendees.remove(request.user)
         activity.save()
+        messages.success(request, 'Great! Your are not going to that event!')
     return redirect(activity)
 
 @login_required
-def delete_activity(request, activity_pk):
+def delete_activity(request, activity_pk, slug=None):
     """
         This function will delete an activity
     """
@@ -113,7 +115,7 @@ def delete_activity(request, activity_pk):
     return redirect(activity)
 
 @login_required
-def new_activity_comment(request, activity_pk=None):
+def new_activity_comment(request, activity_pk=None, slug=None):
     """
         Create a new comment
     """
