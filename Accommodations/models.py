@@ -41,6 +41,7 @@ class Accommodation(models.Model):
     room_type = models.CharField(max_length=3, choices=ROOM_TYPES)
     main_photo = models.ImageField(upload_to=get_accommodations_path, blank=True, null=True)
 
+    external_booking_url = models.URLField(blank=True, null=True)
     price_per_day = models.FloatField(default=0.0) 
     price_per_month = models.FloatField(default=0.0) 
 

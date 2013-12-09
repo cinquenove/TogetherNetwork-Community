@@ -50,6 +50,8 @@ def create_new_book_for_accommodation(request, accommodation_pk):
         Create a new book for a single accommodation.
     """
     accommodation = get_object_or_404(Accommodation, pk=accommodation_pk)
+    if accommodation.external_booking_url:
+        return redirect(accommodation.external_booking_url)
     
     if request.method == 'POST':
         formset = BookingForm(request.POST, request.FILES)
