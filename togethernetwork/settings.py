@@ -169,6 +169,9 @@ INSTALLED_APPS = (
     "Activities",
     "Profiles",
     "Accommodations",
+
+    # Migrations and Database Community Components
+    'south',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
