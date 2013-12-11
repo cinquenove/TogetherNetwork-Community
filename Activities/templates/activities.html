@@ -72,7 +72,13 @@
             {% if activity.description %}
             location.href = "{{ activity.get_absolute_url }}";
             {% else %}
+            
+            {% if request.user == activity.owner %}
+            location.href = "{{ activity.get_absolute_url }}";
+            {% else %}
             alert("Description and details are coming soon! Check back later");
+            {% endif %}
+
             {% endif %}
         });
     </script>
