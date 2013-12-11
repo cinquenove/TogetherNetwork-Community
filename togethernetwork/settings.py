@@ -245,7 +245,7 @@ AWS_HEADERS = {
 }
 
 #Django social auth
-LOGIN_URL = "/login/facebook/"
+LOGIN_URL = "/accounts/login/"
 LOGIN_REDRECT_URL = "/activities/list"
 
 FACEBOOK_APP_ID = '605827832822869'
