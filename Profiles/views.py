@@ -1,4 +1,5 @@
 # -*- coding=utf-8 -*-
+from django.http import HttpResponse
 from django.http import Http404
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
@@ -139,4 +140,4 @@ def text_email_addresses(request):
         if not user.email in emails:
             emails.append(user.email)
 
-    return " ".join(emails)
+    return HttpResponse(" ".join(emails))
