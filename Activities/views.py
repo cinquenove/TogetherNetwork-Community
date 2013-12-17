@@ -152,7 +152,7 @@ http://www.togethernetwork.org%s
 
 Thx
 koala""" % (activity.owner.first_name, comment_obj.owner.first_name, activity.get_absolute_url() ) ,
-            'no-reply@togethernetwork.org', activity.owner.email)
+            'no-reply@togethernetwork.org', [activity.owner.email])
 
             #Alert who commented in past.
             send_email_to_who_commented(activity, comment_obj.owner, old_comments)
