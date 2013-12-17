@@ -85,7 +85,12 @@ def join_activity(request, activity_pk, slug=None):
         This function will join the user to the activity.
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
-    if not request.user in activity.attendees.all():
+    attendees = activity.attendees.all()
+    
+    if len(attendees) >= activity.attendees_limit:
+        messages.success(request, 'There are too many people joining this event. Limit: %s members' % activity.attendees_limit )
+
+    elif not request.user in attendees:
         activity.attendees.add(request.user)
         messages.success(request, 'Great! Your are going to that event')
         activity.save()
