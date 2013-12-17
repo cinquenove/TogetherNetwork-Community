@@ -94,6 +94,7 @@ def join_activity(request, activity_pk, slug=None):
         activity.attendees.add(request.user)
         messages.success(request, 'Great! Your are going to that event')
         activity.save()
+
     return redirect(activity)
 
 @login_required
@@ -134,6 +135,18 @@ def new_activity_comment(request, activity_pk=None, slug=None):
             comment_obj.activity = activity
             comment_obj.save()
             messages.success(request, 'Your comment has been saved')
+
+            send_mail("[TogetherNetwork] New activity comment","""
+Hi %s,
+%s just left a comment on the activity you created. 
+Click on the link below to read the comment:
+
+http://www.togethernetwork.org%s
+
+Thx
+koala""" % (activity.owner.first_name, comment_obj.owner.first_name, activity.get_absolute_url() ) ,
+            'no-reply@togethernetwork.org', activity.owner.email)
+
             return redirect(single_activity_view, activity_pk=activity_pk)
     else:
         formset = CommentForm()
