@@ -135,7 +135,7 @@ def text_email_addresses(request):
         raise Http404
 
     emails = list()
-    for user in user.objects.all():
+    for user in User.objects.all():
         if not user.email in emails:
             emails.append(user.email)
 
