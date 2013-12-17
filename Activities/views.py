@@ -14,6 +14,8 @@ from .models import Comment
 from .forms import ActivityForm
 from .forms import CommentForm
 
+from .tools import send_email_to_who_commented
+
 from datetime import datetime
 from datetime import timedelta
 
@@ -130,12 +132,17 @@ def new_activity_comment(request, activity_pk=None, slug=None):
     if request.method == 'POST':
         formset = CommentForm(request.POST, request.FILES)
         if formset.is_valid():
+            old_comments = Comment.objects.filter(activity=activity)
+            
             comment_obj = formset.save(commit=False)
             comment_obj.owner = request.user
             comment_obj.activity = activity
             comment_obj.save()
             messages.success(request, 'Your comment has been saved')
 
+            ### ORRIBLE CODING STYLE FROM HERE
+            
+            #alert the activity owner.
             send_mail("[TogetherNetwork] New activity comment","""
 Hi %s,
 %s just left a comment on the activity you created. 
@@ -146,6 +153,9 @@ http://www.togethernetwork.org%s
 Thx
 koala""" % (activity.owner.first_name, comment_obj.owner.first_name, activity.get_absolute_url() ) ,
             'no-reply@togethernetwork.org', activity.owner.email)
+
+            #Alert who commented in past.
+            send_email_to_who_commented(activity, comment_obj.owner, old_comments)
 
             return redirect(single_activity_view, activity_pk=activity_pk)
     else:
