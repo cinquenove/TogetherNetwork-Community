@@ -133,7 +133,7 @@ def new_activity_comment(request, activity_pk=None, slug=None):
         formset = CommentForm(request.POST, request.FILES)
         if formset.is_valid():
             old_comments = Comment.objects.filter(activity=activity)
-            
+
             comment_obj = formset.save(commit=False)
             comment_obj.owner = request.user
             comment_obj.activity = activity
@@ -141,8 +141,8 @@ def new_activity_comment(request, activity_pk=None, slug=None):
             messages.success(request, 'Your comment has been saved')
 
             ### ORRIBLE CODING STYLE FROM HERE
-            
-            #alert the activity owner.
+
+            #Alert the activity owner.
             send_mail("[TogetherNetwork] New activity comment","""
 Hi %s,
 %s just left a comment on the activity you created. 
