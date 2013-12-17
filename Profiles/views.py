@@ -127,13 +127,13 @@ def edit_profile_view(request):
     }, context_instance=RequestContext(request))
 
 @login_required
-def email_addresses(request):
+def text_email_addresses(request):
     """
         Returns a list of users email addresses divided by space
     """
     if not request.user.is_superuser:
         raise Http404
-        
+
     emails = list()
     for user in user.objects.all():
         if not user.email in emails:
