@@ -31,6 +31,9 @@
         </script>
 	</head>
 	<body>
+
+
+
         <div id="fb-root"></div>
 		{% block header %}
 		<nav id="mainNavBar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -64,12 +67,14 @@
 					<li><a href="/activities/list">Activities</a></li>
 					<li><a href="/accommodations/list">Accomodations</a></li>
 					{% endblock %}
+
 				</ul>
 				{% endblock %}
-				
+			
 				{% block user_menu %}
+
 				<ul class="nav navbar-nav navbar-right">
- 					<li class="dropdown">
+					<li class="dropdown">
  						{% if request.user.is_authenticated %}
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -81,7 +86,7 @@
 					</li>
 				</ul>
  				{% if not request.user.is_authenticated %}
- 				<div class="pull-right">
+ 				<div class="pull-right"> 					
                     <a href="{% url "socialauth_begin" "facebook" %}" class="signin-btn navbar-btn btn btn-sm btn-default">Login With Facebook</a>
                     <a href="/accounts/login/?next=/activities/list" class="signin-btn navbar-btn btn btn-sm btn-default">Login</a>
                     <a href="/accounts/register/" class="signin-btn navbar-btn btn btn-sm btn-default">SignUp</a>
@@ -133,6 +138,17 @@
                 {% endif %}
             })
         </script>
+
+        <!-- FB button script -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=293425680762115";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
         <!-- Facebook Stuff -->
         <script type="text/javascript">
             window.fbAsyncInit = function() {
