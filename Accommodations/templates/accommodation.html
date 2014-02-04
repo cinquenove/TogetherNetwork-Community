@@ -24,34 +24,7 @@
         {{ accommodation.description|linebreaks }}
     </div>
 	<div class="row">
-        <div class="col-md-8">
-            <div id='bookingCalendar'></div>
-        </div>
         <div class="col-md-4">
-            <div class="row panel panel-default">
-                <div class="col-md-8 text-left">
-                    <h4>Price per day:</h4>
-                </div>
-                <div class="col-md-4 text-right">
-                    <h4>{% if accommodation.price_per_day == 0 %}
-                        Free
-                    {% else %}
-                        {{ accommodation.price_per_day }} &euro;
-                    {% endif %}</h4>
-                </div>
-            </div>
-            <div class="row panel panel-default">
-                <div class="col-md-8 text-left">
-                    <h4>Price per month:</h4>
-                </div>
-                <div class="col-md-4 text-right">
-                    <h4>{% if accommodation.price_per_month == 0 %}
-                        Free
-                    {% else %}
-                        {{ accommodation.price_per_month }} &euro;
-                    {% endif %}</h4>
-                </div>
-            </div>
             <a href="{{ accommodation.get_absolute_url }}/book" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-calendar"></span>&nbsp; Stay with us</a>
         </div>
 	</div>
