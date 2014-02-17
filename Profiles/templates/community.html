@@ -2,14 +2,17 @@
 
 {% block container %}
 <div id="mainContainer" class="row">
+	<div style="background-color: #333; height: auto; text-align: center;">
+		<input style="margin: 10px; border: 0px; border-radius: 3px; padding: 5px; min-width: 30%; height: 30px; font: 14px;" id="search" placeholder="search members by name...">
+	</div>
     {% for profile in profiles %}
     <div class="profile-box col-xs-6 col-sm-3 col-md-2 col-lg-2 " id="profile-box-{{ profile.pk }}">
-   		<a href="/users/{{ profile.user.username }}/">
+    <a href="/users/{{ profile.user.username }}/">
             <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
-                <div style="display:none;"><img src="{{ profile.get_the_avatar_url }}" height="500" width="500"></div>
-        		{{ profile.first_name }}
-       		</div>
-        </a>             
+                <div style="display:none;"><img src="{{ profile.get_the_avatar_url }}" height="500" width="500"></div>
+         {{ profile.first_name }}
+        </div>
+        </a>
     </div>
     {% endfor %}
 </div>
@@ -21,14 +24,25 @@
         // Resizing automatically every thumbnail in order to
         // have 2 profile per column and a horizontal scrolling
         function resizeThumbnails(){
-            $(".profile-box").height($(".profile-box").width());   
+            $(".profile-box").height($(".profile-box").width());
         }
         $(function() {
             resizeThumbnails();
         })
-        $(window).resize(function() { 
+        $(window).resize(function() {
             resizeThumbnails();
-        });            
+        });
+		
+		function search_by_name(query) {
+		$( ".profile-box" ).each( function( index ) {
+			if ($(this).text().trim().toLowerCase().indexOf(query.toLowerCase()) == -1) {
+				$(this).hide(); } 
+			else {
+				$(this).show();}});
+		}
+		$('#search').keyup(function() {
+            search_by_name($('#search').val());
+        });
     </script>
     {% for profile in profiles %}
         <script type="text/javascript">
