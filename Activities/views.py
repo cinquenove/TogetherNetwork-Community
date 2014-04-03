@@ -24,11 +24,11 @@ def activities_view(request):
         List of activities from 3 hours ago to the infinite time of the universe
     """
     activities = Activity.objects.filter(
-                    time__gte=( datetime.now()-timedelta(hours=3) 
+                    time__gte=( datetime.now()-timedelta(hours=3)
                 ) ).order_by('time')
 
-    return render_to_response("activities.html", 
-        {"activities": activities }, 
+    return render_to_response("activities.html",
+        {"activities": activities },
         context_instance=RequestContext(request))
 
 def single_activity_view(request, activity_pk, slug=None):
@@ -37,8 +37,8 @@ def single_activity_view(request, activity_pk, slug=None):
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
     comments = Comment.objects.filter(activity=activity)
-    return render_to_response("activity.html", 
-        { "activity": activity, "comments": comments }, 
+    return render_to_response("activity.html",
+        { "activity": activity, "comments": comments },
         context_instance=RequestContext(request))
 
 @login_required
@@ -60,21 +60,21 @@ def edit_activity_view(request, activity_pk=None, slug=None):
         formset = ActivityForm(request.POST, request.FILES, instance=activity)
         if formset.is_valid():
             activity_obj = formset.save(commit=False)
-            
+
             activity_obj.owner = request.user
             activity_obj.save()
             if not activity: #New one
                 mail_admins(
-                "[TogetherNetwork] New Activity", 
-                """New activity created by %s: 
+                "[TogetherNetwork] New Activity",
+                """New activity created by %s:
 http://www.togethernetwork.org%s
 
 koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
-            
+
             return redirect(activity_obj)
     else:
         formset = ActivityForm(instance=activity)
-        
+
     return render_to_response("form.html", {
         "form": formset,
         "title": form_title
@@ -87,8 +87,8 @@ def join_activity(request, activity_pk, slug=None):
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
     attendees = activity.attendees.all()
-    
-    if len(attendees) >= activity.attendees_limit:
+
+    if activity.attendees_limit != 0 and len(attendees) >= activity.attendees_limit:
         messages.success(request, 'There are too many people joining this event. Limit: %s members' % activity.attendees_limit )
 
     elif not request.user in attendees:
@@ -144,7 +144,7 @@ def new_activity_comment(request, activity_pk=None, slug=None):
             #Alert the activity owner.
             send_mail("[TogetherNetwork] New activity comment","""
 Hi %s,
-%s just left a comment on the activity you created. 
+%s just left a comment on the activity you created.
 Click on the link below to read the comment:
 
 http://www.togethernetwork.org%s
