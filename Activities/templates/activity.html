@@ -15,7 +15,7 @@
 <div id="mainContainer" class="activity-head">
 	<h1>{{ activity.title }}</h1>
     <p class="activity-box-date">
-        {{ activity.time|naturalday }} @ {{ activity.time.hour }}.{{ activity.time.minute }}
+        {{ activity.time|naturalday }} @ {{ activity.time|time:"G.i" }} | {{ activity.location }}
     </p>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
 	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div">
