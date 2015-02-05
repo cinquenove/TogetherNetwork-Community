@@ -85,9 +85,14 @@
 /* Single Activity */
 
 .activity-container {
-    max-width: 600px;
+    max-width: 970px;
     font-family: 'Actor', sans-serif;
     font-size: 20px;
+}
+
+.activity-sidebar {
+    font-size: 16px;
+    
 }
 
 .activity-head {
