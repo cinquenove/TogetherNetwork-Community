@@ -33,7 +33,7 @@ def community_view(request):
     """
         List of profiles.
     """
-    profiles = Profile.objects.all().order_by("?")[:200]
+    profiles = Profile.objects.all().order_by("?")
     return render_to_response("community.html", 
         {"profiles": profiles }, 
         context_instance=RequestContext(request))
