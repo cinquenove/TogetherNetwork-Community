@@ -37,6 +37,7 @@ nosetests.xml
 
 # Other Stuff
 *.sql
+.env
 venv
 uploads
 staticfiles
