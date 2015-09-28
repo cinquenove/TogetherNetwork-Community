@@ -24,7 +24,7 @@ def homepage_view(request):
     """
     if request.user.is_authenticated():
         return redirect("/activities/list")
-    profiles = Profile.objects.all().order_by("?")[:25]
+    profiles = Profile.objects.all().order_by("?")[:24]
     return render_to_response("homepage.html", 
         {"profiles": profiles }, 
         context_instance=RequestContext(request))
@@ -33,7 +33,7 @@ def community_view(request):
     """
         List of profiles.
     """
-    profiles = Profile.objects.all().order_by("?")
+    profiles = Profile.objects.all().order_by("?")[:200]
     return render_to_response("community.html", 
         {"profiles": profiles }, 
         context_instance=RequestContext(request))
