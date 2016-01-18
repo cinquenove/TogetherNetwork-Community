@@ -9,6 +9,6 @@ django-dbdump
 django-recaptcha
 pillow
 honcho
-gunicorn
+gunicorn==18.0
 virtualenv
 south
