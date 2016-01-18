@@ -4,7 +4,7 @@ boto
 django_extensions
 django-social-auth
 django-storages
-django-registration
+django-registration==1.0
 django-dbdump
 django-recaptcha
 pillow
