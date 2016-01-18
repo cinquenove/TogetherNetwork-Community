@@ -18,7 +18,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # Community Developed Components
-    url(r'^accounts/', RegistrationView.as_view(form_class=RecaptchaRegistrationForm), name='registration.views.register'), # email disabled
+    url(r'^accounts/register/$', RegistrationView.as_view(form_class=RecaptchaRegistrationForm), name='registration.views.register'), # email disabled
+    url(r'^accounts/', include('registration.backends.default.urls')), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     #url(r'^avatar/', include('avatar.urls')),
     url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
