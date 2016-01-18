@@ -268,3 +268,8 @@ SOCIAL_AUTH_PIPELINE = (
 'social_auth.backends.pipeline.user.update_user_details',
 'Profiles.auth_pipeline.get_user_avatar',
 )
+
+RECAPTCHA_PUBLIC_KEY = '6Ld3qxUTAAAAAJ3A1LhCQK-qHFAp0uQsxlTuBoTk'
+RECAPTCHA_PRIVATE_KEY = '6Ld3qxUTAAAAAOV33yPi0wUJY2eb08XLE6e4-jip'
+RECAPTCHA_USE_SSL = True
+NOCAPTCHA = True

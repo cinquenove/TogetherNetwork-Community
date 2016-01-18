@@ -2,6 +2,13 @@
 from django.forms import ModelForm
 from .models import Profile
 
+from registration.forms import RegistrationForm
+from captcha.fields import ReCaptchaField
+
+
+class RecaptchaRegistrationForm(RegistrationForm):
+    captcha = ReCaptchaField()
+
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile

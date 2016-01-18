@@ -9,6 +9,8 @@ from django.views.generic import RedirectView
 from django.views.generic import TemplateView
 
 from Profiles.views import homepage_view
+from registration.backends.default.views import RegistrationView
+from Profiles.forms import RecaptchaRegistrationForm
 
 urlpatterns = patterns('',
     # Django Components
@@ -16,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # Community Developed Components
-    url(r'^accounts/', include('registration.backends.simple.urls')), # email disabled
+    url(r'^accounts/', RegistrationView.as_view(form_class=RecaptchaRegistrationForm), name='registration.views.register'), # email disabled
     #url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     #url(r'^avatar/', include('avatar.urls')),
     url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
