@@ -87,11 +87,14 @@
             currenct_activity_box.hover(function(){
                 // $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
                 // $("#activity-button-{{ activity.pk }}").fadeIn(250);
-                if (larger) fadeIn();
+                fadeIn();
+                console.log('On')
             },function(){
                 // $("#activity-box-content-{{ activity.pk }}").fadeOut(250);
                 // $("#activity-button-{{ activity.pk }}").fadeOut(250);
                 if (larger) fadeOut();
+                else fadeIn();
+                console.log('Out')
             });
         });
 
