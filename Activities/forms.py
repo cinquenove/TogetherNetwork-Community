@@ -21,6 +21,11 @@ class ActivityForm(ModelForm):
             "price",
         ]
 
+        help_texts = {
+            'price': 'Se le modalità di pagamento sono disponibili nella descrizione, in questo campo scrivi \"-1\" ',
+            'location': 'Se l\'attività non ha luogo nelle case, specificare l\'indirizzo nella descrizione',
+        }
+
 class CommentForm(ModelForm):
     class Meta:
         model = Comment

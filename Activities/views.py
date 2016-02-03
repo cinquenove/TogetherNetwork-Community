@@ -21,10 +21,10 @@ from datetime import timedelta
 
 def activities_view(request):
     """
-        List of activities from 3 hours ago to the infinite time of the universe
+        List of activities from 5 hours ago to the infinite time of the universe
     """
     activities = Activity.objects.filter(
-                    time__gte=( datetime.now()-timedelta(hours=3)
+                    time__gte=( datetime.now()-timedelta(hours=5)
                 ) ).order_by('time')
 
     return render_to_response("activities.html",
