@@ -24,7 +24,7 @@ class ActivityForm(ModelForm):
         labels = {
             "title": "Title",
             "description": "Description",
-            "activity_type": "Activity ype",
+            "activity_type": "Activity Type",
 
             "time": "Time",
             "location": "Where is the activity taking place?",
@@ -32,7 +32,7 @@ class ActivityForm(ModelForm):
 
             "attendees_limit:": "Attendees Limit",
             
-            "price": "Price",
+            "price": "Price"
         }
         help_texts = {
             'price': 'Se le modalità di pagamento sono disponibili nella descrizione, in questo campo scrivi \"-1\" ',
