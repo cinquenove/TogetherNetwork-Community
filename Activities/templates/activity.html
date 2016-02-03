@@ -54,6 +54,8 @@
                     <div class="col-md-6 text-right">
                         <h4>{% if activity.price == 0 %}
                             <a href="http://blog.togethernetwork.org/donazioni-spontanee-e-honesty-box/" target="blank">Up to you</a>
+                            {% elif activity.price == -1 %}
+                            Info in description
                         {% else %}
                             {{ activity.price }} &euro;
                         {% endif %}</h4>

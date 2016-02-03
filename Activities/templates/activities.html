@@ -28,11 +28,14 @@
             {% else %}
             <a href="{{ activity.get_absolute_url }}/join">
                 <div id="activity-button-{{ activity.pk }}" class="activity-box-button">
-                    Join
+
                     {% if activity.price == 0 %}
-                        for a donation
+                        Join for a donation
+                    {% elif activity.price == -1 %}
+                        Click for details   
+
                     {% else %}
-                        for {{ activity.price }} &euro;
+                        Join for {{ activity.price }} &euro;
                     {% endif %}
                 </div>
             </a>
