@@ -66,12 +66,32 @@
             currenct_activity_box.css("background-image","url('{{ activity.photo.url }}')");
             {% endif %}
             // Enabling join button fade effect
-            currenct_activity_box.hover(function(){
+
+            var larger = false;
+
+            $(window).resize(function(){
+                if ($(window).width() > 768) larger = true;
+                else larger = false;
+            })
+
+            function fadeIn() {
                 $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
                 $("#activity-button-{{ activity.pk }}").fadeIn(250);
-            },function(){
+            }
+
+            function fadeOut() {
                 $("#activity-box-content-{{ activity.pk }}").fadeOut(250);
                 $("#activity-button-{{ activity.pk }}").fadeOut(250);
+            }
+
+            currenct_activity_box.hover(function(){
+                // $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
+                // $("#activity-button-{{ activity.pk }}").fadeIn(250);
+                if (larger) fadeIn();
+            },function(){
+                // $("#activity-box-content-{{ activity.pk }}").fadeOut(250);
+                // $("#activity-button-{{ activity.pk }}").fadeOut(250);
+                if (larger) fadeOut();
             });
         });
 
