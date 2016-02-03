@@ -42,7 +42,7 @@
     {# Include the visible fields #}
     {% for field in form.visible_fields %}
         <div class="control-group">
-            <label class="control-label" for="usernameInput">{{ field.label_tag }}</label>
+            <label class="control-label" for="usernameInput">{{ field.label_tag }} {{ field.help_text }}</label>
             <div class="controls">
                 {{ field }}
                 {{ field.errors }}
