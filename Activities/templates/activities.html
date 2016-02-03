@@ -75,7 +75,10 @@
                 else larger = false;
             }
 
-            win.resize(onResize);
+            win.resize(function(){
+                onResize();
+                onMouseOut();
+            });
 
             function onMouseOver() {
                 fadeIn();
