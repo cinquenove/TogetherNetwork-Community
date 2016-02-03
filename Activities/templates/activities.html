@@ -68,11 +68,23 @@
             // Enabling join button fade effect
 
             var larger = false;
+            var win = $(window);
 
-            $(window).resize(function(){
-                if ($(window).width() > 768) larger = true;
+            function onResize() {
+                if (win.width() > 768) larger = true;
                 else larger = false;
-            })
+            }
+
+            win.resize(onResize);
+
+            function onMouseOver() {
+                fadeIn();
+            }
+
+            function onMouseOut() {
+                if (larger) fadeOut();
+                else fadeIn();
+            }
 
             function fadeIn() {
                 $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
@@ -84,18 +96,23 @@
                 $("#activity-button-{{ activity.pk }}").fadeOut(250);
             }
 
-            currenct_activity_box.hover(function(){
-                // $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
-                // $("#activity-button-{{ activity.pk }}").fadeIn(250);
-                fadeIn();
-                console.log('On')
-            },function(){
-                // $("#activity-box-content-{{ activity.pk }}").fadeOut(250);
-                // $("#activity-button-{{ activity.pk }}").fadeOut(250);
-                if (larger) fadeOut();
-                else fadeIn();
-                console.log('Out')
-            });
+            // currenct_activity_box.hover(function(){
+            //     // $("#activity-box-content-{{ activity.pk }}").fadeIn(250);
+            //     // $("#activity-button-{{ activity.pk }}").fadeIn(250);
+            //     fadeIn();
+            // },function(){
+            //     // $("#activity-box-content-{{ activity.pk }}").fadeOut(250);
+            //     // $("#activity-button-{{ activity.pk }}").fadeOut(250);
+            //     if (larger) fadeOut();
+            //     else fadeIn();
+            // });
+
+            currenct_activity_box.hover(onMouseOver, onMouseOut);
+
+            //Init
+            onResize();
+            onMouseOut();
+
         });
 
         $("#activity-box-{{ activity.pk }}").click(function() {
