@@ -2,7 +2,15 @@ body {
     padding-bottom: 50px;
     background-image: url('/static/imgs/bg-body.png');
     background-repeat: repeat;
+
+
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+
 }
+
+
 
 .signin-btn {
     margin-right: 3px;
@@ -12,6 +20,12 @@ body {
 .navbar-brand {
     max-height: 50px;
 }
+
+.navbar-nav li {
+    text-transform: uppercase;
+}
+
+
 
 .img-responsive-center {
     margin: 0 auto;

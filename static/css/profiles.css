@@ -16,7 +16,8 @@
     padding: 0px;
 
     cursor:pointer;
-    cursor:hand;    
+    cursor:hand;  
+    text-transform: uppercase;  
 }
 
 .profile-box-content {

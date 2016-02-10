@@ -1,3 +1,13 @@
+
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 40px;
+
+}
+
 /* Homepage */
 
 #home-page-logo {
@@ -6,7 +16,14 @@
 
 #payoff {
     color: #FFF;
+    
 }
+
+/*h2#payoff {
+    font-family: 'Georgia', serif;
+    font-size: 40px;
+    text-transform: initial;
+}*/
 
 #payoffred {
     color:#bc2d37;
@@ -107,7 +124,7 @@
 
 .static-container {
     max-width: 600px;
-    font-family: 'Actor', sans-serif;
+    font-family: Georgia, serif;
     font-size: 20px;
 }
 
@@ -115,7 +132,7 @@
     width: 100%;
     min-height: 300px;
     text-align: center;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
     background-image: url('/static/imgs/photos/BG-landing-page.png');
     background-repeat: no-repeat; 
@@ -125,10 +142,19 @@
     color: #FFF;
     font-size: 25px;
     text-shadow: 0px 0px 5px black;
+    display: inline-table;
 }
 
 .static-head h1 {
-    font-size: 40px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.static-head h1 {
+    font-size: 60px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .static-description {
