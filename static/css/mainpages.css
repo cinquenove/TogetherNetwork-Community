@@ -119,6 +119,10 @@
     font-size: 16px;
 }
 
+.static-container .panel {
+    padding: 20px;
+}
+
 .static-head {
     width: 100%;
     min-height: 300px;
@@ -156,9 +160,7 @@
 
 /* Where page */
 
-.panel {
-    padding: 20px;
-}
+
 #map_canvas {
     height: 350px;
 }
