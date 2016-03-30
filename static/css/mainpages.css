@@ -116,7 +116,7 @@
 .static-container {
     max-width: 600px;
     font-family: Georgia, serif;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .static-head {
@@ -141,6 +141,7 @@
     vertical-align: middle;
 }
 
+
 .static-head h1 {
     font-size: 60px;
     font-family: 'Oswald', sans-serif;
@@ -155,6 +156,9 @@
 
 /* Where page */
 
+.panel {
+    padding: 20px;
+}
 #map_canvas {
     height: 350px;
 }
