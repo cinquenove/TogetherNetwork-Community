@@ -5,7 +5,7 @@ import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import dj_database_url
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),"..")
 
