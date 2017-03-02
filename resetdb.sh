@@ -8,7 +8,7 @@ if [[ $@ == **sure** ]]; then
     exit 0
 fi
 
-echo -n "- Reset database: "
+echo -n "- Reset database online: "
 echo "failed"
 echo ""
 echo "use 'cleandb.sh sure' if you are sure of what you are doing!"
