@@ -26,8 +26,8 @@ def homepage_view(request):
         return redirect("/activities/list")
     profiles = Profile.objects.all().order_by("?")[:24]
     return render_to_response("homepage.html", 
-        {"profiles": profiles }, 
-        context_instance=RequestContext(request))
+        {"profiles": profiles }) 
+#        context_instance=RequestContext(request))
 
 def community_view(request):
     """
@@ -35,8 +35,8 @@ def community_view(request):
     """
     profiles = Profile.objects.all().order_by("?")
     return render_to_response("community.html", 
-        {"profiles": profiles }, 
-        context_instance=RequestContext(request))
+        {"profiles": profiles }) 
+#        context_instance=RequestContext(request))
 
 @login_required
 def profile_view(request, username):
@@ -86,8 +86,8 @@ def profile_view(request, username):
             "partecipated_in_counter": partecipated_in_counter,
             "offered_counter": offered_counter,
             "user_status": user_status
-        }, 
-        context_instance=RequestContext(request))
+        }) 
+#        context_instance=RequestContext(request))
 
 @login_required
 def edit_profile_view(request):
@@ -124,8 +124,8 @@ def edit_profile_view(request):
         
     return render_to_response("form.html", {
         "form": formset,
-        "title": form_title
-    }, context_instance=RequestContext(request))
+        "title": form_title})
+#    }, context_instance=RequestContext(request))
 
 @login_required
 def text_email_addresses(request):

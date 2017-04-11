@@ -2,7 +2,7 @@
 # Django settings for togethernetwork project.
 
 import os
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+# from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import dj_database_url
 
 DEBUG = True
@@ -31,7 +31,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default'] =  dj_database_url.config()
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -111,16 +111,24 @@ TEMPLATE_DIRS = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+    'django.contrib.auth.context_processors.auth',
+    'django.template.context_processors.debug',
+    'django.template.context_processors.i18n',
+    'django.template.context_processors.media',
+    'django.template.context_processors.static',
+    'django.template.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+
 #     'django.template.loaders.eggs.Loader',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'django.core.context_processors.request',
-    'social_auth.context_processors.social_auth_by_name_backends',
-    'social_auth.context_processors.social_auth_backends',
-    'social_auth.context_processors.social_auth_by_type_backends',
-    'social_auth.context_processors.social_auth_login_redirect',
-)
+# TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+#     'django.core.context_processors.request',
+#     'social_auth.context_processors.social_auth_by_name_backends',
+#     'social_auth.context_processors.social_auth_backends',
+#     'social_auth.context_processors.social_auth_by_type_backends',
+#     'social_auth.context_processors.social_auth_login_redirect',
+# )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
@@ -158,11 +166,12 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.humanize',    
     # Community Components
-    'social_auth',
+    #'social_auth', deprecated
     'django_extensions',
     'storages',
     'registration',
     'dbdump',
+    'captcha',
     #'avatar',
     
     # Private Components
@@ -171,7 +180,7 @@ INSTALLED_APPS = (
     "Accommodations",
 
     # Migrations and Database Community Components
-    'south',
+    # 'south',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
@@ -206,11 +215,11 @@ LOGGING = {
 }
 
 # Email
-EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
+EMAIL_HOST_USER = 'kuein@outlook.com' # os.environ['SENDGRID_USERNAME']
 EMAIL_HOST= 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
+EMAIL_HOST_PASSWORD = 'asahgadar' # os.environ['SENDGRID_PASSWORD']
 
 # Django Messages (integrated)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
@@ -249,7 +258,7 @@ LOGIN_URL = "/accounts/login/"
 LOGIN_REDRECT_URL = "/activities/list"
 
 FACEBOOK_APP_ID = '605827832822869'
-FACEBOOK_SECRET_KEY = os.environ.get('FACEBOOK_SECRET_KEY')
+FACEBOOK_SECRET_KEY = 'emampojma' # os.environ.get('FACEBOOK_SECRET_KEY')
 FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
 FACEBOOK_PROFILE_EXTRA_PARAMS = {}
 

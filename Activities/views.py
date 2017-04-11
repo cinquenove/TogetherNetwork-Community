@@ -19,17 +19,19 @@ from .tools import send_email_to_who_commented
 from datetime import datetime
 from datetime import timedelta
 
+
 def activities_view(request):
     """
         List of activities from 5 hours ago to the infinite time of the universe
     """
     activities = Activity.objects.filter(
-                    time__gte=( datetime.now()-timedelta(hours=5)
-                ) ).order_by('time')
+        time__gte=(datetime.now() - timedelta(hours=5)
+                   )).order_by('time')
 
     return render_to_response("activities.html",
-        {"activities": activities },
-        context_instance=RequestContext(request))
+                              {"activities": activities})
+#                              context_instance=RequestContext(request))
+
 
 def single_activity_view(request, activity_pk, slug=None):
     """
@@ -38,8 +40,9 @@ def single_activity_view(request, activity_pk, slug=None):
     activity = get_object_or_404(Activity, pk=activity_pk)
     comments = Comment.objects.filter(activity=activity)
     return render_to_response("activity.html",
-        { "activity": activity, "comments": comments },
-        context_instance=RequestContext(request))
+                              {"activity": activity, "comments": comments})
+#                              context_instance=RequestContext(request))
+
 
 @login_required
 def edit_activity_view(request, activity_pk=None, slug=None):
@@ -53,7 +56,7 @@ def edit_activity_view(request, activity_pk=None, slug=None):
         activity = get_object_or_404(Activity, pk=activity_pk)
 
         if not activity.owner.username == request.user.username:
-            #TODO: Message to say that he can't edit this object.
+            # TODO: Message to say that he can't edit this object.
             return redirect(activity)
 
     if request.method == 'POST':
@@ -63,10 +66,10 @@ def edit_activity_view(request, activity_pk=None, slug=None):
 
             activity_obj.owner = request.user
             activity_obj.save()
-            if not activity: #New one
+            if not activity:  # New one
                 mail_admins(
-                "[TogetherNetwork] New Activity",
-                """New activity created by %s:
+                    "[TogetherNetwork] New Activity",
+                    """New activity created by %s:
 http://www.togethernetwork.org%s
 
 koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
@@ -77,8 +80,9 @@ koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
 
     return render_to_response("form.html", {
         "form": formset,
-        "title": form_title
-    }, context_instance=RequestContext(request))
+        "title": form_title})
+#    }, context_instance=RequestContext(request))
+
 
 @login_required
 def join_activity(request, activity_pk, slug=None):
@@ -89,7 +93,8 @@ def join_activity(request, activity_pk, slug=None):
     attendees = activity.attendees.all()
 
     if activity.attendees_limit != 0 and len(attendees) >= activity.attendees_limit:
-        messages.success(request, 'There are too many people joining this event. Limit: %s members' % activity.attendees_limit )
+        messages.success(
+            request, 'There are too many people joining this event. Limit: %s members' % activity.attendees_limit)
 
     elif not request.user in attendees:
         activity.attendees.add(request.user)
@@ -97,6 +102,7 @@ def join_activity(request, activity_pk, slug=None):
         activity.save()
 
     return redirect(activity)
+
 
 @login_required
 def leave_activity(request, activity_pk, slug=None):
@@ -110,6 +116,7 @@ def leave_activity(request, activity_pk, slug=None):
         messages.success(request, 'Your are not going to that event.')
     return redirect(activity)
 
+
 @login_required
 def delete_activity(request, activity_pk, slug=None):
     """
@@ -120,6 +127,7 @@ def delete_activity(request, activity_pk, slug=None):
         activity.delete()
         return redirect(activities_view)
     return redirect(activity)
+
 
 @login_required
 def new_activity_comment(request, activity_pk=None, slug=None):
@@ -139,10 +147,10 @@ def new_activity_comment(request, activity_pk=None, slug=None):
             comment_obj.save()
             messages.success(request, 'Your comment has been saved')
 
-            ### ORRIBLE CODING STYLE FROM HERE
+            # ORRIBLE CODING STYLE FROM HERE
 
-            #Alert the activity owner.
-            send_mail("[TogetherNetwork] New activity comment","""
+            # Alert the activity owner.
+            send_mail("[TogetherNetwork] New activity comment", """
 Hi %s,
 %s just left a comment on the activity you created.
 Click on the link below to read the comment:
@@ -151,10 +159,11 @@ http://www.togethernetwork.org%s
 
 Thx
 koala""" % (activity.owner.first_name, comment_obj.owner.first_name, activity.get_absolute_url() ) ,
-            'no-reply@togethernetwork.org', [activity.owner.email])
+                'no-reply@togethernetwork.org', [activity.owner.email])
 
-            #Alert who commented in past.
-            send_email_to_who_commented(activity, comment_obj.owner, old_comments)
+            # Alert who commented in past.
+            send_email_to_who_commented(
+                activity, comment_obj.owner, old_comments)
 
             return redirect(single_activity_view, activity_pk=activity_pk)
     else:
@@ -162,6 +171,5 @@ koala""" % (activity.owner.first_name, comment_obj.owner.first_name, activity.ge
 
     return render_to_response("form.html", {
         "form": formset,
-        "title": "New Comment"
-    }, context_instance=RequestContext(request))
-
+        "title": "New Comment"})
+#    }, context_instance=RequestContext(request))

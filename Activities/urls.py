@@ -1,9 +1,9 @@
 # -*- coding=utf-8 -*-
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from . import views
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Single Activity 
     url(r'^(?P<activity_pk>\d+)/delete$', views.delete_activity, name='delete_activity'),
     url(r'^(?P<activity_pk>\d+)/leave$', views.leave_activity, name='leave_activity'),
@@ -23,8 +23,4 @@ urlpatterns = patterns('',
     url(r'^new', views.edit_activity_view, name='edit_activity_view'),
     url(r'^list', views.activities_view, name='activities_view'),
     url(r'^$', views.activities_view, name='activities_view'),
-)
-
-
-
-
+]
