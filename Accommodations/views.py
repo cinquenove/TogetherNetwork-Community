@@ -1,13 +1,13 @@
 # -*- coding=utf-8 -*-
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
-from django.template import RequestContext
+# from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.core.mail import send_mail, mail_admins
+from django.core.mail import mail_admins
 
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 from .models import Accommodation
 from .models import AccommodationPhoto

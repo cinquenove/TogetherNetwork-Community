@@ -1,13 +1,13 @@
 # -*- coding=utf-8 -*-
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
-from django.template import RequestContext
+# from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import send_mail, mail_admins
 
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from .models import Activity
 from .models import Comment
 
@@ -96,7 +96,7 @@ def join_activity(request, activity_pk, slug=None):
         messages.success(
             request, 'There are too many people joining this event. Limit: %s members' % activity.attendees_limit)
 
-    elif not request.user in attendees:
+    elif request.user not in attendees:
         activity.attendees.add(request.user)
         messages.success(request, 'Great! Your are going to that event')
         activity.save()

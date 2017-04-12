@@ -20,10 +20,10 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     # Community Developed Components
-    url(r'^accounts/register/$', RegistrationView.as_view(form_class=RecaptchaRegistrationForm),
-        name='registration.views.register'),  # email disabled
+    # url(r'^accounts/register/$', RegistrationView.as_view(form_class=RecaptchaRegistrationForm),
+    #     name='registration.views.register'),  # email disabled
     # email disabled
-    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     # url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     #url(r'^avatar/', include('avatar.urls')),
     url(r'^logout$', logout), # 'django.contrib.auth.views.logout', {'next_page': '/'}),

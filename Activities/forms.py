@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from .models import Activity
 from .models import Comment
 
+
 class ActivityForm(ModelForm):
     class Meta:
         model = Activity
@@ -31,13 +32,14 @@ class ActivityForm(ModelForm):
             "photo": "Cover image",
 
             "attendees_limit:": "Attendees Limit",
-            
+
             "price": "Price"
         }
         help_texts = {
             'price': 'Se le modalità di pagamento sono disponibili nella descrizione, in questo campo scrivi \"-1\" ',
             'location': 'Se l\'attività non ha luogo nelle case, specificare l\'indirizzo nella descrizione',
         }
+
 
 class CommentForm(ModelForm):
     class Meta:

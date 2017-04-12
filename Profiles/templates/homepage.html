@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "templates/layout.html" %}
 {% block head %}
     <link href="/static/css/mainpages.css" rel="stylesheet" media="screen">
     <link href="/static/css/profiles.css" rel="stylesheet" media="screen">
@@ -100,12 +100,7 @@
             <h1 class="text-center" style="font-size: 80px; color: white; text-shadow: 0px 0px 10px black; ">
                 Join them now!
             </h1><br/>
-            <a href="{% url "socialauth_begin" "facebook" %}">
-                <div id="buttoncomehome" class="text-center">
-                    come home
-                </div>
-            </a>
-        </div>
+ <!--            Facebook  -->       </div>
     </div>
     {% for profile in profiles %}
     <div class="profile-box col-xs-6 col-sm-3 col-md-2 col-lg-2" id="profile-box-{{ profile.pk }}">

@@ -6,7 +6,7 @@ import os
 import dj_database_url
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+# TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),"..")
 
 ADMINS = (
@@ -100,35 +100,52 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'h5**$ezazj#p-d)c#ctnqs0^ozue(b0y6*dxz8j=#d%lj+*vdz'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, "templates"),
-)
-
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.contrib.auth.context_processors.auth',
-    'django.template.context_processors.debug',
-    'django.template.context_processors.i18n',
-    'django.template.context_processors.media',
-    'django.template.context_processors.static',
-    'django.template.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-
-#     'django.template.loaders.eggs.Loader',
-)
-
-# TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-#     'django.core.context_processors.request',
-#     'social_auth.context_processors.social_auth_by_name_backends',
-#     'social_auth.context_processors.social_auth_backends',
-#     'social_auth.context_processors.social_auth_by_type_backends',
-#     'social_auth.context_processors.social_auth_login_redirect',
+# TEMPLATE_DIRS = (
+#     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+#     # Always use forward slashes, even on Windows.
+#     # Don't forget to use absolute paths, not relative paths.
+#     os.path.join(BASE_DIR, "templates"),
 # )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR, 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+# # List of callables that know how to import templates from various sources.
+# TEMPLATE_LOADERS = (
+#     'django.template.loaders.filesystem.Loader',
+#     'django.template.loaders.app_directories.Loader',
+#     'django.contrib.auth.context_processors.auth',
+#     'django.template.context_processors.debug',
+#     'django.template.context_processors.i18n',
+#     'django.template.context_processors.media',
+#     'django.template.context_processors.static',
+#     'django.template.context_processors.tz',
+#     'django.contrib.messages.context_processors.messages',
+
+# #     'django.template.loaders.eggs.Loader',
+# )
+
+# # TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+# #     'django.core.context_processors.request',
+# #     'social_auth.context_processors.social_auth_by_name_backends',
+# #     'social_auth.context_processors.social_auth_backends',
+# #     'social_auth.context_processors.social_auth_by_type_backends',
+# #     'social_auth.context_processors.social_auth_login_redirect',
+# # )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
@@ -147,7 +164,7 @@ ROOT_URLCONF = 'togethernetwork.urls'
 WSGI_APPLICATION = 'togethernetwork.wsgi.application'
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.facebook.FacebookBackend',
+#    'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
