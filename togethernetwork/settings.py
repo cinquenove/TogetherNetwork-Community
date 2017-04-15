@@ -113,11 +113,13 @@ TEMPLATES = [
         'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
+            'context_processors': [            
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--                
             ],
         },
     },
@@ -154,6 +156,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware'
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -165,7 +168,9 @@ WSGI_APPLICATION = 'togethernetwork.wsgi.application'
 
 AUTHENTICATION_BACKENDS = (
 #    'social_auth.backends.facebook.FacebookBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    
 )
 
 AUTH_PROFILE_MODULE = 'Profiles.Profile'
@@ -183,11 +188,12 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.humanize',    
     # Community Components
-    #'social_auth', deprecated
+    # 'social_auth', # deprecated
     'django_extensions',
     'storages',
     'registration',
     'dbdump',
+    'social_django',
     'captcha',
     #'avatar',
     
@@ -272,27 +278,35 @@ AWS_HEADERS = {
 
 #Django social auth
 LOGIN_URL = "/accounts/login/"
+LOGOUT_URL = 'logout'
 LOGIN_REDRECT_URL = "/activities/list"
 
-FACEBOOK_APP_ID = '605827832822869'
-FACEBOOK_SECRET_KEY = 'emampojma' # os.environ.get('FACEBOOK_SECRET_KEY')
-FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
-FACEBOOK_PROFILE_EXTRA_PARAMS = {}
+SOCIAL_AUTH_FACEBOOK_KEY = '209789576183548' # '605827832822869'
+SOCIAL_AUTH_FACEBOOK_SECRET = '4c8a41de9f8112532b00aa14908738bf' # os.environ.get('FACEBOOK_SECRET_KEY')
+# FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
+# FACEBOOK_PROFILE_EXTRA_PARAMS = {}
 
-FACEBOOK_API_ID = FACEBOOK_APP_ID
-FACEBOOK_API_SECRET = FACEBOOK_SECRET_KEY
+# FACEBOOK_API_ID = FACEBOOK_APP_ID
+# FACEBOOK_API_SECRET = FACEBOOK_SECRET_KEY
 
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = "/users/edit"
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/activities/list"
+SOCIAL_AUTH_LOGIN_ERROR_URL = "/activities/list"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/activities/list"
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 SOCIAL_AUTH_PIPELINE = (
-'social_auth.backends.pipeline.social.social_auth_user',
-'social_auth.backends.pipeline.associate.associate_by_email',
-'social_auth.backends.pipeline.user.get_username',
-'social_auth.backends.pipeline.user.create_user',
-'social_auth.backends.pipeline.social.associate_user',
-'social_auth.backends.pipeline.user.update_user_details',
-'Profiles.auth_pipeline.get_user_avatar',
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
 )
 
 RECAPTCHA_PUBLIC_KEY = '6Ld3qxUTAAAAAJ3A1LhCQK-qHFAp0uQsxlTuBoTk'
