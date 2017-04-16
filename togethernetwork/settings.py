@@ -238,11 +238,11 @@ LOGGING = {
 }
 
 # Email
-EMAIL_HOST_USER = 'kuein@outlook.com' # os.environ['SENDGRID_USERNAME']
+EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
 EMAIL_HOST= 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'asahgadar' # os.environ['SENDGRID_PASSWORD']
+EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
 
 # Django Messages (integrated)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
@@ -281,8 +281,8 @@ LOGIN_URL = "/accounts/login/"
 LOGOUT_URL = 'logout'
 LOGIN_REDRECT_URL = "/activities/list"
 
-SOCIAL_AUTH_FACEBOOK_KEY = '209789576183548' # '605827832822869'
-SOCIAL_AUTH_FACEBOOK_SECRET = '4c8a41de9f8112532b00aa14908738bf' # os.environ.get('FACEBOOK_SECRET_KEY')
+SOCIAL_AUTH_FACEBOOK_KEY = '605827832822869'
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET_KEY')
 # FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
 # FACEBOOK_PROFILE_EXTRA_PARAMS = {}
 
