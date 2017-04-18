@@ -1,4 +1,4 @@
-{% extends "form.html" %}
+{% extends "templates/form.html" %}
 
 {% block head %}
 	<script src='https://www.google.com/recaptcha/api.js'></script>
@@ -6,7 +6,7 @@
 
 {% block formTitle %}
     <h1> Registration </h1>
-    or <a href="{% url "socialauth_begin" "facebook" %}"><img src="/static/imgs/fb-login-button.png"></a>
+    <!-- Facebook -->
 {% endblock %}
 
 {% block afterform %}

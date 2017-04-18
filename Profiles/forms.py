@@ -9,6 +9,7 @@ from captcha.fields import ReCaptchaField
 class RecaptchaRegistrationForm(RegistrationForm):
     captcha = ReCaptchaField()
 
+
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
