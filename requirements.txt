@@ -11,6 +11,7 @@ django-social-auth==0.7.28
 django-storages==1.1.8
 django-toolbelt==0.0.1
 gunicorn==18.0
+<<<<<<< Updated upstream
 honcho==0.4.2
 httplib2==0.8
 Jinja2==2.7
@@ -90,3 +91,32 @@ six==1.10.0
 social-auth-app-django==1.1.0
 social-auth-core==1.2.0
 static==1.1.1
+=======
+virtualenv
+south
+
+Deps:(versione Lorenzo)
+
+- Django 1.6
+- boto==2.16.0
+- dj-database-url==0.2.2
+- dj-static==0.0.5
+- django-appconf==0.6
+- django-avatar==2.0
+- django-dbdump==1.0.1
+- django-extensions==1.2.5
+- django-registration==1.0
+- django-social-auth==0.7.28
+- django-storages==1.1.8
+- django-toolbelt==0.0.1
+- gunicorn==18.0
+- honcho==0.4.2
+- httplib2==0.8
+- Jinja2==2.7
+- MarkupSafe==0.18
+- oauth2==1.5.211
+- Pillow==2.2.1
+- python-openid==2.2.5
+- six==1.4.1
+- South==0.8.4
+>>>>>>> Stashed changes
