@@ -5,6 +5,7 @@ import os
 # from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import dj_database_url
 
+
 DEBUG = True
 # TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),"..")
@@ -31,7 +32,8 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] =  dj_database_url.config()
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -74,7 +76,7 @@ MEDIA_URL = 'http://media.togethernetwork.org.s3.amazonaws.com/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -94,8 +96,10 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'h5**$ezazj#p-d)c#ctnqs0^ozue(b0y6*dxz8j=#d%lj+*vdz'
@@ -118,8 +122,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', # <--                
             ],
         },
     },
@@ -258,7 +260,7 @@ AVATAR_GRAVATAR_BACKUP = True
 
 # Django Storages
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
+#DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
 #STATICFILES_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
@@ -281,6 +283,7 @@ LOGIN_URL = "/accounts/login/"
 LOGOUT_URL = 'logout'
 LOGIN_REDRECT_URL = "/activities/list"
 
+
 SOCIAL_AUTH_FACEBOOK_KEY = '605827832822869'
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET_KEY')
 # FACEBOOK_EXTENDED_PERMISSIONS = ['email','user_about_me','user_birthday','user_hometown','user_location','publish_actions']
@@ -292,7 +295,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET_KEY')
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = "/users/edit"
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/activities/list"
 SOCIAL_AUTH_LOGIN_ERROR_URL = "/activities/list"
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/activities/list"
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 SOCIAL_AUTH_PIPELINE = (
@@ -313,3 +315,6 @@ RECAPTCHA_PUBLIC_KEY = '6Ld3qxUTAAAAAJ3A1LhCQK-qHFAp0uQsxlTuBoTk'
 RECAPTCHA_PRIVATE_KEY = '6Ld3qxUTAAAAAOV33yPi0wUJY2eb08XLE6e4-jip'
 RECAPTCHA_USE_SSL = True
 NOCAPTCHA = True
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)

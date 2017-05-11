@@ -18,6 +18,7 @@ from .models import BOOKING_STATUSES
 from .forms import BookingForm
 
 from datetime import datetime, timedelta
+from django.shortcuts import render
 
 
 def accommodations_view(request):
@@ -26,8 +27,8 @@ def accommodations_view(request):
     """
 
     accommodations = Accommodation.objects.all()
-    return render_to_response("accommodations.html",
-                              {"accommodations": accommodations}),
+    return render(request, template_name="accommodations.html",
+                              context={"accommodations": accommodations}),
 #        context_instance=RequestContext(request))
 
 
@@ -41,8 +42,8 @@ def single_accommodation_view(request, accommodation_pk):
         accommodation=accommodation,
         checkin_date__gte=(datetime.now() - timedelta(days=(31 * 6)))
     )
-    return render_to_response("accommodation.html",
-                              {"accommodation": accommodation, "photos": photos, "bookings": bookings})
+    return render(request, template_name="accommodation.html",
+                              context={"accommodation": accommodation, "photos": photos, "bookings": bookings})
 #        context_instance=RequestContext(request))
 
 
@@ -92,7 +93,7 @@ koala""" % (booking_obj.tenant.username, booking_obj.get_absolute_url()  ) )
     else:
         formset = BookingForm()
 
-    return render_to_response("form.html", {
+    return render(request, template_name="form.html", context={
         "form": formset,
         "title": "Make a reservation"})
 #    }, context_instance=RequestContext(request))
@@ -104,8 +105,8 @@ def single_booking_view(request, accommodation_pk, booking_pk):
         This view will show the single booking view.
     """
     booking = get_object_or_404(Booking, pk=booking_pk)
-    return render_to_response("booking.html",
-                              {"booking": booking,
+    return render(request, template_name="booking.html",
+                              context={"booking": booking,
                                   "BOOKING_STATUSES": BOOKING_STATUSES})
 #                              context_instance=RequestContext(request))
 
@@ -116,7 +117,7 @@ def single_booking_confirmation_view(request, accommodation_pk, booking_pk):
         This view will show the single booking confirmation.
     """
     booking = get_object_or_404(Booking, pk=booking_pk)
-    return render_to_response("booking_done.html",
-                              {"booking": booking,
+    return render(request, template_name="booking_done.html",
+                              context={"booking": booking,
                                   "BOOKING_STATUSES": BOOKING_STATUSES})
 #                              context_instance=RequestContext(request))

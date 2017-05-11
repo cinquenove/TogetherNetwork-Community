@@ -1,6 +1,7 @@
 # -*- coding=utf-8 -*-
 from django.http import HttpResponse
 from django.http import Http404
+from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
 # from django.template import RequestContext
@@ -26,9 +27,7 @@ def homepage_view(request):
     if request.user.is_authenticated():
         return redirect("/activities/list")
     profiles = Profile.objects.all().order_by("?")[:24]
-    return render_to_response("homepage.html",
-                              {"profiles": profiles})
-#        context_instance=RequestContext(request))
+    return render(request, template_name="homepage.html", context={"profiles": profiles})
 
 
 def community_view(request):
@@ -36,9 +35,9 @@ def community_view(request):
         List of profiles.
     """
     profiles = Profile.objects.all().order_by("?")
-    return render_to_response("community.html",
-                              {"profiles": profiles})
-#        context_instance=RequestContext(request))
+
+
+    return render(request, template_name="community.html", context={"profiles": profiles})
 
 
 @login_required
@@ -84,8 +83,7 @@ def profile_view(request, username):
         if offered_counter > 0:
             user_status = "Active user"
 
-    return render_to_response("profile.html",
-                              {
+    return render(request, template_name="profile.html", context={
                                   "profile": profile,
                                   "partecipated_in_counter": partecipated_in_counter,
                                   "offered_counter": offered_counter,
@@ -127,7 +125,7 @@ def edit_profile_view(request):
 
         formset = ProfileForm(instance=profile)
 
-    return render_to_response("form.html", {
+    return render(request, template_name="form.html", context={
         "form": formset,
         "title": form_title})
 #    }, context_instance=RequestContext(request))
