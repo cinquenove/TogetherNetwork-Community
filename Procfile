@@ -1,1 +1,1 @@
-web: gunicorn -t 120 -w 3 -b togethernetwork.wsgi
+web: gunicorn -t 120 -w 3 togethernetwork.wsgi
