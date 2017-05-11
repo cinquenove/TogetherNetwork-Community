@@ -12,7 +12,7 @@ from Profiles.views import homepage_view
 from registration.backends.default.views import RegistrationView
 from Profiles.forms import RecaptchaRegistrationForm
 from django.conf.urls.static import static
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     # Django Components
     # url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     # url(r'^accounts/', include('registration.backends.default.urls')), # enable email
     #url(r'^avatar/', include('avatar.urls')),
-    url(r'^logout$', logout), # 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    url(r'^logout$', logout, {'next_page': homepage_view}), # 'django.contrib.auth.views.logout', {'next_page': '/'}),
 
     # Custom Components
     url(r'^accommodations/', include('Accommodations.urls')),
@@ -43,3 +43,4 @@ urlpatterns = [
     # url(r'', include('social_auth.urls')),
     url(r'', homepage_view, name='homepage'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

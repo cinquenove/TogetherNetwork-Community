@@ -14,7 +14,9 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
+from whitenoise.django import DjangoWhiteNoise
 import os
+
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
 # if running multiple sites in the same mod_wsgi process. To fix this, use
@@ -41,3 +43,4 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "togethernetwork.settings")
 
 application = get_wsgi_application()
+application = DjangoWhiteNoise(application)

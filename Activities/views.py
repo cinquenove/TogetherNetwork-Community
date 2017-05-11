@@ -1,6 +1,8 @@
 # -*- coding=utf-8 -*-
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
+from django.shortcuts import render
+
 # from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -28,8 +30,8 @@ def activities_view(request):
         time__gte=(datetime.now() - timedelta(hours=5)
                    )).order_by('time')
 
-    return render_to_response("activities.html",
-                              {"activities": activities})
+    return render(request,template_name="activities.html",
+                  context={"activities": activities})
 #                              context_instance=RequestContext(request))
 
 
@@ -39,8 +41,8 @@ def single_activity_view(request, activity_pk, slug=None):
     """
     activity = get_object_or_404(Activity, pk=activity_pk)
     comments = Comment.objects.filter(activity=activity)
-    return render_to_response("activity.html",
-                              {"activity": activity, "comments": comments})
+    return render(request,template_name="activity.html",
+                              context={"activity": activity, "comments": comments})
 #                              context_instance=RequestContext(request))
 
 
@@ -78,7 +80,7 @@ koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
     else:
         formset = ActivityForm(instance=activity)
 
-    return render_to_response("form.html", {
+    return render(request,template_name="form.html", context={
         "form": formset,
         "title": form_title})
 #    }, context_instance=RequestContext(request))
@@ -169,7 +171,7 @@ koala""" % (activity.owner.first_name, comment_obj.owner.first_name, activity.ge
     else:
         formset = CommentForm()
 
-    return render_to_response("form.html", {
+    return render(request,template_name="form.html", context={
         "form": formset,
         "title": "New Comment"})
 #    }, context_instance=RequestContext(request))

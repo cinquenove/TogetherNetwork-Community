@@ -1,1 +1,1 @@
-web: gunicorn -t 120 -w 3 --debug togethernetwork.wsgi
+web: gunicorn -t 120 -w 3 -b 127.0.0.1:8000 togethernetwork.wsgi
