@@ -76,7 +76,8 @@ MEDIA_URL = 'http://media.togethernetwork.org.s3.amazonaws.com/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+#STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+STATIC_ROOT = ""
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -98,7 +99,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'togethernetwork.s3utils.STATICFILES_STORAGE'
 
 
 # Make this unique, and don't share it with anybody.
