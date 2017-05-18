@@ -114,10 +114,10 @@ class Activity(models.Model):
         self.photo.save('%s_big.%s' % (os.path.splitext(suf_big.name)[
                         0], FILE_EXTENSION), suf_big, save=False)
 
-    def save(self):
+    def save(self, *args, **kwargs):
         # create a thumbnail
+        super(Activity, self).save(*args, **kwargs)
         self.create_thumbnails()
-        super(Activity, self).save()
 
     def get_absolute_url(self):
         return "/activities/%s/%s" % (self.pk, slugify(self.title))

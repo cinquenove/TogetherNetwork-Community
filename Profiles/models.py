@@ -9,7 +9,7 @@ class Profile(models.Model):
     """
         Single User Profile
     """
-    user = models.ForeignKey(User, related_name="profile_owner")
+    user = models.OneToOneField(User, related_name="profile")
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
