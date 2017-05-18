@@ -19,7 +19,7 @@
     </p>
 	<div class="activity-username">by {{ activity.owner.username }}</div>
 	<a href="/users/{{ activity.owner.username }} "><div class="activity-user-pic-div">
-        <img src="{{ activity.owner.get_profile.get_the_avatar_url }}" height="120" width="120">
+        <img src="{{ activity.owner.profile.get_the_avatar_url }}" height="120" width="120">
     </div></a>
 </div>
 
@@ -82,7 +82,7 @@
             <div class="panel-body">
                <div class="attendees">
                 {% for attendee in activity.attendees.all %}
-                <a href="/users/{{ attendee.username }}"><img src="{{ attendee.get_profile.get_the_avatar_url }}" height="45" width="45"></a>
+                <a href="/users/{{ attendee.username }}"><img src="{{ attendee.profile.get_the_avatar_url }}" height="45" width="45"></a>
                 {% endfor %}
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <a href="/users/{{ comment.owner.username }}">
                     <img class="comment-avatar" src="{{ comment.owner.get_profile.get_the_avatar_url }}" height="45" width="45">
                 </a> 
-                <a href="/users/{{ comment.owner.username }}">{{ comment.owner.get_profile.first_name }}</a>: 
+                <a href="/users/{{ comment.owner.username }}">{{ comment.owner.profile.first_name }}</a>:
                 {{ comment.content }}
             </div>
         </div>

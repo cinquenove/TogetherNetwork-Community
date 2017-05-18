@@ -1,5 +1,5 @@
 appdirs==1.4.3
-boto==2.16.0
+boto==2.46.1
 dj-database-url==0.2.2
 dj-static==0.0.5
 Django==1.11

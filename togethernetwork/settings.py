@@ -267,11 +267,13 @@ AVATAR_GRAVATAR_BACKUP = True
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME') 
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+#AWS_S3_CALLING_FORMAT='boto.s3.connection.OrdinaryCallingFormat'
 S3_BUCKET = AWS_STORAGE_BUCKET_NAME
 AWS_ACCESS_KEY = AWS_ACCESS_KEY_ID
 
 AWS_S3_SECURE_URLS = False
+AWS_QUERYSTRING_AUTH = False
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # see http://developer.yahoo.com/performance/rules.html#expires
 AWS_HEADERS = {
@@ -320,3 +322,7 @@ NOCAPTCHA = True
 
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
+
+import ssl
+if hasattr(ssl, '_create_unverified_context'):
+    ssl._create_default_https_context = ssl._create_unverified_context
