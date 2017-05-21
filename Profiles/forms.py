@@ -20,6 +20,7 @@ class ProfileForm(ModelForm):
             "email",
             "city",
             "mission",
+            "photo",
             "bio",
             "skills",
             "personal_website_url",
