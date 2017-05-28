@@ -8,6 +8,8 @@ from django.shortcuts import redirect
 # from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 # from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 # from datetime import datetime
 from datetime import date
@@ -17,7 +19,10 @@ from Activities.models import Activity
 from Accommodations.models import Booking
 
 from .models import Profile
-from .forms import ProfileForm
+from .forms import ProfileForm, SearchCommunity
+
+from django.db.models import Q
+
 
 
 def homepage_view(request):
@@ -34,10 +39,24 @@ def community_view(request):
     """
         List of profiles.
     """
-    profiles = Profile.objects.all().order_by("?")
+    page = request.GET.get('page')
+    name = request.GET.get('search')
+    if name is None:
+        name=""
+        profiles = Profile.objects.all().order_by("?")
+    else:
+        profiles = Profile.objects.filter(Q(first_name__istartswith=name) | Q(last_name__istartswith=name)).order_by("?")
+    paginator = Paginator(profiles, 24)
+    try:
+        profiles = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        profiles = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        profiles = paginator.page(paginator.num_pages)
+    return render(request, template_name="community.html", context={'search': name, "profiles": profiles})
 
-
-    return render(request, template_name="community.html", context={"profiles": profiles})
 
 
 @login_required
