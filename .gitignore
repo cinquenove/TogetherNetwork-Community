@@ -49,3 +49,4 @@ src
 *.pgdump
 .DS_STORE
 .pyc
+.idea/*

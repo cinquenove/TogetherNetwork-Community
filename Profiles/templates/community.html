@@ -1,26 +1,55 @@
 {% extends "layout_profiles.html" %}
 
 {% block container %}
-<div id="mainContainer" class="row">
-	<div style="background-color: #333; height: auto; text-align: center;">
-		<input style="margin: 10px; border: 0px; border-radius: 3px; padding: 5px; min-width: 30%; height: 30px; font: 14px;" id="search" placeholder="search members by name...">
-	</div>
-    {% for profile in profiles %}
-    <div class="profile-box col-xs-6 col-sm-3 col-md-2 col-lg-2 " id="profile-box-{{ profile.pk }}">
-    <a href="/users/{{ profile.user.username }}/">
-            <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
-                <div style="display:none;"><img src="{{ profile.get_the_avatar_url }}" height="500" width="500"></div>
-         {{ profile.first_name }}
-        </div>
-        </a>
+<div id="mainContainer" class="row text-center">
+    <div class="row">
+        <form id="search_community" action="/users/community/" method="get">
+            <div style="background-color: #333; height: auto; text-align: center;">
+            {% if search %}
+                <input style="margin: 10px; border: 0px; border-radius: 3px; padding: 5px; min-width: 30%; height: 30px; font: 14px;" id="search" name="search" value="{{ search }}" placeholder="search members by name...">
+            {% else %}
+                <input style="margin: 10px; border: 0px; border-radius: 3px; padding: 5px; min-width: 30%; height: 30px; font: 14px;" id="search" name="search" placeholder="search members by name...">
+            {% endif %}
+            <input type="submit" value="Search">
+            </div>
+        </form>
     </div>
-    {% endfor %}
+    <div class="row">
+        {% for profile in profiles %}
+        <div class="profile-box col-xs-6 col-sm-3 col-md-2 col-lg-2 " id="profile-box-{{ profile.pk }}">
+        <a href="/users/{{ profile.user.username }}/">
+                <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
+                    <div style="display:none;"><img src="{{ profile.get_the_avatar_url }}" height="500" width="500"></div>
+             {{ profile.first_name }}
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% if profiles %}
+    <div class="pagination">
+            <h4>
+                {% if profiles.has_previous %}
+                    <a href="?page={{ profiles.previous_page_number }}&search={{ search }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ profiles.number }} of {{ profiles.paginator.num_pages }}.
+                </span>
+
+                {% if profiles.has_next %}
+                    <a href="?page={{ profiles.next_page_number }}&search={{ search }}">next</a>
+                {% endif %}
+            </h4>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
 
 
 {% block scripts %}
     <script type="text/javascript">
+
         // Resizing automatically every thumbnail in order to
         // have 2 profile per column and a horizontal scrolling
         function resizeThumbnails(){
@@ -33,17 +62,39 @@
         $(window).resize(function() {
             resizeThumbnails();
         });
-		
+
+        //Delaying of 1000ms the javascript call to accumulate all the usear input
+		function debounce(func, wait, immediate) {
+	        var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
 		function search_by_name(query) {
 		$( ".profile-box" ).each( function( index ) {
 			if ($(this).text().trim().toLowerCase().indexOf(query.toLowerCase()) == -1) {
-				$(this).hide(); } 
+				$(this).hide(); }
 			else {
 				$(this).show();}});
 		}
-		$('#search').keyup(function() {
-            search_by_name($('#search').val());
-        });
+		function submitSearch() {
+            $('#search_community').submit();
+        }
+
+		//$('#search').keyup(debounce(submitSearch(),1000));
+
+		//$('#search').keyup(function() {
+		    //$('#search_community').submit();
+            //search_by_name($('#search').val());
+        //});
     </script>
     {% for profile in profiles %}
         <script type="text/javascript">
