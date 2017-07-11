@@ -119,7 +119,7 @@ TEMPLATES = [
         'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [            
+            'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -326,3 +326,4 @@ mimetypes.add_type("text/css", ".css", True)
 import ssl
 if hasattr(ssl, '_create_unverified_context'):
     ssl._create_default_https_context = ssl._create_unverified_context
+
