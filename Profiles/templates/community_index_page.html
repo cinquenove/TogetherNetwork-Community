@@ -1,0 +1,23 @@
+
+    <div class="infinite-item">
+
+        {% for profile in profiles %}
+        <div class="profile-box col-xs-6 col-sm-3 col-md-2 col-lg-2 " id="profile-box-{{ profile.pk }}"
+             style="background-image: url({{ profile.get_the_avatar_url }}); height: 222px;"
+             onmouseover="$('#profile-box-content-{{ profile.pk }}').stop().fadeIn(250);"
+             onmouseout="$('#profile-box-content-{{ profile.pk }}').stop().fadeOut(250);">
+        <a href="/users/{{ profile.user.username }}/">
+                <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
+             {{ profile.first_name }}
+            </div>
+            </a>
+
+        </div>
+
+        {% endfor %}
+    </div>
+    {% if profiles.has_next %}
+                <a hidden class="infinite-more-link" href="?page={{ profiles.next_page_number }}&search={{ search }}">More</a>
+    {% endif %}
+
+
