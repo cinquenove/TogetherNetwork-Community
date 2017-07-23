@@ -9,6 +9,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 # from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.list import ListView
+
 
 
 # from datetime import datetime
@@ -22,8 +24,6 @@ from .models import Profile
 from .forms import ProfileForm, SearchCommunity
 
 from django.db.models import Q
-
-
 
 def homepage_view(request):
     """
@@ -39,6 +39,8 @@ def community_view(request):
     """
         List of profiles.
     """
+    template="community.html"
+    page_template="community_index_page.html"
     page = request.GET.get('page')
     name = request.GET.get('search')
     if name is None:
@@ -54,8 +56,12 @@ def community_view(request):
         profiles = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-        profiles = paginator.page(paginator.num_pages)
-    return render(request, template_name="community.html", context={'search': name, "profiles": profiles})
+        profiles = []
+    if request.is_ajax():
+        template = page_template
+    return render(request, template_name=template, context={'search': name,
+                                                            "profiles": profiles,
+                                                            "page_template": page_template,})
 
 
 

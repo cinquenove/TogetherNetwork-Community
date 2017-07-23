@@ -14,40 +14,25 @@
             </div>
         </form>
     </div>
-    <div class="row">
-        {% for profile in profiles %}
-        <div class="profile-box col-xs-6 col-sm-3 col-md-2 col-lg-2 " id="profile-box-{{ profile.pk }}">
-        <a href="/users/{{ profile.user.username }}/">
-                <div class="profile-box-content" style="display:none;" id="profile-box-content-{{ profile.pk }}">
-                    <div style="display:none;"><img src="{{ profile.get_the_avatar_url }}" height="500" width="500"></div>
-             {{ profile.first_name }}
-            </div>
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-    {% if profiles %}
-    <div class="pagination">
-            <h4>
-                {% if profiles.has_previous %}
-                    <a href="?page={{ profiles.previous_page_number }}&search={{ search }}">previous</a>
-                {% endif %}
+    <div class="row infinite-container">
+        {% include page_template %}
 
-                <span class="current">
-                    Page {{ profiles.number }} of {{ profiles.paginator.num_pages }}.
-                </span>
-
-                {% if profiles.has_next %}
-                    <a href="?page={{ profiles.next_page_number }}&search={{ search }}">next</a>
-                {% endif %}
-            </h4>
     </div>
-    {% endif %}
+
 </div>
 {% endblock %}
 
 
+
+
+
+
 {% block scripts %}
+      <script type="text/javascript">
+      var infinite = new Waypoint.Infinite({
+         element: $('.infinite-container')[0]});
+      </script>
+
     <script type="text/javascript">
 
         // Resizing automatically every thumbnail in order to
@@ -63,51 +48,10 @@
             resizeThumbnails();
         });
 
-        //Delaying of 1000ms the javascript call to accumulate all the usear input
-		function debounce(func, wait, immediate) {
-	        var timeout;
-            return function() {
-                var context = this, args = arguments;
-                var later = function() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                };
-                var callNow = immediate && !timeout;
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-                if (callNow) func.apply(context, args);
-            };
-        }
-		function search_by_name(query) {
-		$( ".profile-box" ).each( function( index ) {
-			if ($(this).text().trim().toLowerCase().indexOf(query.toLowerCase()) == -1) {
-				$(this).hide(); }
-			else {
-				$(this).show();}});
-		}
+
 		function submitSearch() {
             $('#search_community').submit();
         }
 
-		//$('#search').keyup(debounce(submitSearch(),1000));
-
-		//$('#search').keyup(function() {
-		    //$('#search_community').submit();
-            //search_by_name($('#search').val());
-        //});
     </script>
-    {% for profile in profiles %}
-        <script type="text/javascript">
-            $(function(){
-                var background_url = $("#profile-box-content-{{ profile.pk }}")
-                                        .children("div").children("img").attr("src");
-                $("#profile-box-{{ profile.pk }}").css('background-image', 'url(' + background_url + ')');
-                $("#profile-box-{{ profile.pk }}").hover(function(){
-                    $("#profile-box-content-{{ profile.pk }}").fadeIn(250);
-                },function(){
-                    $("#profile-box-content-{{ profile.pk }}").fadeOut(250);
-                });
-            });
-        </script>
-    {% endfor %}
 {% endblock %}
