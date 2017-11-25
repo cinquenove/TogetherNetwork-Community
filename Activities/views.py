@@ -68,13 +68,13 @@ def edit_activity_view(request, activity_pk=None, slug=None):
 
             activity_obj.owner = request.user
             activity_obj.save()
-#             if not activity:  # New one
-#                 mail_admins(
-#                     "[TogetherNetwork] New Activity",
-#                     """New activity created by %s:
-#  http://www.togethernetwork.org%s
-#
-# koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
+            if not activity:  # New one
+                mail_admins(
+                    "[TogetherNetwork] New Activity",
+                    """New activity created by %s:
+ http://www.togethernetwork.org%s
+
+koala""" % (activity_obj.owner.username, activity_obj.get_absolute_url()  ) )
 
             return redirect(activity_obj)
     else:
