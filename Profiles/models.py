@@ -20,7 +20,7 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return "/users/%s/" % self.user.username
 
-    user = models.OneToOneField(User, related_name="profile")
+    user = models.OneToOneField(User, unique=True, primary_key=True, related_name="profile")
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
