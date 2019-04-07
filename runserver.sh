@@ -31,4 +31,4 @@ echo "Starting the server: "
     honcho start
     #foreman start
 
-echo -n "Press enter to continue... " ; read
+echo -n "Press enter to continue.... " ; read
