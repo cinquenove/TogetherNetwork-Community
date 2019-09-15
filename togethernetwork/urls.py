@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^users/', include('Profiles.urls')),
     url(r'^activities/', include('Activities.urls')),
     url('', include('social_django.urls', namespace='social')),
+    url(r'^oauth', include('social_django.urls', namespace='social')),
     # Static Pages
     url(r'^principles$', TemplateView.as_view(
         template_name='static_pages/principles.html')),
