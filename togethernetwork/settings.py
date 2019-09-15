@@ -173,7 +173,8 @@ WSGI_APPLICATION = 'togethernetwork.wsgi.application'
 
 AUTHENTICATION_BACKENDS = (
 #    'social_auth.backends.facebook.FacebookBackend',
-    'social_core.backends.facebook.FacebookOAuth2',
+    # 'social_core.backends.facebook.FacebookOAuth2',
+    'CustomFacebookOauth',
     'django.contrib.auth.backends.ModelBackend',
     
 )
