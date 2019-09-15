@@ -286,7 +286,7 @@ AWS_HEADERS = {
 #Django social auth
 LOGIN_URL = "/accounts/login/"
 LOGOUT_URL = 'logout'
-LOGIN_REDRECT_URL = "/activities/list"
+LOGIN_REDIRECT_URL = "/activities/list"
 
 
 SOCIAL_AUTH_FACEBOOK_KEY = '605827832822869'
