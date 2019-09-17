@@ -19,6 +19,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 DATABASES = {
     'default': {
@@ -124,6 +125,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
+
             ],
         },
     },
@@ -160,7 +164,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware'
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -173,6 +178,7 @@ WSGI_APPLICATION = 'togethernetwork.wsgi.application'
 AUTHENTICATION_BACKENDS = (
 #    'social_auth.backends.facebook.FacebookBackend',
     'social_core.backends.facebook.FacebookOAuth2',
+    # 'CustomFacebookOauth',
     'django.contrib.auth.backends.ModelBackend',
     
 )
@@ -285,7 +291,7 @@ AWS_HEADERS = {
 #Django social auth
 LOGIN_URL = "/accounts/login/"
 LOGOUT_URL = 'logout'
-LOGIN_REDRECT_URL = "/activities/list"
+LOGIN_REDIRECT_URL = "/activities/list"
 
 
 SOCIAL_AUTH_FACEBOOK_KEY = '605827832822869'
