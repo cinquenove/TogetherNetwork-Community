@@ -2,7 +2,7 @@ appdirs==1.4.3
 boto==2.46.1
 dj-database-url==0.2.2
 dj-static==0.0.5
-Django==1.11
+Django==1.11.29
 django-appconf==0.6
 django-avatar==3.1.0
 django-dbdump==1.1
